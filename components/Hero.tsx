@@ -7,6 +7,7 @@ import { TextGenerateEffect } from "./ui/TextGenerateEffect";
 import { TypewriterEffectSmooth } from "./ui/TypewriterEffect";
 import Image from 'next/image'
 import { useEffect, useState } from "react";
+import AnimatedLogo from "./ui/AnimatedLogo";
 
 const Hero = () => {
   const words = [
@@ -103,9 +104,7 @@ const Hero = () => {
             className="uppercase tracking-widest text-lg text-center text-blue-michigan max-w-100"
           />
 
-          <div className="py-2">
-            <Image src="/logo.svg" alt="AIMS Logo" width={600} height={600} />
-          </div>
+          <AnimatedLogo />
 
           {line1Delay && (
             <TypewriterEffectSmooth
