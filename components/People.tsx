@@ -129,7 +129,7 @@ export default function OrgTree() {
       <div className="py-12 relative z-10">
         <div className="flex flex-col items-center justify-center">
           <h2 className="text-3xl font-bold tracking-tight text-blue-michigan sm:text-4xl md:text-5xl mb-16">
-            Our People
+            Our <span className="text-yellow-maize">People</span>
           </h2>
         </div>
 

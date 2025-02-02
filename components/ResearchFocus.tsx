@@ -8,28 +8,28 @@ const roadmapItems = [
     id: 1,
     title: "Reactors",
     text: "Description here",
-    imageUrl: "/vercel.svg",
+    imageUrl: "/research-focus/reactors.png",
     colorful: true,
   },
   {
     id: 2,
     title: "Computing",
     text: "Description here",
-    imageUrl: "/vercel.svg",
+    imageUrl: "/research-focus/computing.png",
     colorful: false,
   },
   {
     id: 3,
     title: "Controls",
     text: "Description here",
-    imageUrl: "/vercel.svg",
+    imageUrl: "/research-focus/controls.png",
     colorful: true,
   },
   {
     id: 4,
     title: "Software and Datasets",
     text: "Description Here",
-    imageUrl: "/vercel.svg",
+    imageUrl: "/research-focus/software.png",
     colorful: false,
   },
 ]
@@ -45,7 +45,7 @@ export default function Roadmap() {
       <div className="py-12 relative z-10">
         <div className="flex flex-col items-center justify-center">
           <h2 className="text-3xl font-bold tracking-tight text-blue-michigan sm:text-4xl md:text-5xl mb-16">
-            Research Focus
+            Research <span className="text-yellow-maize">Focus</span>
           </h2>
         </div>
 

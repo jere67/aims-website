@@ -1,7 +1,7 @@
 import Hero from "@/components/Hero";
 import People from "@/components/People";
 import Roadmap from "@/components/ResearchFocus";
-import Image from "next/image";
+import WorldMap from "@/components/Map";
 
 export default function Home() {
   return (
@@ -10,6 +10,7 @@ export default function Home() {
         <Hero />
         <Roadmap />
         <People />
+        <WorldMap />
       </div>
     </main>
   );
