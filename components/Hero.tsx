@@ -1,5 +1,4 @@
 "use client"
-
 import { FaLocationArrow } from "react-icons/fa6";
 import Button from "./Button";
 import { Spotlight } from "./ui/Spotlight";
@@ -10,14 +9,6 @@ import { useEffect, useState } from "react";
 import AnimatedLogo from "./ui/AnimatedLogo";
 
 const Hero = () => {
-  const words = [
-    { text: "Welcome" },
-    { text: "to" },
-    { text: "the" },
-    { text: "AIMS" },
-    { text: "Lab!" },
-  ];
-
   const line1 = [
     { text: "We" },
     { text: "work" },
@@ -87,16 +78,13 @@ const Hero = () => {
         <Spotlight className="left-80 top-28 h-[80vh] w-[50vw]" fill="blue" />
       </div>
 
-      <div
-        className="h-screen w-full dark:bg-black-100 bg-white dark:bg-grid-white/[0.03] bg-grid-black-100/[0.2]
-       absolute top-0 left-0 flex items-center justify-center"
-      >
-        <div
-          className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black-100
-         bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"
-        />
-      </div>
+      <div className="h-screen w-full dark:bg-black-100 bg-white absolute top-0 left-0 flex items-center justify-center">
+        <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black-100
+         bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]">
 
+        </div>
+      </div>
+      
       <div className="flex justify-center relative my-20 z-10">
         <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center">
           <TextGenerateEffect
@@ -106,31 +94,26 @@ const Hero = () => {
 
           <AnimatedLogo />
 
-          {line1Delay && (
-            <TypewriterEffectSmooth
-              words={line1}
-            />
-          )}
+          {/* Fixed height container for typewriter text with tighter spacing */}
+          <div className="min-h-[120px] flex flex-col items-center justify-start">
+            {line1Delay && (
+              <div className="h-[40px] flex items-center">
+                <TypewriterEffectSmooth words={line1} />
+              </div>
+            )}
 
-          {line2Delay && (
-            <TypewriterEffectSmooth
-              words={line2}
-            />
-          )}
+            {line2Delay && (
+              <div className="h-[40px] flex items-center">
+                <TypewriterEffectSmooth words={line2} />
+              </div>
+            )}
 
-          {line3Delay && (
-            <TypewriterEffectSmooth
-              words={line3}
-            />
-          )}
-
-          {/* <a href="">
-            <Button
-              title="Button Here"
-              icon={<FaLocationArrow />}
-              position="right"
-            />
-          </a> */}
+            {line3Delay && (
+              <div className="h-[40px] flex items-center">
+                <TypewriterEffectSmooth words={line3} />
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>

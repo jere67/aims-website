@@ -1,11 +1,9 @@
-import type { Config } from "tailwindcss";
+import type { Config } from "tailwindcss"
 
-const svgToDataUri = require("mini-svg-data-uri");
+const svgToDataUri = require("mini-svg-data-uri")
 
-const colors = require("tailwindcss/colors");
-const {
-  default: flattenColorPalette,
-} = require("tailwindcss/lib/util/flattenColorPalette");
+const colors = require("tailwindcss/colors")
+const { default: flattenColorPalette } = require("tailwindcss/lib/util/flattenColorPalette")
 
 const config = {
   darkMode: ["class"],
@@ -40,10 +38,12 @@ const config = {
         },
         blue: {
           "100": "#E4ECFF",
-          "michigan": "#00274C"
+          michigan: "#00274C",
+          50: "#f0f5ff",
+          950: "#00091a",
         },
         yellow: {
-          "maize": "#FFCB05"
+          maize: "#FFCB05",
         },
         purple: "#CBACF9",
         border: "hsl(var(--border))",
@@ -161,48 +161,50 @@ const config = {
         third: "moveInCircle 40s linear infinite",
         fourth: "moveHorizontal 40s ease infinite",
         fifth: "moveInCircle 20s ease infinite",
-        scroll:
-          "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
+        scroll: "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
+      },
+      backgroundImage: {
+        "grid-dark": `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(0 0 0 / 0.02)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e")`,
+        "grid-light": `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(255 255 255 / 0.02)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e")`,
       },
     },
   },
   plugins: [
     require("tailwindcss-animate"),
     addVariablesForColors,
-    function ({ matchUtilities, theme }: any) {
+    ({ matchUtilities, theme }: any) => {
       matchUtilities(
         {
           "bg-grid": (value: any) => ({
             backgroundImage: `url("${svgToDataUri(
-              `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="100" height="100" fill="none" stroke="${value}"><path d="M0 .5H31.5V32"/></svg>`
+              `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="100" height="100" fill="none" stroke="${value}"><path d="M0 .5H31.5V32"/></svg>`,
             )}")`,
           }),
           "bg-grid-small": (value: any) => ({
             backgroundImage: `url("${svgToDataUri(
-              `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="8" height="8" fill="none" stroke="${value}"><path d="M0 .5H31.5V32"/></svg>`
+              `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="8" height="8" fill="none" stroke="${value}"><path d="M0 .5H31.5V32"/></svg>`,
             )}")`,
           }),
           "bg-dot": (value: any) => ({
             backgroundImage: `url("${svgToDataUri(
-              `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="16" height="16" fill="none"><circle fill="${value}" id="pattern-circle" cx="10" cy="10" r="1.6257413380501518"></circle></svg>`
+              `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="16" height="16" fill="none"><circle fill="${value}" id="pattern-circle" cx="10" cy="10" r="1.6257413380501518"></circle></svg>`,
             )}")`,
           }),
         },
-        { values: flattenColorPalette(theme("backgroundColor")), type: "color" }
-      );
+        { values: flattenColorPalette(theme("backgroundColor")), type: "color" },
+      )
     },
   ],
-} satisfies Config;
+} satisfies Config
 
 function addVariablesForColors({ addBase, theme }: any) {
-  let allColors = flattenColorPalette(theme("colors"));
-  let newVars = Object.fromEntries(
-    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
-  );
+  const allColors = flattenColorPalette(theme("colors"))
+  const newVars = Object.fromEntries(Object.entries(allColors).map(([key, val]) => [`--${key}`, val]))
 
   addBase({
     ":root": newVars,
-  });
+  })
 }
 
-export default config;
+export default config
+
