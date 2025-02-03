@@ -89,7 +89,6 @@ export default function OrgTree() {
             Our People
           </h2>
         </div>
-
         <div className="container mx-auto px-4 overflow-x-auto">
           <div className="min-w-[1000px]">
             {" "}
