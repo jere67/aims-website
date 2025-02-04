@@ -1,3 +1,4 @@
+"use client"
 import { Card, CardHeader, CardFooter, Image, Button } from "@heroui/react"
 
 export default function News() {
