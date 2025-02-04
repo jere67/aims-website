@@ -132,7 +132,6 @@ export default function OrgTree() {
             Our <span className="text-yellow-maize">People</span>
           </h2>
         </div>
-
         <div className="container mx-auto px-4 overflow-x-auto">
           <div className="min-w-[1000px]">
             <div className="flex flex-col items-center">
