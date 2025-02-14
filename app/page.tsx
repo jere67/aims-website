@@ -3,6 +3,8 @@ import People from "@/components/People";
 import Roadmap from "@/components/ResearchFocus";
 import News from "@/components/News";
 import WorldMap from "@/components/Map";
+import Teachings from "@/components/Teachings";
+import Sponsors from "@/components/Sponsors";
 
 export default function Home() {
   return (
@@ -13,6 +15,8 @@ export default function Home() {
         <Roadmap />
         <People />
         <WorldMap />
+        <Teachings />
+        <Sponsors />
       </div>
     </main>
   );
