@@ -43,13 +43,9 @@ const Teachings = () => {
 
   return (
       <div className="w-full -mt-16 mb-32">
-        <div className="h-full w-full dark:bg-black-100 bg-white absolute left-0 right-0">
-          <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black-100 bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
-        </div>
-  
         <div className="py-12 relative z-10">
           <div className="flex flex-col items-center justify-center">
-            <h2 className="text-3xl font-bold tracking-tight text-blue-michigan sm:text-4xl md:text-5xl mb-16">
+            <h2 className="text-3xl font-bold tracking-tight text-blue-michigan sm:text-4xl md:text-5xl">
               Our <span className="text-yellow-maize">Teachings</span>
             </h2>
           </div>

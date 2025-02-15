@@ -6,6 +6,7 @@ import WorldMap from "@/components/Map";
 import Teachings from "@/components/Teachings";
 import Sponsors from "@/components/Sponsors";
 import Gallery from "@/components/Gallery";
+import JoinUs from "@/components/JoinUs";
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
         <Teachings />
         <Sponsors />
         <Gallery />
+        <JoinUs />
       </div>
     </main>
   );
