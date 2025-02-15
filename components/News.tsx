@@ -12,7 +12,7 @@ export default function News() {
       <div className="py-20 relative z-10">
         <div className="flex flex-col items-center justify-center">
           <h2 className="text-4xl font-bold tracking-tight text-blue-michigan sm:text-5xl md:text-6xl mb-0">
-            Recently in AIMS:
+            Recently in <span className="text-yellow-maize">AIMS</span>
           </h2>
         </div>
 

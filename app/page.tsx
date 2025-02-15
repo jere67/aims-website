@@ -5,6 +5,7 @@ import News from "@/components/News";
 import WorldMap from "@/components/Map";
 import Teachings from "@/components/Teachings";
 import Sponsors from "@/components/Sponsors";
+import Gallery from "@/components/Gallery";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
         <WorldMap />
         <Teachings />
         <Sponsors />
+        <Gallery />
       </div>
     </main>
   );
