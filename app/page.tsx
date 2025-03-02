@@ -7,6 +7,7 @@ import Teachings from "@/components/Teachings";
 import Sponsors from "@/components/Sponsors";
 import Gallery from "@/components/Gallery";
 import JoinUs from "@/components/JoinUs";
+import Videos from "@/components/Videos";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
         <Hero />
         <News />
         <Roadmap />
+        <Videos />
         <People />
         <WorldMap />
         <Teachings />
