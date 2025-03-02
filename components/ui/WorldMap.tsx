@@ -1,29 +1,37 @@
 "use client"
 
-import { useRef, useMemo } from "react"
-import { motion } from "framer-motion"
+import { useRef, useState, useMemo, useEffect } from "react"
+import { motion, AnimatePresence } from "framer-motion"
 import DottedMap from "dotted-map"
-import Image from "next/image"
 import { useTheme } from "next-themes"
 
 interface MapProps {
   dots?: Array<{
-    start: { lat: number; lng: number; label?: string }
-    end: { lat: number; lng: number; label?: string }
+    start: { lat: number; lng: number; country?: string }
+    end: { lat: number; lng: number; country?: string }
   }>
   lineColor?: string
 }
 
+interface TooltipState {
+  x: number
+  y: number
+  country: string
+}
+
 export default function WorldMap({ dots = [], lineColor = "#0ea5e9" }: MapProps) {
   const svgRef = useRef<SVGSVGElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
+  const tooltipRef = useRef<HTMLDivElement>(null)
   const { theme } = useTheme()
+  const [tooltip, setTooltip] = useState<TooltipState | null>(null)
 
   const map = useMemo(() => new DottedMap({ height: 100, grid: "diagonal" }), [])
 
   const svgMap = useMemo(
     () =>
       map.getSVG({
-        radius: 0.22,
+        radius: 0.4,
         color: theme === "dark" ? "#FFFFFF40" : "#00000040",
         shape: "circle",
         backgroundColor: theme === "dark" ? "black" : "white",
@@ -51,28 +59,52 @@ export default function WorldMap({ dots = [], lineColor = "#0ea5e9" }: MapProps)
 
   const pathsAndPoints = useMemo(
     () =>
-      dots.map((dot, i) => {
+      dots.map((dot) => {
         const startPoint = projectPoint(dot.start.lat, dot.start.lng)
         const endPoint = projectPoint(dot.end.lat, dot.end.lng)
         return {
           path: createCurvedPath(startPoint, endPoint),
-          startPoint,
-          endPoint,
+          startPoint: { ...startPoint, country: dot.start.country },
+          endPoint: { ...endPoint, country: dot.end.country },
         }
       }),
     [dots, projectPoint, createCurvedPath],
   )
 
+  const handleMouseEnter = (point: { x: number; y: number; country?: string }) => {
+    if (!point.country || !svgRef.current || !containerRef.current) return
+
+    const svgPoint = svgRef.current.createSVGPoint()
+    svgPoint.x = point.x
+    svgPoint.y = point.y
+
+    const ctm = svgRef.current.getScreenCTM()
+    if (!ctm) return
+
+    const screenPoint = svgPoint.matrixTransform(ctm)
+    const containerRect = containerRef.current.getBoundingClientRect()
+
+    const x = screenPoint.x - containerRect.left
+    const y = screenPoint.y - containerRect.top
+
+    setTooltip({ x, y, country: point.country })
+  }
+
+  const handleMouseLeave = () => {
+    setTooltip(null)
+  }
+
+  const tooltipWidth = tooltipRef.current?.offsetWidth || 80
+  const dotRadius = 3
+  const spacingAboveDot = 10
+
   return (
-    <div className="w-full aspect-[2/1] dark:bg-black bg-white rounded-lg relative font-sans">
-      <Image
-        src={`data:image/svg+xml;utf8,${encodeURIComponent(svgMap)}`}
+    <div ref={containerRef} className="w-full aspect-[2/1] dark:bg-black bg-white rounded-lg relative font-sans">
+      <div
         className="h-full w-full [mask-image:linear-gradient(to_bottom,transparent,white_10%,white_90%,transparent)] pointer-events-none select-none"
-        alt="world map"
-        height={495}
-        width={1056}
-        draggable={false}
+        dangerouslySetInnerHTML={{ __html: svgMap }}
       />
+
       <svg
         ref={svgRef}
         viewBox="0 0 800 400"
@@ -88,9 +120,28 @@ export default function WorldMap({ dots = [], lineColor = "#0ea5e9" }: MapProps)
               initial={{ pathLength: 0 }}
               animate={{ pathLength: 1 }}
               transition={{ duration: 1, delay: 0.5 * i, ease: "easeOut" }}
+              className="pointer-events-none"
             />
-            <circle cx={startPoint.x} cy={startPoint.y} r="2" fill={lineColor} />
-            <circle cx={endPoint.x} cy={endPoint.y} r="2" fill={lineColor} />
+            <circle
+              cx={startPoint.x}
+              cy={startPoint.y}
+              r={dotRadius}
+              fill={lineColor}
+              className="pointer-events-auto cursor-pointer"
+              onMouseEnter={() => handleMouseEnter(startPoint)}
+              onMouseLeave={handleMouseLeave}
+              aria-label={`Location: ${startPoint.country}`}
+            />
+            <circle
+              cx={endPoint.x}
+              cy={endPoint.y}
+              r={dotRadius}
+              fill={lineColor}
+              className="pointer-events-auto cursor-pointer"
+              onMouseEnter={() => handleMouseEnter(endPoint)}
+              onMouseLeave={handleMouseLeave}
+              aria-label={`Location: ${endPoint.country}`}
+            />
           </g>
         ))}
 
@@ -103,7 +154,25 @@ export default function WorldMap({ dots = [], lineColor = "#0ea5e9" }: MapProps)
           </linearGradient>
         </defs>
       </svg>
+
+      <AnimatePresence>
+        {tooltip && (
+          <motion.div
+            ref={tooltipRef}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 10 }}
+            transition={{ duration: 0.2 }}
+            className="absolute bg-white dark:bg-zinc-800 text-blue-michigan dark:text-white px-3 py-1 rounded-lg shadow-lg text-sm font-medium pointer-events-none z-10"
+            style={{
+              left: tooltip.x - tooltipWidth / 2,
+              top: tooltip.y - dotRadius - spacingAboveDot - 20,
+            }}
+          >
+            {tooltip.country}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   )
 }
-

@@ -2,14 +2,15 @@
 
 import Image from "next/image"
 import { useState, useId, useRef, useEffect } from "react"
-import { AnimatePresence, motion } from "framer-motion"
-import { DoorClosedIcon as CloseIcon } from "lucide-react"
+import { AnimatePresence, motion, Variants } from "framer-motion"
+import { DoorClosedIcon as CloseIcon, ChevronDown } from "lucide-react"
 
 export const orgData: OrgTreeData = {
   leaders: [
     {
       id: "majdi",
       name: "Majdi Radaideh",
+      status: "Principal Investigator",
       role: "AIMS Lead",
       imageUrl: "/placeholder.svg?height=100&width=100",
       bio: "",
@@ -17,6 +18,7 @@ export const orgData: OrgTreeData = {
         {
           id: "omer",
           name: "Omer Erdem",
+          status: "Lead Researcher",
           role: "Reactors Lead",
           imageUrl: "/placeholder.svg?height=100&width=100",
           bio: "",
@@ -24,6 +26,7 @@ export const orgData: OrgTreeData = {
             {
               id: "reactor-postdoc1",
               name: "Postdoc 1",
+              status: "Postdoc",
               role: "Postdoc",
               imageUrl: "/placeholder.svg?height=100&width=100",
               bio: "",
@@ -31,6 +34,7 @@ export const orgData: OrgTreeData = {
             {
               id: "reactor-phd1",
               name: "PhD Student 1",
+              status: "PhD Student",
               role: "PhD Student",
               imageUrl: "/placeholder.svg?height=100&width=100",
               bio: "",
@@ -40,6 +44,7 @@ export const orgData: OrgTreeData = {
         {
           id: "mohammed",
           name: "Mohammed Al-Radaideh",
+          status: "Lead Researcher",
           role: "Computing Lead",
           imageUrl: "/placeholder.svg?height=100&width=100",
           bio: "",
@@ -47,6 +52,7 @@ export const orgData: OrgTreeData = {
             {
               id: "computing-postdoc1",
               name: "Postdoc 1",
+              status: "Postdoc",
               role: "Postdoc",
               imageUrl: "/placeholder.svg?height=100&width=100",
               bio: "",
@@ -56,6 +62,7 @@ export const orgData: OrgTreeData = {
         {
           id: "leo",
           name: "Leo Tunkle",
+          status: "Lead Researcher",
           role: "Controls Lead",
           imageUrl: "/placeholder.svg?height=100&width=100",
           bio: "",
@@ -63,6 +70,7 @@ export const orgData: OrgTreeData = {
             {
               id: "controls-phd1",
               name: "PhD Student 1",
+              status: "PhD Student",
               role: "PhD Student",
               imageUrl: "/placeholder.svg?height=100&width=100",
               bio: "",
@@ -72,6 +80,7 @@ export const orgData: OrgTreeData = {
         {
           id: "patrick",
           name: "Patrick Myers",
+          status: "Lead Researcher",
           role: "HPC Lead",
           imageUrl: "/placeholder.svg?height=100&width=100",
           bio: "",
@@ -79,6 +88,7 @@ export const orgData: OrgTreeData = {
             {
               id: "hpc-phd1",
               name: "PhD Student 1",
+              status: "PhD Student",
               role: "PhD Student",
               imageUrl: "/placeholder.svg?height=100&width=100",
               bio: "",
@@ -88,6 +98,7 @@ export const orgData: OrgTreeData = {
         {
           id: "lada",
           name: "Lada Protchetva",
+          status: "Lead Researcher",
           role: "AIMS Lab Space Lead",
           imageUrl: "/placeholder.svg?height=100&width=100",
           bio: "",
@@ -95,6 +106,7 @@ export const orgData: OrgTreeData = {
             {
               id: "lab-phd1",
               name: "PhD Student 1",
+              status: "PhD Student",
               role: "PhD Student",
               imageUrl: "/placeholder.svg?height=100&width=100",
               bio: "",
@@ -109,6 +121,7 @@ export const orgData: OrgTreeData = {
 export interface TeamMember {
   id: string
   name: string
+  status: string
   role: string
   imageUrl?: string
   bio?: string
@@ -119,36 +132,144 @@ export interface OrgTreeData {
   leaders: TeamMember[]
 }
 
-export default function OrgTree() {
-  return (
-    <div className="w-full -mt-16 mb-32">
-      <div className="h-full w-full dark:bg-black-100 bg-white absolute left-0 right-0">
-        <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black-100 bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
-      </div>
+const groupByLevel = (leaders: TeamMember[]): Record<string, TeamMember[]> => {
+  const levels: Record<string, TeamMember[]> = {
+    "Principal Investigators": [],
+    "Lead Researchers": [],
+    "Postdocs": [],
+    "PhD Students": [],
+  }
 
-      <div className="py-12 relative z-10">
-        <div className="flex flex-col items-center justify-center">
-          <h2 className="text-3xl font-bold tracking-tight text-blue-michigan sm:text-4xl md:text-5xl mb-16">
-            Our <span className="text-yellow-maize">People</span>
-          </h2>
-        </div>
-        <div className="container mx-auto px-4 overflow-x-auto">
-          <div className="min-w-[1000px]">
-            <div className="flex flex-col items-center">
-              <div className="flex justify-center gap-8 mb-8">
-                {orgData.leaders.map((leader) => (
-                  <MemberNode key={leader.id} member={leader} isLeader />
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
+  const flattenMembers = (member: TeamMember) => {
+    if (member.status === "Principal Investigator") {
+      levels["Principal Investigators"].push(member)
+    } else if (member.status === "Lead Researcher") {
+      levels["Lead Researchers"].push(member)
+    } else if (member.status === "Postdoc") {
+      levels["Postdocs"].push(member)
+    } else if (member.status === "PhD Student") {
+      levels["PhD Students"].push(member)
+    }
+
+    if (member.children) {
+      member.children.forEach(flattenMembers)
+    }
+  }
+
+  leaders.forEach(flattenMembers)
+  return levels
+}
+
+interface AccordionItemProps {
+  title: string
+  members: TeamMember[]
+  isExpanded: boolean
+  onToggle: () => void
+}
+
+interface AccordionProps {
+  items: Array<{
+    title: string
+    members: TeamMember[]
+  }>
+}
+
+const AccordionItem: React.FC<AccordionItemProps> = ({
+  title,
+  members,
+  isExpanded,
+  onToggle,
+}) => {
+  const cardVariants: Variants = {
+    collapsed: {
+      height: "60px",
+      transition: { type: "spring", stiffness: 300, damping: 15 },
+    },
+    expanded: {
+      height: "auto",
+      transition: { type: "spring", stiffness: 300, damping: 15 },
+    },
+  }
+
+  const contentVariants: Variants = {
+    collapsed: { opacity: 0 },
+    expanded: {
+      opacity: 1,
+      transition: { delay: 0.1 },
+    },
+  }
+
+  const chevronVariants: Variants = {
+    collapsed: { rotate: 0 },
+    expanded: { rotate: 180 },
+  }
+
+  return (
+    <motion.div
+      className="w-full my-4 h-full select-none overflow-hidden rounded-lg border border-blue-michigan/20 dark:border-zinc-700"
+      variants={cardVariants}
+      initial="collapsed"
+      animate={isExpanded ? "expanded" : "collapsed"}
+    >
+      <div
+        onClick={onToggle}
+        className="flex items-center justify-between p-4 text-blue-michigan dark:text-white cursor-pointer"
+      >
+        <h2 className="m-0 text-lg font-semibold">{title}</h2>
+        <motion.div variants={chevronVariants}>
+          <ChevronDown size={18} />
+        </motion.div>
       </div>
+      <motion.div
+        className="px-4 py-4"
+        variants={contentVariants}
+        initial="collapsed"
+        animate={isExpanded ? "expanded" : "collapsed"}
+      >
+
+        <div className="flex flex-wrap gap-4 justify-start">
+          {members.map((member) => (
+            <MemberNode key={member.id} member={member} viewMode="accordion" />
+          ))}
+        </div>
+      </motion.div>
+    </motion.div>
+  )
+}
+
+const Accordion: React.FC<AccordionProps> = ({ items }) => {
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null)
+
+  const handleToggle = (index: number) => {
+    setExpandedIndex(expandedIndex === index ? null : index)
+  }
+
+  return (
+    <div className="space-y-4">
+      {items.map((item, index) =>
+        item.members.length > 0 ? (
+          <AccordionItem
+            key={index}
+            title={item.title}
+            members={item.members}
+            isExpanded={expandedIndex === index}
+            onToggle={() => handleToggle(index)}
+          />
+        ) : null
+      )}
     </div>
   )
 }
 
-function MemberNode({ member, isLeader = false }: { member: TeamMember; isLeader?: boolean }) {
+function MemberNode({
+  member,
+  isLeader = false,
+  viewMode = "tree",
+}: {
+  member: TeamMember
+  isLeader?: boolean
+  viewMode?: "tree" | "accordion"
+}) {
   const [active, setActive] = useState(false)
   const id = useId()
   const ref = useRef<HTMLDivElement>(null)
@@ -171,15 +292,26 @@ function MemberNode({ member, isLeader = false }: { member: TeamMember; isLeader
     return () => window.removeEventListener("keydown", onKeyDown)
   }, [active])
 
+  const handleMemberClick = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    setActive(true)
+  }
+
+  const handleModalClose = (e: React.MouseEvent) => {
+    if (e.target === e.currentTarget) {
+      setActive(false)
+    }
+  }
+
   return (
     <div className="flex flex-col items-center">
-      <div className={`flex flex-col items-center ${hasChildren ? "mb-8" : ""}`}>
+      <div className={`flex flex-col items-center ${hasChildren && viewMode === "tree" ? "mb-8" : ""}`}>
         <motion.div
           layoutId={`card-${member.id}-${id}`}
-          onClick={() => setActive(true)}
+          onClick={handleMemberClick}
           className="relative cursor-pointer flex flex-col items-center"
         >
-          <div className={`relative ${isLeader ? "w-24 h-24" : "w-20 h-20"}`}>
+          <motion.div className={`relative ${isLeader ? "w-24 h-24" : "w-20 h-20"}`}>
             <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-michigan to-blue-michigan/80" />
             <motion.div layoutId={`image-${member.id}-${id}`}>
               <Image
@@ -190,7 +322,7 @@ function MemberNode({ member, isLeader = false }: { member: TeamMember; isLeader
                 className="rounded-full border-4 border-white dark:border-zinc-800 relative z-10"
               />
             </motion.div>
-          </div>
+          </motion.div>
           <motion.div layoutId={`info-${member.id}-${id}`} className="mt-2 text-center">
             <h3 className="font-medium text-blue-michigan dark:text-white">{member.name}</h3>
             <p className="text-sm text-blue-michigan/60 dark:text-zinc-400">{member.role}</p>
@@ -204,10 +336,9 @@ function MemberNode({ member, isLeader = false }: { member: TeamMember; isLeader
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
             className="fixed inset-0 bg-black/20 h-full w-full z-[60] flex items-center justify-center"
-            onClick={(e) => {
-              if (e.target === e.currentTarget) setActive(false)
-            }}
+            onClick={handleModalClose}
           >
             <motion.div
               layoutId={`card-${member.id}-${id}`}
@@ -241,16 +372,16 @@ function MemberNode({ member, isLeader = false }: { member: TeamMember; isLeader
         )}
       </AnimatePresence>
 
-      {hasChildren && (
+      {hasChildren && viewMode === "tree" && (
         <>
           <div className="w-px h-8 bg-blue-michigan/20" />
           <div className="relative">
-            <div className="absolute left-1/2 -translate-x-1/2 -top-px h-px w-full bg-blue-michigan/20" />
+            <div className="absolute left-1/2 -translate-x-1/2 -top-px h-px w-[calc(100%+2rem)] bg-blue-michigan/20" />
           </div>
           <div className="flex gap-12 pt-8">
             {member.children?.map((child) => (
               <div key={child.id} className="relative">
-                <MemberNode member={child} />
+                <MemberNode member={child} viewMode="tree" />
               </div>
             ))}
           </div>
@@ -260,3 +391,67 @@ function MemberNode({ member, isLeader = false }: { member: TeamMember; isLeader
   )
 }
 
+export default function OrgTree() {
+  const [viewMode, setViewMode] = useState<"tree" | "accordion">("accordion")
+  const [isLargeScreen, setIsLargeScreen] = useState(false)
+  const levels = groupByLevel(orgData.leaders)
+
+  const accordionItems = [
+    { title: "Principal Investigators", members: levels["Principal Investigators"] },
+    { title: "Lead Researchers", members: levels["Lead Researchers"] },
+    { title: "Postdocs", members: levels["Postdocs"] },
+    { title: "PhD Students", members: levels["PhD Students"] },
+  ]
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsLargeScreen(window.innerWidth >= 768)
+    }
+
+    handleResize()
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
+
+  return (
+    <div className="w-full -mt-16 mb-32">
+      <div className="h-full w-full dark:bg-black-100 bg-white absolute left-0 right-0">
+        <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black-100 bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
+      </div>
+
+      <div className="py-12 relative z-10">
+        <div className="flex flex-col items-center justify-center">
+          <h2 className="text-3xl font-bold tracking-tight text-blue-michigan sm:text-4xl md:text-5xl mb-8">
+            Our <span className="text-yellow-maize">People</span>
+          </h2>
+
+          {isLargeScreen && (
+            <button
+              onClick={() => setViewMode(viewMode === "tree" ? "accordion" : "tree")}
+              className="mb-8 px-4 py-2 bg-blue-michigan text-yellow-maize font-bold rounded-lg hover:bg-blue-michigan/80 transition"
+            >
+              View By {viewMode === "tree" ? "Status" : "Group"}
+            </button>
+          )}
+        </div>
+        <div className="container mx-auto px-4">
+          {viewMode === "tree" && isLargeScreen ? (
+            <div className="min-w-[1000px] overflow-x-auto">
+              <div className="flex flex-col items-center">
+                <div className="flex justify-center gap-8 mb-8">
+                  {orgData.leaders.map((leader) => (
+                    <MemberNode key={leader.id} member={leader} isLeader viewMode="tree" />
+                  ))}
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className="max-w-5xl mx-auto">
+              <Accordion items={accordionItems} />
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  )
+}
