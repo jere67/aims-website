@@ -113,7 +113,7 @@ export default function News() {
 
           <div className="flex justify-center mt-0">
             <Button
-              className="px-12 py-0 text-xl font-semibold text-white bg-blue-michigan rounded-full hover:bg-blue-michigan/90 transition-colors duration-300 shadow-lg hover:shadow-xl"
+              className="px-12 py-0 text-xl font-semibold text-yellow-maize bg-blue-michigan rounded-full hover:bg-blue-michigan/90 transition-colors duration-300 shadow-lg hover:shadow-xl"
               size="lg"
             >
               View All News

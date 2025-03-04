@@ -8,6 +8,7 @@ import Sponsors from "@/components/Sponsors";
 import Gallery from "@/components/Gallery";
 import JoinUs from "@/components/JoinUs";
 import Videos from "@/components/Videos";
+import FloatingTop from "@/components/FloatingTop";
 
 export default function Home() {
   return (
@@ -23,6 +24,7 @@ export default function Home() {
         <Sponsors />
         <Gallery />
         <JoinUs />
+        <FloatingTop />
       </div>
     </main>
   );
