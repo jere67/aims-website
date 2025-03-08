@@ -421,9 +421,13 @@ export default function OrgTree() {
 
       <div className="py-12 relative z-10">
         <div className="flex flex-col items-center justify-center">
-          <h2 className="text-3xl font-bold tracking-tight text-blue-michigan sm:text-4xl md:text-5xl mb-8">
+          <h2 className="text-3xl font-bold tracking-tight text-blue-michigan sm:text-4xl md:text-5xl mb-6">
             Our <span className="text-yellow-maize">People</span>
           </h2>
+          <p className='text-xl text-center tracking-tight text-blue-michigan mb-4'>
+          Our group follows a hierarchy where our students step up to support Majdi in administering AIMS especially after we became a 20+ member group. Student leaders make a lot of day-to-day management and communications of their respective groups, while Majdi is kept for final approvals on major items related to
+each group.
+          </p>
 
           {isLargeScreen && (
             <button
