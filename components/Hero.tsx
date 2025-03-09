@@ -1,10 +1,7 @@
 "use client"
-import { FaLocationArrow } from "react-icons/fa6";
-import Button from "./Button";
 import { Spotlight } from "./ui/Spotlight";
 import { TextGenerateEffect } from "./ui/TextGenerateEffect";
 import { TypewriterEffectSmooth } from "./ui/TypewriterEffect";
-import Image from 'next/image'
 import { useEffect, useState } from "react";
 import AnimatedLogo from "./ui/AnimatedLogo";
 

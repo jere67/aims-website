@@ -31,7 +31,7 @@ const JoinUs = () => {
               Get in Touch
             </h3>
             <p className="text-neutral-600 text-sm max-w-sm mt-2 dark:text-neutral-300 mb-6 animate-fade-in">
-              We'd love to hear from you! Fill out the form below to reach us.
+              We&apos;d love to hear from you! Fill out the form below to reach us.
             </p>
 
             <form className="space-y-6" onSubmit={handleSubmit}>

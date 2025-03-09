@@ -1,6 +1,5 @@
 import React from 'react'
 import { Carousel, Card } from "@/components/ui/CardsCarousel";
-import Image from 'next/image';
 
 const DummyContent = () => {
   return (

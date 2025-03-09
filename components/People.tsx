@@ -4,6 +4,8 @@ import Image from "next/image"
 import { useState, useId, useRef, useEffect } from "react"
 import { AnimatePresence, motion, Variants } from "framer-motion"
 import { DoorClosedIcon as CloseIcon, ChevronDown } from "lucide-react"
+import { Button } from "@heroui/react"
+import Link from "next/link"
 
 export const orgData: OrgTreeData = {
   leaders: [
@@ -425,8 +427,7 @@ export default function OrgTree() {
             Our <span className="text-yellow-maize">People</span>
           </h2>
           <p className='text-xl text-center tracking-tight text-blue-michigan mb-4'>
-          Our group follows a hierarchy where our students step up to support Majdi in administering AIMS especially after we became a 20+ member group. Student leaders make a lot of day-to-day management and communications of their respective groups, while Majdi is kept for final approvals on major items related to
-each group.
+            Meet the talented researchers, scientists, and students who make our lab's groundbreaking work possible.
           </p>
 
           {isLargeScreen && (
@@ -454,6 +455,17 @@ each group.
               <Accordion items={accordionItems} />
             </div>
           )}
+        </div>
+
+        <div className="flex justify-center mt-8">
+          <Link href="/members">
+            <Button
+              className="px-12 py-0 text-xl font-semibold text-yellow-maize bg-blue-michigan rounded-full hover:bg-blue-michigan/90 transition-colors duration-300 shadow-lg hover:shadow-xl"
+              size="lg"
+            >
+              Member Directory
+            </Button>
+          </Link>
         </div>
       </div>
     </div>

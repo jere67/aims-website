@@ -101,7 +101,7 @@ export default function News() {
                   />
                   <div className="flex flex-col">
                     <p className="text-sm text-white/60">Breathing App</p>
-                    <p className="text-sm text-white/60">Get a good night's sleep.</p>
+                    <p className="text-sm text-white/60">Get a good night&apos;s sleep.</p>
                   </div>
                 </div>
                 <Button radius="full" size="md">
