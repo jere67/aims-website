@@ -2,6 +2,7 @@
 import React from "react";
 import { ParallaxScroll } from "@/components/ui/ParallaxScroll";
 import { Button } from "@heroui/react";
+import Link from "next/link";
 
 const images = [
   { src: "/gallery/image1.png", title: "Leo (left) exploring an alternative career of becoming an artist in case PhD did not work out. Maxime (right) and Nabila (back) tried to take a photo with the “star”." },
@@ -33,12 +34,16 @@ const Gallery = () => {
         </div>
 
         <div className="flex justify-center mt-8">
-          <Button
-            className="px-12 py-0 text-xl font-semibold text-yellow-maize bg-blue-michigan rounded-full hover:bg-blue-michigan/90 transition-colors duration-300 shadow-lg hover:shadow-xl"
-            size="lg"
+          <Link
+            href="/gallery"
           >
-            View Full Gallery
-          </Button>
+            <Button
+              className="px-12 py-0 text-xl font-semibold text-yellow-maize bg-blue-michigan rounded-full hover:bg-blue-michigan/90 transition-colors duration-300 shadow-lg hover:shadow-xl"
+              size="lg"
+            >
+              View Full Gallery
+            </Button>
+          </Link>
         </div>
       </div>
     </div>
