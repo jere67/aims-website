@@ -8,7 +8,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Linkedin, Mail, ChevronDown, GraduationCap, Lightbulb, X } from "lucide-react"
 import { teamMembers } from "@/data/members"
 
-type MemberCategory = "all" | "pi" | "scientists" | "graduate" | "undergraduate" | "alumni"
+type MemberCategory = "all" | "pi" | "scientists" | "phd/graduate" | "undergraduate" | "alumni"
 
 export default function TeamShowcase() {
   const [activeCategory, setActiveCategory] = useState<MemberCategory>("all")
@@ -21,7 +21,7 @@ export default function TeamShowcase() {
       activeCategory === "all" ||
       (activeCategory === "pi" && member.status === "Principal Investigator") ||
       (activeCategory === "scientists" && (member.status === "Research Scientist" || member.status === "Postdoc")) ||
-      (activeCategory === "graduate" && (member.status === "PhD Student" || member.status === "Masters Student")) ||
+      (activeCategory === "phd/graduate" && (member.status === "PhD Student" || member.status === "Graduate")) ||
       (activeCategory === "undergraduate" && member.status === "Undergraduate") ||
       (activeCategory === "alumni" && member.status === "Alumni")
 
@@ -76,8 +76,8 @@ export default function TeamShowcase() {
             <CategoryButton active={activeCategory === "scientists"} onClick={() => setActiveCategory("scientists")}>
               Postdocs
             </CategoryButton>
-            <CategoryButton active={activeCategory === "graduate"} onClick={() => setActiveCategory("graduate")}>
-              Graduate
+            <CategoryButton active={activeCategory === "phd/graduate"} onClick={() => setActiveCategory("phd/graduate")}>
+              PhD + Graduate
             </CategoryButton>
             <CategoryButton
               active={activeCategory === "undergraduate"}

@@ -27,7 +27,7 @@ export const orgData: OrgTreeData = {
           children: [
             {
               id: "reactor-postdoc1",
-              name: "Postdoc 1",
+              name: "Postdoc",
               status: "Postdoc",
               role: "Postdoc",
               imageUrl: "/placeholder.svg?height=100&width=100",
@@ -35,7 +35,7 @@ export const orgData: OrgTreeData = {
             },
             {
               id: "reactor-phd1",
-              name: "PhD Student 1",
+              name: "PhD Student",
               status: "PhD Student",
               role: "PhD Student",
               imageUrl: "/placeholder.svg?height=100&width=100",
@@ -53,11 +53,21 @@ export const orgData: OrgTreeData = {
           children: [
             {
               id: "computing-postdoc1",
-              name: "Postdoc 1",
+              name: "Postdoc",
               status: "Postdoc",
               role: "Postdoc",
               imageUrl: "/placeholder.svg?height=100&width=100",
               bio: "",
+              children: [
+                {
+                  id: "computing-undergraduate1",
+                  name: "Undergraduate Student",
+                  status: "Undergraduate Student",
+                  role: "Undergraduate Student",
+                  imageUrl: "/placeholder.svg?height=100&width=100",
+                  bio: "",
+                },
+              ],
             },
           ],
         },
@@ -71,7 +81,7 @@ export const orgData: OrgTreeData = {
           children: [
             {
               id: "controls-phd1",
-              name: "PhD Student 1",
+              name: "PhD Student",
               status: "PhD Student",
               role: "PhD Student",
               imageUrl: "/placeholder.svg?height=100&width=100",
@@ -89,7 +99,7 @@ export const orgData: OrgTreeData = {
           children: [
             {
               id: "hpc-phd1",
-              name: "PhD Student 1",
+              name: "PhD Student",
               status: "PhD Student",
               role: "PhD Student",
               imageUrl: "/placeholder.svg?height=100&width=100",
@@ -107,11 +117,21 @@ export const orgData: OrgTreeData = {
           children: [
             {
               id: "lab-phd1",
-              name: "PhD Student 1",
+              name: "PhD Student",
               status: "PhD Student",
               role: "PhD Student",
               imageUrl: "/placeholder.svg?height=100&width=100",
               bio: "",
+              children: [
+                {
+                  id: "lab-grad1",
+                  name: "Graduate Student",
+                  status: "Graduate Student",
+                  role: "Graduate Student",
+                  imageUrl: "/placeholder.svg?height=100&width=100",
+                  bio: "",
+                },
+              ],
             },
           ],
         },
@@ -140,6 +160,8 @@ const groupByLevel = (leaders: TeamMember[]): Record<string, TeamMember[]> => {
     "Lead Researchers": [],
     "Postdocs": [],
     "PhD Students": [],
+    "Graduate Students": [],
+    "Undergraduate Students": [],
   }
 
   const flattenMembers = (member: TeamMember) => {
@@ -151,6 +173,10 @@ const groupByLevel = (leaders: TeamMember[]): Record<string, TeamMember[]> => {
       levels["Postdocs"].push(member)
     } else if (member.status === "PhD Student") {
       levels["PhD Students"].push(member)
+    } else if (member.status === "Graduate Student") {
+      levels["Graduate Students"].push(member)
+    } else if (member.status === "Undergraduate Student") {
+      levels["Undergraduate Students"].push(member)
     }
 
     if (member.children) {
@@ -403,6 +429,8 @@ export default function OrgTree() {
     { title: "Lead Researchers", members: levels["Lead Researchers"] },
     { title: "Postdocs", members: levels["Postdocs"] },
     { title: "PhD Students", members: levels["PhD Students"] },
+    { title: "Graduate Students", members: levels["Graduate Students"] },
+    { title: "Undergraduate Students", members: levels["Undergraduate Students"] },
   ]
 
   useEffect(() => {
