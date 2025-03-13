@@ -1,57 +1,67 @@
 "use client";
 import React from "react";
-import { FaInstagram, FaTwitter, FaYoutube, FaWhatsapp, FaLinkedin } from "react-icons/fa";
+import { FaTwitter, FaGithub, FaLinkedin, } from "react-icons/fa";
+
+const navigation = {
+  main: [
+    { name: 'News', href: '#' },
+    { name: 'Member Directory', href: '/members' },
+    { name: 'Gallery', href: '/gallery' },
+  ],
+  social: [
+    {
+      name: 'Twitter',
+      href: 'https://twitter.com',
+      icon: FaTwitter,
+    },
+    {
+      name: 'GitHub',
+      href: 'https://github.com/aims-umich',
+      icon: FaGithub,
+    },
+    {
+      name: 'LinkedIn',
+      href: 'https://linkedin.com',
+      icon: FaLinkedin,
+    },
+  ],
+};
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-gradient-to-t from-gray-100 to-white dark:from-gray-900 dark:to-black relative z-50 min-h-[100px] py-6">
-      <div className="max-w-7xl mx-auto px-4 md:px-6 flex flex-col md:flex-row justify-between items-center">
-        <p className="text-sm text-neutral-600 dark:text-neutral-300 mb-4 md:mb-0">
-          Copyright © 2025 AIMS Lab at the University of Michigan
-        </p>
-        
-        <div className="flex space-x-4">
-          <a
-            href="https://instagram.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-neutral-600 dark:text-neutral-300 hover:text-blue-michigan dark:hover:text-blue-michigan"
-          >
-            <FaInstagram size={24} />
-          </a>
-          <a
-            href="https://twitter.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-neutral-600 dark:text-neutral-300 hover:text-blue-michigan dark:hover:text-blue-michigan"
-          >
-            <FaTwitter size={24} />
-          </a>
-          <a
-            href="https://youtube.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-neutral-600 dark:text-neutral-300 hover:text-blue-michigan dark:hover:text-blue-michigan"
-          >
-            <FaYoutube size={24} />
-          </a>
-          <a
-            href="https://whatsapp.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-neutral-600 dark:text-neutral-300 hover:text-blue-michigan dark:hover:text-blue-michigan"
-          >
-            <FaWhatsapp size={24} />
-          </a>
-          <a
-            href="https://linkedin.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-neutral-600 dark:text-neutral-300 hover:text-blue-michigan dark:hover:text-blue-michigan"
-          >
-            <FaLinkedin size={24} />
-          </a>
+    <footer className="w-full relative z-50 min-h-[100px] py-6">
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
+        <nav className="flex flex-wrap justify-center mb-4">
+          {navigation.main.map((item) => (
+            <div key={item.name} className="px-5 py-2">
+              <a
+                href={item.href}
+                className="text-sm text-neutral-600 hover:text-blue-michigan dark:text-neutral-300 dark:hover:text-blue-michigan"
+              >
+                {item.name}
+              </a>
+            </div>
+          ))}
+        </nav>
+
+        <div className="flex justify-center space-x-4 mb-4">
+          {navigation.social.map((item) => (
+            <a
+              key={item.name}
+              href={item.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-neutral-600 dark:text-neutral-300 hover:text-blue-michigan dark:hover:text-blue-michigan"
+            >
+              <span className="sr-only">{item.name}</span>
+              <item.icon size={24} aria-hidden="true" />
+            </a>
+          ))}
         </div>
+        
+        <p className="text-sm text-neutral-600 dark:text-neutral-300 text-center">
+          Copyright © {new Date().getFullYear()} AIMS Lab at the University of Michigan
+        </p>
       </div>
     </footer>
   );
