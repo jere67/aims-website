@@ -1,180 +1,455 @@
+// npm i embla-carousel-autoplay framer-motion lucide-react
+// npx shadcn@latest add carousel
 "use client"
-import { IconArrowNarrowRight } from "@tabler/icons-react"
-import type React from "react"
 
-import { useState, useRef, useId, useEffect } from "react"
+import React, { useCallback, useEffect, useState, type JSX } from "react"
+import Image from "next/image"
+import Autoplay from "embla-carousel-autoplay"
+import { ChevronRight } from "lucide-react"
+import {
+  AnimatePresence,
+  MotionProps,
+  Variants,
+  motion,
+  useAnimation,
+} from "motion/react"
 
-interface SlideData {
-  title: string
-  src: string
+import { cn } from "@/lib/utils"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+  type CarouselApi,
+} from "./ui/carousel"
+
+interface Tip {
+  text: string
+  image: string
+  url?: string
 }
 
-interface SlideProps {
-  slide: SlideData
-  index: number
-  current: number
-  handleSlideClick: (index: number) => void
+interface LoadingCarouselProps {
+  tips?: Tip[]
+  className?: string
+  autoplayInterval?: number
+  showNavigation?: boolean
+  showIndicators?: boolean
+  showProgress?: boolean
+  aspectRatio?: "video" | "square" | "wide"
+  textPosition?: "top" | "bottom"
+  onTipChange?: (index: number) => void
+  backgroundTips?: boolean
+  backgroundGradient?: boolean
+  shuffleTips?: boolean
+  animateText?: boolean
 }
 
-const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
-  const slideRef = useRef<HTMLLIElement>(null)
+const defaultTips: Tip[] = [
+  {
+    text: "Leo (left) exploring an alternative career of becoming an artist in case PhD did not work out. Maxime (right) and Nabila (back) tried to take a photo with the “star”.",
+    image: "/gallery/image1.png",
+    url: "",
+  },
+  {
+    text: "At least we know that Leo (front), Nabila (middle), and Maxime (back) are not gephyrophobic (look for what that means, we worked hard to find this word).",
+    image: "/gallery/image2.png",
+    url: "",
+  },
+  {
+    text: "Majdi’s typical face when he wins argument with us.",
+    image: "/gallery/image3.png",
+    url: "",
+  },
+  {
+    text: "During our photo shooting, we told students to act impressed and they did that nicely. O Hwang (front) nailed it with being hyper-impressed.",
+    image: "/gallery/image4.png",
+    url: "",
+  },
+]
 
-  const xRef = useRef(0)
-  const yRef = useRef(0)
-  const frameRef = useRef<number>()
+function shuffleArray<T>(array: T[]): T[] {
+  const shuffled = [...array]
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
+    ;[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
+  }
+  return shuffled
+}
+
+const carouselVariants: Variants = {
+  enter: (direction: number) => ({
+    x: direction > 0 ? "100%" : "-100%",
+    opacity: 0,
+  }),
+  center: {
+    x: 0,
+    opacity: 1,
+  },
+  exit: (direction: number) => ({
+    x: direction < 0 ? "100%" : "-100%",
+    opacity: 0,
+  }),
+}
+
+const textVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { delay: 0.3, duration: 0.5 } },
+}
+
+const aspectRatioClasses = {
+  video: "aspect-video",
+  square: "aspect-square",
+  wide: "aspect-[2/1]",
+}
+
+export function LoadingCarousel({
+  onTipChange,
+  className,
+  tips = defaultTips,
+  showProgress = true,
+  aspectRatio = "video",
+  showNavigation = false,
+  showIndicators = true,
+  backgroundTips = false,
+  textPosition = "bottom",
+  autoplayInterval = 4500,
+  backgroundGradient = false,
+  shuffleTips = false,
+  animateText = true,
+}: LoadingCarouselProps) {
+  const [progress, setProgress] = useState(0)
+  const [api, setApi] = useState<CarouselApi>()
+  const [current, setCurrent] = useState(0)
+  const [direction, setDirection] = useState(0)
+  const controls = useAnimation()
+  const [displayTips] = useState(() =>
+    shuffleTips ? shuffleArray(tips) : tips
+  )
+
+  const autoplay = Autoplay({
+    delay: autoplayInterval,
+    stopOnInteraction: false,
+  })
 
   useEffect(() => {
-    const animate = () => {
-      if (!slideRef.current) return
-
-      const x = xRef.current
-      const y = yRef.current
-
-      slideRef.current.style.setProperty("--x", `${x}px`)
-      slideRef.current.style.setProperty("--y", `${y}px`)
-
-      frameRef.current = requestAnimationFrame(animate)
+    if (!api) {
+      return
     }
 
-    frameRef.current = requestAnimationFrame(animate)
+    setCurrent(api.selectedScrollSnap())
+    setDirection(
+      api.scrollSnapList().indexOf(api.selectedScrollSnap()) - current
+    )
+
+    const onSelect = () => {
+      const newIndex = api.selectedScrollSnap()
+      setCurrent(newIndex)
+      setDirection(api.scrollSnapList().indexOf(newIndex) - current)
+      onTipChange?.(newIndex)
+    }
+
+    api.on("select", onSelect)
 
     return () => {
-      if (frameRef.current) {
-        cancelAnimationFrame(frameRef.current)
-      }
+      api.off("select", onSelect)
     }
-  }, [])
+  }, [api, current, onTipChange])
 
-  const handleMouseMove = (event: React.MouseEvent) => {
-    const el = slideRef.current
-    if (!el) return
+  useEffect(() => {
+    if (!showProgress) return
 
-    const r = el.getBoundingClientRect()
-    xRef.current = event.clientX - (r.left + Math.floor(r.width / 2))
-    yRef.current = event.clientY - (r.top + Math.floor(r.height / 2))
-  }
+    const timer = setInterval(() => {
+      setProgress((oldProgress) => {
+        if (oldProgress === 100) {
+          return 0
+        }
+        const diff = 2 // Constant increment for smoother progress
+        return Math.min(oldProgress + diff, 100)
+      })
+    }, autoplayInterval / 50)
 
-  const handleMouseLeave = () => {
-    xRef.current = 0
-    yRef.current = 0
-  }
+    return () => {
+      clearInterval(timer)
+    }
+  }, [showProgress, autoplayInterval])
 
-  const imageLoaded = (event: React.SyntheticEvent<HTMLImageElement>) => {
-    event.currentTarget.style.opacity = "1"
-  }
+  useEffect(() => {
+    if (progress === 100) {
+      controls.start({ scaleX: 0 }).then(() => {
+        setProgress(0)
+        controls.set({ scaleX: 1 })
+      })
+    } else {
+      controls.start({ scaleX: progress / 100 })
+    }
+  }, [progress, controls])
 
-  const { src, title } = slide
+  const handleSelect = useCallback(
+    (index: number) => {
+      api?.scrollTo(index)
+    },
+    [api]
+  )
 
   return (
-    <div className="[perspective:1200px] [transform-style:preserve-3d]">
-      <li
-        ref={slideRef}
-        className="flex flex-1 flex-col items-center justify-center relative text-center text-white opacity-100 transition-all duration-300 ease-in-out w-[70vmin] h-[70vmin] mx-[4vmin] z-10 "
-        onClick={() => handleSlideClick(index)}
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
-        style={{
-          transform: current !== index ? "scale(0.98) rotateX(8deg)" : "scale(1) rotateX(0deg)",
-          transition: "transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
-          transformOrigin: "bottom",
-        }}
-      >
-        <div
-          className="absolute top-0 left-0 w-full h-full bg-[#1D1F2F] rounded-[1%] overflow-hidden transition-all duration-150 ease-out"
-          style={{
-            transform: current === index ? "translate3d(calc(var(--x) / 30), calc(var(--y) / 30), 0)" : "none",
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className={cn(
+        "w-full max-w-6xl mx-auto rounded-lg bg-muted shadow-[0px_1px_1px_0px_rgba(0,0,0,0.05),0px_1px_1px_0px_rgba(255,252,240,0.5)_inset,0px_0px_0px_1px_hsla(0,0%,100%,0.1)_inset,0px_0px_1px_0px_rgba(28,27,26,0.5)]",
+        className
+      )}
+    >
+      <div className="w-full overflow-hidden rounded-lg">
+        <Carousel
+          setApi={setApi}
+          plugins={[autoplay]}
+          className="w-full relative"
+          opts={{
+            loop: true,
           }}
         >
-          <img
-            className="absolute inset-0 w-[120%] h-[120%] object-cover opacity-100 transition-opacity duration-600 ease-in-out"
-            style={{
-              opacity: current === index ? 1 : 0.5,
-            }}
-            alt={title}
-            src={src || "/placeholder.svg"}
-            onLoad={imageLoaded}
-            loading="eager"
-            decoding="sync"
-          />
-          {current === index && <div className="absolute inset-0 bg-black/30 transition-all duration-1000" />}
-        </div>
+          <CarouselContent>
+            <AnimatePresence initial={false} custom={direction}>
+              {(displayTips || []).map((tip, index) => (
+                <CarouselItem key={index}>
+                  <motion.div
+                    variants={carouselVariants}
+                    initial="enter"
+                    animate="center"
+                    exit="exit"
+                    custom={direction}
+                    transition={{ duration: 0.8, ease: "easeInOut" }}
+                    className={`relative ${aspectRatioClasses[aspectRatio]} w-full overflow-hidden`}
+                  >
+                    <Image
+                      src={tip.image}
+                      alt={`Visual representation for tip: ${tip.text}`}
+                      fill
+                      className="object-cover"
+                      priority
+                    />
+                    {backgroundGradient && (
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
+                    )}
 
-        <article
-          className={`absolute bottom-[-4rem] left-0 w-full text-center transition-opacity duration-1000 ease-in-out ${
-            current === index ? "opacity-100 visible" : "opacity-0 invisible"
-          }`}
+                    {backgroundTips ? (
+                      <motion.div
+                        variants={textVariants}
+                        initial="hidden"
+                        animate="visible"
+                        className={`absolute ${
+                          textPosition === "top" ? "top-0" : "bottom-0"
+                        } left-0 right-0 p-4 sm:p-6 md:p-8`}
+                      >
+                        {displayTips[current]?.url ? (
+                          <a
+                            href={displayTips[current]?.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <p className="text-white text-center md:text-left text-base sm:text-lg md:text-xl lg:text-2xl lg:font-bold tracking-tight font-medium leading-relaxed">
+                              {tip.text}
+                            </p>
+                          </a>
+                        ) : (
+                          <p className="text-white text-center md:text-left text-base sm:text-lg md:text-xl lg:text-2xl lg:font-bold tracking-tight font-medium leading-relaxed">
+                            {tip.text}
+                          </p>
+                        )}
+                      </motion.div>
+                    ) : null}
+                  </motion.div>
+                </CarouselItem>
+              ))}
+            </AnimatePresence>
+          </CarouselContent>
+          {showNavigation && (
+            <>
+              <CarouselPrevious className="absolute left-2 top-1/2 -translate-y-1/2" />
+              <CarouselNext className="absolute right-2 top-1/2 -translate-y-1/2" />
+            </>
+          )}
+        </Carousel>
+        <div
+          className={cn(
+            "bg-muted p-4 ",
+            showIndicators && !backgroundTips ? "lg:py-2 lg:px-4 " : ""
+          )}
         >
-          <h2 className="text-lg font-semibold text-blue-michigan dark:text-white">{title}</h2>
-        </article>
-      </li>
-    </div>
-  )
-}
-
-interface CarouselControlProps {
-  type: string
-  title: string
-  handleClick: () => void
-}
-
-const CarouselControl = ({ type, title, handleClick }: CarouselControlProps) => {
-  return (
-    <button
-      className={`w-10 h-10 flex items-center mx-2 justify-center bg-neutral-200 dark:bg-neutral-800 border-3 border-transparent rounded-full focus:border-[#6D64F7] focus:outline-none hover:-translate-y-0.5 active:translate-y-0.5 transition duration-200 ${
-        type === "previous" ? "rotate-180" : ""
-      }`}
-      title={title}
-      onClick={handleClick}
-    >
-      <IconArrowNarrowRight className="text-neutral-600 dark:text-neutral-200" />
-    </button>
-  )
-}
-
-interface CarouselProps {
-  slides: SlideData[]
-}
-
-export function Carousel({ slides }: CarouselProps) {
-  const [current, setCurrent] = useState(0)
-
-  const handlePreviousClick = () => {
-    const previous = current - 1
-    setCurrent(previous < 0 ? slides.length - 1 : previous)
-  }
-
-  const handleNextClick = () => {
-    const next = current + 1
-    setCurrent(next === slides.length ? 0 : next)
-  }
-
-  const handleSlideClick = (index: number) => {
-    if (current !== index) {
-      setCurrent(index)
-    }
-  }
-
-  const id = useId()
-
-  return (
-    <div className="relative w-[70vmin] h-[70vmin] mx-auto" aria-labelledby={`carousel-heading-${id}`}>
-      <ul
-        className="absolute flex mx-[-4vmin] transition-transform duration-1000 ease-in-out"
-        style={{
-          transform: `translateX(-${current * (100 / slides.length)}%)`,
-        }}
-      >
-        {slides.map((slide, index) => (
-          <Slide key={index} slide={slide} index={index} current={current} handleSlideClick={handleSlideClick} />
-        ))}
-      </ul>
-
-      <div className="absolute flex justify-center w-full top-[-3rem]">
-        <CarouselControl type="previous" title="Go to previous slide" handleClick={handlePreviousClick} />
-
-        <CarouselControl type="next" title="Go to next slide" handleClick={handleNextClick} />
+          <div
+            className={cn(
+              "flex flex-col sm:flex-row items-center justify-between space-y-2 sm:space-y-0",
+              showIndicators && !backgroundTips
+                ? "sm:flex-col space-y-2 items-start gap-3"
+                : ""
+            )}
+          >
+            {showIndicators && (
+              <div className="flex space-x-2 overflow-x-auto pb-2 sm:pb-0 w-full sm:w-auto">
+                {(displayTips || []).map((_, index) => (
+                  <motion.button
+                    key={index}
+                    className={`h-1 w-8 flex-shrink-0 rounded-full ${
+                      index === current ? "bg-muted" : "bg-primary"
+                    }`}
+                    initial={false}
+                    animate={{
+                      backgroundColor:
+                        index === current ? "#3D3D3E" : "#E6E6E4",
+                    }}
+                    transition={{ duration: 0.5 }}
+                    onClick={() => handleSelect(index)}
+                    aria-label={`Go to tip ${index + 1}`}
+                  />
+                ))}
+              </div>
+            )}
+            <div className="flex items-center space-x-2 text-primary">
+              {backgroundTips ? (
+                <span className="text-sm font-medium">
+                  Tip {current + 1}/{displayTips?.length || 0}
+                </span>
+              ) : (
+                <div className="flex flex-col w-full">
+                  {displayTips[current]?.url ? (
+                    <a
+                      href={displayTips[current]?.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-base lg:text-2xl xl:font-semibold tracking-tight font-medium break-words"
+                    >
+                      {animateText ? (
+                        <TextScramble
+                          key={displayTips[current]?.text}
+                          duration={1.2}
+                          characterSet=". "
+                        >
+                          {displayTips[current]?.text}
+                        </TextScramble>
+                      ) : (
+                        displayTips[current]?.text
+                      )}
+                    </a>
+                  ) : (
+                    <span className="text-base lg:text-2xl xl:font-semibold tracking-tight font-medium break-words">
+                      {animateText ? (
+                        <TextScramble
+                          key={displayTips[current]?.text}
+                          duration={1.2}
+                          characterSet=". "
+                        >
+                          {displayTips[current]?.text}
+                        </TextScramble>
+                      ) : (
+                        displayTips[current]?.text
+                      )}
+                    </span>
+                  )}
+                </div>
+              )}
+              {backgroundTips && <ChevronRight className="w-4 h-4" />}
+            </div>
+          </div>
+          {showProgress && (
+            <motion.div
+              initial={{ scaleX: 0 }}
+              animate={controls}
+              transition={{ duration: 0.5, ease: "linear" }}
+              className="h-1 bg-muted origin-left mt-2"
+            />
+          )}
+        </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 
+// Credit -> https://motion-primitives.com/docs/text-scramble
+// https://x.com/Ibelick
+type TextScrambleProps = {
+  children: string
+  duration?: number
+  speed?: number
+  characterSet?: string
+  as?: React.ElementType
+  className?: string
+  trigger?: boolean
+  onScrambleComplete?: () => void
+} & MotionProps
+
+const defaultChars =
+  "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+
+function TextScramble({
+  children,
+  duration = 0.8,
+  speed = 0.04,
+  characterSet = defaultChars,
+  className,
+  as: Component = "p",
+  trigger = true,
+  onScrambleComplete,
+  ...props
+}: TextScrambleProps) {
+  const MotionComponent = motion.create(
+    Component as keyof JSX.IntrinsicElements
+  )
+  const [displayText, setDisplayText] = useState(children)
+  const [isAnimating, setIsAnimating] = useState(false)
+  const text = children
+
+  const scramble = async () => {
+    if (isAnimating) return
+    setIsAnimating(true)
+
+    const steps = duration / speed
+    let step = 0
+
+    const interval = setInterval(() => {
+      let scrambled = ""
+      const progress = step / steps
+
+      for (let i = 0; i < text.length; i++) {
+        if (text[i] === " ") {
+          scrambled += " "
+          continue
+        }
+
+        if (progress * text.length > i) {
+          scrambled += text[i]
+        } else {
+          scrambled +=
+            characterSet[Math.floor(Math.random() * characterSet.length)]
+        }
+      }
+
+      setDisplayText(scrambled)
+      step++
+
+      if (step > steps) {
+        clearInterval(interval)
+        setDisplayText(text)
+        setIsAnimating(false)
+        onScrambleComplete?.()
+      }
+    }, speed * 1000)
+  }
+
+  useEffect(() => {
+    if (!trigger) return
+
+    scramble()
+  }, [trigger])
+
+  return (
+    <MotionComponent className={className} {...props}>
+      {displayText}
+    </MotionComponent>
+  )
+}
+
+export default LoadingCarousel

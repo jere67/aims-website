@@ -1,5 +1,5 @@
 import React from 'react'
-import { Carousel } from './Carousel';
+import { LoadingCarousel } from "./Carousel"
 
 const Gallery = () => {
   const slideData = [
@@ -33,7 +33,7 @@ const Gallery = () => {
         </div>
 
         <div className="relative overflow-hidden w-full h-full py-16">
-          <Carousel slides={slideData} />
+          <LoadingCarousel autoplayInterval={10000} showNavigation={true} />
         </div>
       </div>
     </div>
