@@ -275,7 +275,7 @@ function MemberCard({
           <div className="relative aspect-square overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-t from-blue-michigan/30 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <Image
-              src={member.imageUrl || "/placeholder.svg"}
+              src={member.imageUrl}
               alt={member.name}
               fill
               className="object-cover transition-transform duration-500 group-hover:scale-110"
@@ -353,7 +353,7 @@ function MemberCard({
 
               <div className="md:w-2/5 relative">
                 <Image
-                  src={member.imageUrl || "/placeholder.svg"}
+                  src={member.imageUrl}
                   alt={member.name}
                   className="object-cover h-full w-full"
                   width={500}
@@ -449,7 +449,7 @@ function MemberListItem({
       <div className="p-4 sm:p-6 flex flex-col sm:flex-row gap-6">
         <div className="relative w-full sm:w-24 h-24 shrink-0">
           <Image
-            src={member.imageUrl || "/placeholder.svg"}
+            src={member.imageUrl}
             alt={member.name}
             width={96}
             height={96}

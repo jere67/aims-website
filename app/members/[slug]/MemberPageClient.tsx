@@ -13,7 +13,6 @@ import {
   Lightbulb,
   MapPin,
   Calendar,
-  Award,
 } from "lucide-react"
 
 export default function MemberPageClient({ member }: { member: any }) {
@@ -124,19 +123,7 @@ export default function MemberPageClient({ member }: { member: any }) {
               </div>
             </div>
 
-            {/* TODO: move awards to members.ts */}
-            <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-              <h2 className="text-lg font-semibold text-blue-michigan mb-4">Awards & Achievements</h2>
-              <div className="space-y-3">
-                <div className="flex items-start gap-3">
-                  <Award className="w-5 h-5 text-yellow-maize mt-1" />
-                  <div>
-                    <p className="text-blue-michigan font-medium">Best Paper Award</p>
-                    <p className="text-blue-michigan/70 text-sm">International Conference 2023</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+
           </motion.div>
 
           <motion.div
