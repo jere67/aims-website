@@ -266,11 +266,15 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
 }
 
 const Accordion: React.FC<AccordionProps> = ({ items }) => {
-  const [expandedIndex, setExpandedIndex] = useState<number | null>(null)
+  const [expandedStates, setExpandedStates] = useState<boolean[]>(
+    items.map(() => true)
+  );
 
   const handleToggle = (index: number) => {
-    setExpandedIndex(expandedIndex === index ? null : index)
-  }
+    setExpandedStates((prev) =>
+      prev.map((state, i) => (i === index ? !state : state))
+    );
+  };
 
   return (
     <div className="space-y-4">
@@ -280,14 +284,14 @@ const Accordion: React.FC<AccordionProps> = ({ items }) => {
             key={index}
             title={item.title}
             members={item.members}
-            isExpanded={expandedIndex === index}
+            isExpanded={expandedStates[index]}
             onToggle={() => handleToggle(index)}
           />
         ) : null
       )}
     </div>
-  )
-}
+  );
+};
 
 function MemberNode({
   member,
