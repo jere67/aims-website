@@ -3,18 +3,9 @@
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
+import getImages from "@/lib/getImages"; 
 
-const SPONSOR_IMAGES = [
-  "/sponsors/department_of_energy.png",
-  "/sponsors/nuclear_energy_university_program.png",
-  "/sponsors/nuclear_regulatory_commision.png",
-  "/sponsors/nsf.png",
-  "/sponsors/inl.png",
-  "/sponsors/los_alamos.png",
-  "/sponsors/fastest_path_to_zero.png",
-  "/sponsors/institute_for_computational_discovery.png",
-  "/sponsors/institute_for_data_science.png"
-];
+const SPONSOR_IMAGES = getImages();
 
 export const InfiniteMovingCards = ({
   direction = "left",
