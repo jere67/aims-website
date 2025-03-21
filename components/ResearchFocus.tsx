@@ -42,9 +42,12 @@ export default function Roadmap() {
 
       <div className="py-12 relative z-10">
         <div className="flex flex-col items-center justify-center">
-          <h2 className="text-3xl font-bold tracking-tight text-blue-michigan sm:text-4xl md:text-5xl mb-16">
+          <h2 className="text-3xl font-bold tracking-tight text-blue-michigan sm:text-4xl md:text-5xl mb-6">
             Research <span className="text-yellow-maize">Focus</span>
           </h2>
+          <p className='max-w-3xl text-xl text-center tracking-tight text-blue-michigan mb-4'>
+            We work at the intersection of nuclear engineering & computer science to develop scalable and deployable algorithms for optimization, control, and safety performance in complex systems like nuclear power plants.
+          </p>
         </div>
 
         <div className="container px-4 md:px-6">
