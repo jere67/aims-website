@@ -44,6 +44,14 @@ const Hero = () => {
   //   { text: "plants." },
   // ];
 
+  const welcomeText = [
+    { text: "Welcome" },
+    { text: "to" },
+    { text: "the" },
+    { text: "AIMS" },
+    { text: "Lab!" },
+  ]
+
   const [line0Delay, setLine0Delay] = useState(false);
   // const [line1Delay, setLine1Delay] = useState(false);
   // const [line2Delay, setLine2Delay] = useState(false);
@@ -97,10 +105,15 @@ const Hero = () => {
       <div className="flex justify-center relative my-20 z-10">
         <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center">
           
-          {!line0Delay && <div className="h-[3.05rem]"></div>}
-          {line0Delay && <TextGenerateEffect
+          {!line0Delay && <div className="h-[1.75rem]"></div>}
+          {/* {line0Delay && <TextGenerateEffect
             words="Welcome to the AIMS Lab!"
             className="uppercase tracking-widest text-lg text-center text-blue-michigan max-w-100"
+            
+          />} */}
+          {line0Delay && <TypewriterEffectSmooth 
+            className="uppercase tracking-widest text-lg text-center text-blue-michigan max-w-100"
+            words={welcomeText} 
           />}
 
           {!logoDelay && (
