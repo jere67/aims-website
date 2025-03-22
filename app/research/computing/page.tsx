@@ -110,7 +110,7 @@ export default function ReactorsPage() {
   }
 
   return (
-    <div className="w-full">
+    <div className="w-full pt-16">
       <div className="h-full w-full dark:bg-black-100 bg-white absolute left-0 right-0">
         <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black-100 bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
       </div>
