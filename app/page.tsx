@@ -9,7 +9,6 @@ import Gallery from "@/components/Gallery";
 import JoinUs from "@/components/JoinUs";
 import Videos from "@/components/Videos";
 import FloatingTop from "@/components/FloatingTop";
-import Footer from "@/components/Footer";
 import AboutUs from "@/components/AboutUs";
 
 export default function Home() {
@@ -28,7 +27,6 @@ export default function Home() {
         <Gallery />
         <JoinUs />
         <FloatingTop />
-        <Footer />
       </div>
     </main>
   );
