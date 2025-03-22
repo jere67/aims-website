@@ -60,12 +60,12 @@ const Hero = () => {
   const [logoDelay, setLogoDelay] = useState(false);
 
   useEffect(() => {
-    const timer0 = setTimeout(() => setLine0Delay(true), 2800);
+    const timer0 = setTimeout(() => setLine0Delay(true), 100);
     // const timer1 = setTimeout(() => setLine1Delay(true), 5000);
     // const timer2 = setTimeout(() => setLine2Delay(true), 6000);
     // const timer3 = setTimeout(() => setLine3Delay(true), 7000);
-    const spotlightTimer = setTimeout(() => setSpotlightDelay(true), 1000);
-    const logoTimer = setTimeout(() => setLogoDelay(true), 100);
+    const spotlightTimer = setTimeout(() => setSpotlightDelay(true), 2500);
+    const logoTimer = setTimeout(() => setLogoDelay(true), 1600);
 
     return () => {
       clearTimeout(timer0);
