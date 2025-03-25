@@ -103,6 +103,9 @@ export default function Navbar() {
                   <DropdownLink href="/research/computing" active={pathname === "/research/computing"}>
                     Computing
                   </DropdownLink>
+                  <DropdownLink href="/research/software-datasets" active={pathname === "/research/software-datasets"}>
+                    Software & Datasets
+                  </DropdownLink>
                 </div>
               </div>
             )}
@@ -161,6 +164,9 @@ export default function Navbar() {
                     </MobileSubNavLink>
                     <MobileSubNavLink href="/research/computing" active={pathname === "/research/computing"}>
                       Computing
+                    </MobileSubNavLink>
+                    <MobileSubNavLink href="/research/software-datasets" active={pathname === "/research/software-datasets"}>
+                      Software & Datasets
                     </MobileSubNavLink>
                   </div>
                 )}
