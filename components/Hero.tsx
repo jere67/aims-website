@@ -106,15 +106,15 @@ const Hero = () => {
         <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center">
           
           {!line0Delay && <div className="h-[1.75rem]"></div>}
-          {/* {line0Delay && <TextGenerateEffect
+          {line0Delay && <TextGenerateEffect
             words="Welcome to the AIMS Lab!"
             className="uppercase tracking-widest text-lg text-center text-blue-michigan max-w-100"
             
-          />} */}
-          {line0Delay && <TypewriterEffectSmooth 
+          />}
+          {/* {line0Delay && <TypewriterEffectSmooth 
             className="uppercase tracking-widest text-lg text-center text-blue-michigan max-w-100"
             words={welcomeText} 
-          />}
+          />} */}
 
           {!logoDelay && (
             <div className="w-96 h-96 md:w-[40rem] md:h-64 my-6" />
