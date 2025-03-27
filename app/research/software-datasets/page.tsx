@@ -5,7 +5,7 @@ import type React from "react"
 import { useState, useEffect } from "react"
 import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
-import { Github, FileText, Download, Code, Database, Search, Filter } from "lucide-react"
+import { Github, FileText, Download, Code, Database, Search, Filter, Book } from "lucide-react"
 import { softwareItems, datasetItems } from "@/data/software-datasets"
 
 type Category = "all" | "reactors" | "controls" | "computing"
@@ -251,6 +251,18 @@ export default function SoftwareAndDatasetsPage() {
                           </a>
                         )}
 
+                        {item.documentationUrl && (
+                          <a
+                            href={item.documentationUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="bg-white border border-blue-michigan text-blue-michigan px-4 py-2 rounded-lg font-medium flex items-center gap-2 hover:bg-gray-50 transition-colors"
+                          >
+                            <Book size={18} />
+                            Docs
+                          </a>
+                        )}
+
                         <button
                           onClick={() => openModal(item)}
                           className="bg-gray-100 text-gray-700 px-4 py-2 rounded-lg font-medium flex items-center gap-2 hover:bg-gray-200 transition-colors ml-auto"
@@ -340,6 +352,18 @@ export default function SoftwareAndDatasetsPage() {
                           >
                             <FileText size={18} />
                             Paper
+                          </a>
+                        )}
+
+                        {item.documentationUrl && (
+                          <a
+                            href={item.documentationUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="bg-white border border-blue-michigan text-blue-michigan px-4 py-2 rounded-lg font-medium flex items-center gap-2 hover:bg-gray-50 transition-colors"
+                          >
+                            <Book size={18} />
+                            Docs
                           </a>
                         )}
 
@@ -542,6 +566,18 @@ export default function SoftwareAndDatasetsPage() {
                     >
                       <FileText size={18} />
                       Read Paper
+                    </a>
+                  )}
+
+                  {selectedItem.documentationUrl && (
+                    <a
+                      href={selectedItem.documentationUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-white border border-blue-michigan text-blue-michigan px-5 py-2.5 rounded-lg font-medium flex items-center gap-2 hover:bg-gray-50 transition-colors"
+                    >
+                      <Book size={18} />
+                      Documentation
                     </a>
                   )}
                 </div>
