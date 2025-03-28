@@ -6,6 +6,7 @@ import { useState, useRef } from "react"
 import { motion } from "framer-motion"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Button } from "@heroui/react"
+import { researchItems } from "@/data/research"
 
 const topicsData = [
   {
@@ -43,48 +44,16 @@ const topicsData = [
   },
 ]
 
-const recentPapers = [
-  {
-    id: 1,
-    title: "Paper 1",
-    authors: "Authors 1",
-    journal: "Journal 1",
-    year: 2025,
-    imageUrl: "",
-  },
-  {
-    id: 2,
-    title: "Paper 2",
-    authors: "Authors 2",
-    journal: "Journal 2",
-    year: 2025,
-    imageUrl: "",
-  },
-  {
-    id: 3,
-    title: "Paper 3",
-    authors: "Authors 3",
-    journal: "Journal 3",
-    year: 2025,
-    imageUrl: "",
-  },
-  {
-    id: 4,
-    title: "Paper 4",
-    authors: "Authors 4",
-    journal: "Journal 4",
-    year: 2025,
-    imageUrl: "",
-  },
-  {
-    id: 5,
-    title: "Paper 5",
-    authors: "Authors 5",
-    journal: "Journal 5",
-    year: 2025,
-    imageUrl: "",
-  },
-]
+const recentPapers = researchItems
+  .filter(item => item.type === "publication" && item.group === "controls" && item.isRecent)
+  .map(item => ({
+    id: item.id,
+    title: item.title,
+    authors: item.authors?.join(", ") ?? "Unknown Authors",
+    journal: item.journal,
+    year: item.year,
+    imageUrl: item.imageUrl
+}))
 
 const projects = [
   "Bullet Point",

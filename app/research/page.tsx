@@ -8,7 +8,7 @@ import { useState, useId, useRef, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { FileText, BookOpen, Calendar, Users, ChevronDown, X, ExternalLink, Download, Tag } from "lucide-react"
 import { Button } from "@heroui/react"
-import { researchItems } from "@/data/research"
+import { researchItems, ResearchItem } from "@/data/research"
 
 type ResearchCategory = "all" | "publications" | "projects" | "reactors" | "controls" | "computing"
 
@@ -30,14 +30,14 @@ export default function ResearchDirectory() {
     const matchesSearch =
       item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       (item.type === "publication" &&
-        (item.authors.some((author) => author.toLowerCase().includes(searchQuery.toLowerCase())) ||
-          item.journal.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          item.keywords.some((keyword) => keyword.toLowerCase().includes(searchQuery.toLowerCase())))) ||
+        (item.authors?.some((author) => author.toLowerCase().includes(searchQuery.toLowerCase())) ||
+          item.journal?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          item.keywords?.some((keyword) => keyword.toLowerCase().includes(searchQuery.toLowerCase())))) ||
       (item.type === "project" &&
-        (item.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          item.collaborators.some((collaborator) => collaborator.toLowerCase().includes(searchQuery.toLowerCase()))))
+        (item.description?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          item.collaborators?.some((collaborator) => collaborator.toLowerCase().includes(searchQuery.toLowerCase()))))
 
-    return matchesCategory && matchesSearch
+    return matchesCategory && (searchQuery ? matchesSearch : true)
   })
 
   const containerVariants = {
@@ -236,7 +236,7 @@ function ResearchCard({
   onLeave,
   variants,
 }: {
-  item: any
+  item: ResearchItem
   isHovered: boolean
   onHover: () => void
   onLeave: () => void
@@ -303,7 +303,7 @@ function ResearchCard({
           <div className="p-6 flex-1 flex flex-col">
             <h3 className="text-xl font-bold text-blue-michigan mb-2 line-clamp-2">{item.title}</h3>
 
-            {item.type === "publication" && (
+            {item.type === "publication" && item.authors && (
               <>
                 <p className="text-blue-michigan/70 mb-2 text-sm">
                   {item.authors.slice(0, 3).join(", ")}
@@ -316,7 +316,7 @@ function ResearchCard({
               </>
             )}
 
-            {item.type === "project" && (
+            {item.type === "project" && item.description && (
               <>
                 <p className="text-blue-michigan/70 mb-2 text-sm line-clamp-3">{item.description}</p>
                 <div className="flex items-center gap-2 mb-2">
@@ -329,14 +329,16 @@ function ResearchCard({
             <div className="flex items-center gap-2 mb-4">
               <Calendar className="text-blue-michigan/70" size={14} />
               <p className="text-sm text-blue-michigan/70">
-                {item.type === "publication" ? item.year : `${item.startYear} - ${item.endYear || "Present"}`}
+                {item.type === "publication" && item.year
+                  ? item.year
+                  : item.startYear && `${item.startYear} - ${item.endYear || "Present"}`}
               </p>
             </div>
 
             <div
               className={`overflow-hidden transition-all duration-300 mt-auto ${isHovered ? "max-h-40" : "max-h-0"}`}
             >
-              {item.type === "publication" && item.keywords && (
+              {item.type === "publication" && item.keywords && item.keywords.length > 0 && (
                 <div className="flex flex-wrap gap-1 mb-3">
                   {item.keywords.slice(0, 3).map((keyword: string, idx: number) => (
                     <span key={idx} className="text-xs bg-gray-100 text-blue-michigan px-2 py-1 rounded-full">
@@ -351,7 +353,7 @@ function ResearchCard({
                 </div>
               )}
 
-              {item.type === "project" && item.collaborators && (
+              {item.type === "project" && item.collaborators && item.collaborators.length > 0 && (
                 <div className="flex items-start gap-2 mb-3">
                   <Users className="text-blue-michigan/70 mt-1 shrink-0" size={14} />
                   <p className="text-xs text-blue-michigan">
@@ -433,21 +435,27 @@ function ResearchCard({
 
                 {item.type === "publication" && (
                   <>
-                    <div className="flex items-center gap-2 mb-4">
-                      <Users className="text-blue-michigan/70" size={16} />
-                      <p className="text-blue-michigan/70">{item.authors.join(", ")}</p>
-                    </div>
+                    {item.authors && (
+                      <div className="flex items-center gap-2 mb-4">
+                        <Users className="text-blue-michigan/70" size={16} />
+                        <p className="text-blue-michigan/70">{item.authors.join(", ")}</p>
+                      </div>
+                    )}
 
                     <div className="flex flex-wrap gap-4 mb-6">
-                      <div className="flex items-center gap-2">
-                        <BookOpen className="text-blue-michigan/70" size={16} />
-                        <p className="text-blue-michigan/70">{item.journal}</p>
-                      </div>
+                      {item.journal && (
+                        <div className="flex items-center gap-2">
+                          <BookOpen className="text-blue-michigan/70" size={16} />
+                          <p className="text-blue-michigan/70">{item.journal}</p>
+                        </div>
+                      )}
 
-                      <div className="flex items-center gap-2">
-                        <Calendar className="text-blue-michigan/70" size={16} />
-                        <p className="text-blue-michigan/70">{item.year}</p>
-                      </div>
+                      {item.year && (
+                        <div className="flex items-center gap-2">
+                          <Calendar className="text-blue-michigan/70" size={16} />
+                          <p className="text-blue-michigan/70">{item.year}</p>
+                        </div>
+                      )}
 
                       {item.doi && (
                         <div className="flex items-center gap-2">
@@ -457,10 +465,12 @@ function ResearchCard({
                       )}
                     </div>
 
-                    <div className="mb-6">
-                      <h3 className="text-xl font-medium text-blue-michigan mb-2">Abstract</h3>
-                      <p className="text-blue-michigan">{item.abstract}</p>
-                    </div>
+                    {item.abstract && (
+                      <div className="mb-6">
+                        <h3 className="text-xl font-medium text-blue-michigan mb-2">Abstract</h3>
+                        <p className="text-blue-michigan">{item.abstract}</p>
+                      </div>
+                    )}
 
                     {item.keywords && item.keywords.length > 0 && (
                       <div className="mb-6">
@@ -480,28 +490,36 @@ function ResearchCard({
                 {item.type === "project" && (
                   <>
                     <div className="flex flex-wrap gap-4 mb-6">
-                      <div className="flex items-center gap-2">
-                        <Tag className="text-blue-michigan/70" size={16} />
-                        <p className="text-blue-michigan/70">{item.status}</p>
+                      {item.status && (
+                        <div className="flex items-center gap-2">
+                          <Tag className="text-blue-michigan/70" size={16} />
+                          <p className="text-blue-michigan/70">{item.status}</p>
+                        </div>
+                      )}
+
+                      {item.startYear && (
+                        <div className="flex items-center gap-2">
+                          <Calendar className="text-blue-michigan/70" size={16} />
+                          <p className="text-blue-michigan/70">
+                            {item.startYear} - {item.endYear || "Present"}
+                          </p>
+                        </div>
+                      )}
+                    </div>
+
+                    {item.description && (
+                      <div className="mb-6">
+                        <h3 className="text-xl font-medium text-blue-michigan mb-2">Description</h3>
+                        <p className="text-blue-michigan">{item.description}</p>
                       </div>
+                    )}
 
-                      <div className="flex items-center gap-2">
-                        <Calendar className="text-blue-michigan/70" size={16} />
-                        <p className="text-blue-michigan/70">
-                          {item.startYear} - {item.endYear || "Present"}
-                        </p>
+                    {item.fundingSource && (
+                      <div className="mb-6">
+                        <h3 className="text-xl font-medium text-blue-michigan mb-2">Funding</h3>
+                        <p className="text-blue-michigan">{item.fundingSource}</p>
                       </div>
-                    </div>
-
-                    <div className="mb-6">
-                      <h3 className="text-xl font-medium text-blue-michigan mb-2">Description</h3>
-                      <p className="text-blue-michigan">{item.description}</p>
-                    </div>
-
-                    <div className="mb-6">
-                      <h3 className="text-xl font-medium text-blue-michigan mb-2">Funding</h3>
-                      <p className="text-blue-michigan">{item.fundingSource}</p>
-                    </div>
+                    )}
 
                     {item.collaborators && item.collaborators.length > 0 && (
                       <div className="mb-6">
@@ -551,7 +569,7 @@ function ResearchCard({
                     >
                       View {item.group.charAt(0).toUpperCase() + item.group.slice(1)} Group
                     </Button>
-                  </Link>
+                    </Link>
                 </div>
               </div>
             </motion.div>
@@ -567,7 +585,7 @@ function ResearchListItem({
   item,
   variants,
 }: {
-  item: any
+  item: ResearchItem
   variants: any
 }) {
   const [isExpanded, setIsExpanded] = useState(false)
@@ -604,36 +622,46 @@ function ResearchListItem({
             <div>
               <h3 className="text-xl font-bold text-blue-michigan mb-1">{item.title}</h3>
 
-              {item.type === "publication" && <p className="text-blue-michigan/70 mb-2">{item.authors.join(", ")}</p>}
+              {item.type === "publication" && item.authors && (
+                <p className="text-blue-michigan/70 mb-2">{item.authors.join(", ")}</p>
+              )}
 
               <div className="flex flex-wrap gap-4 mb-2">
                 {item.type === "publication" && (
                   <>
-                    <div className="flex items-center gap-2">
-                      <BookOpen className="text-blue-michigan/70" size={14} />
-                      <p className="text-sm text-blue-michigan/70">{item.journal}</p>
-                    </div>
+                    {item.journal && (
+                      <div className="flex items-center gap-2">
+                        <BookOpen className="text-blue-michigan/70" size={14} />
+                        <p className="text-sm text-blue-michigan/70">{item.journal}</p>
+                      </div>
+                    )}
 
-                    <div className="flex items-center gap-2">
-                      <Calendar className="text-blue-michigan/70" size={14} />
-                      <p className="text-sm text-blue-michigan/70">{item.year}</p>
-                    </div>
+                    {item.year && (
+                      <div className="flex items-center gap-2">
+                        <Calendar className="text-blue-michigan/70" size={14} />
+                        <p className="text-sm text-blue-michigan/70">{item.year}</p>
+                      </div>
+                    )}
                   </>
                 )}
 
                 {item.type === "project" && (
                   <>
-                    <div className="flex items-center gap-2">
-                      <Tag className="text-blue-michigan/70" size={14} />
-                      <p className="text-sm text-blue-michigan/70">{item.status}</p>
-                    </div>
+                    {item.status && (
+                      <div className="flex items-center gap-2">
+                        <Tag className="text-blue-michigan/70" size={14} />
+                        <p className="text-sm text-blue-michigan/70">{item.status}</p>
+                      </div>
+                    )}
 
-                    <div className="flex items-center gap-2">
-                      <Calendar className="text-blue-michigan/70" size={14} />
-                      <p className="text-sm text-blue-michigan/70">
-                        {item.startYear} - {item.endYear || "Present"}
-                      </p>
-                    </div>
+                    {item.startYear && (
+                      <div className="flex items-center gap-2">
+                        <Calendar className="text-blue-michigan/70" size={14} />
+                        <p className="text-sm text-blue-michigan/70">
+                          {item.startYear} - {item.endYear || "Present"}
+                        </p>
+                      </div>
+                    )}
                   </>
                 )}
               </div>
@@ -647,7 +675,7 @@ function ResearchListItem({
                     size="sm"
                   >
                     <Download className="mr-1 h-3 w-3" />
-                      PDF
+                    PDF
                   </Button>
                 </Link>
               )}
@@ -675,13 +703,13 @@ function ResearchListItem({
             </div>
           </div>
 
-          {item.type === "publication" && (
+          {item.type === "publication" && item.abstract && (
             <div className="mb-4">
               <p className="text-blue-michigan line-clamp-2">{item.abstract}</p>
             </div>
           )}
 
-          {item.type === "project" && (
+          {item.type === "project" && item.description && (
             <div className="mb-4">
               <p className="text-blue-michigan line-clamp-2">{item.description}</p>
             </div>
@@ -727,7 +755,7 @@ function ResearchListItem({
                 </div>
               )}
 
-              {item.type === "project" && (
+              {item.type === "project" && item.fundingSource && (
                 <div>
                   <h4 className="text-blue-michigan font-medium mb-2">Funding</h4>
                   <p className="text-blue-michigan">{item.fundingSource}</p>
@@ -747,4 +775,3 @@ function ResearchListItem({
     </motion.div>
   )
 }
-
