@@ -6,9 +6,10 @@ import Image from "next/image"
 import Link from "next/link"
 import { useState, useId, useRef, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { FileText, BookOpen, Calendar, Users, ChevronDown, X, ExternalLink, Download, Tag } from "lucide-react"
+import { FileText, BookOpen, Calendar, Users, ChevronDown, X, ExternalLink, Download, Tag, Clock } from "lucide-react"
 import { Button } from "@heroui/react"
 import { researchItems, ResearchItem } from "@/data/research"
+import { FaGoogleScholar, FaResearchgate, FaSchool } from "react-icons/fa6";
 
 type ResearchCategory = "all" | "publications" | "projects" | "reactors" | "controls" | "computing"
 
@@ -71,6 +72,57 @@ export default function ResearchDirectory() {
             and Computing. Our interdisciplinary approach combines nuclear engineering with advanced computational
             methods to solve complex challenges.
           </p>
+          <motion.div 
+            className="max-w-3xl mx-auto mt-8 mb-12 bg-gradient-to-r from-blue-michigan/5 via-blue-michigan/10 to-blue-michigan/5 rounded-xl p-6 border border-blue-michigan/20"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
+            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+              <div className="flex items-center">
+                <div className="bg-blue-michigan/10 p-3 rounded-full mr-4">
+                  <Clock />
+                </div>
+                <div>
+                  <p className="text-blue-michigan font-medium">Directory last updated</p>
+                  <p className="text-blue-michigan/70 text-sm">03-27-2025</p>
+                </div>
+              </div>
+              
+              <div>
+                <p className="text-blue-michigan font-medium mb-2 text-center md:text-right">View our complete research archive:</p>
+                <div className="flex flex-wrap gap-2 justify-center md:justify-end">
+                  <a 
+                    href="https://scholar.google.com/citations?user=G2zrIPUAAAAJ&hl=en" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 bg-white border border-blue-michigan/30 hover:border-blue-michigan text-blue-michigan px-3 py-1.5 rounded-lg text-sm font-medium transition-colors"
+                  >
+                    <FaGoogleScholar />
+                    Google Scholar
+                  </a>
+                  <a 
+                    href="https://www.researchgate.net/profile/Majdi-Radaideh" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 bg-white border border-blue-michigan/30 hover:border-blue-michigan text-blue-michigan px-3 py-1.5 rounded-lg text-sm font-medium transition-colors"
+                  >
+                    <FaResearchgate />
+                    ResearchGate
+                  </a>
+                  <a 
+                    href="https://experts.umich.edu/10012-majdi-radaideh" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 bg-white border border-blue-michigan/30 hover:border-blue-michigan text-blue-michigan px-3 py-1.5 rounded-lg text-sm font-medium transition-colors"
+                  >
+                    <FaSchool />
+                    Michigan Experts
+                  </a>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
 
         <div className="mb-12 flex flex-col md:flex-row justify-between items-center gap-6">
