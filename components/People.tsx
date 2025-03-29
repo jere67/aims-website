@@ -255,7 +255,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
         animate={isExpanded ? "expanded" : "collapsed"}
       >
 
-        <div className="flex flex-wrap gap-4 justify-start">
+        <div className="flex flex-wrap gap-4 justify-center">
           {members.map((member) => (
             <MemberNode key={member.id} member={member} viewMode="accordion" />
           ))}
