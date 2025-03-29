@@ -3,7 +3,7 @@ import { Card, CardHeader, CardFooter, Image, Button } from "@heroui/react"
 
 export default function News() {
   return (
-    <div className="w-full -mt-16 mb-48">
+    <div className="w-full -mt-16 mb-12">
       {/* Background layers matching Hero.tsx */}
       <div className="h-full w-full dark:bg-black-100 bg-white absolute left-0 right-0">
         <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black-100 bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
