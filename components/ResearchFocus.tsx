@@ -8,6 +8,7 @@ import { ArrowRight, ChevronRight } from "lucide-react"
 import { GiReactor } from "react-icons/gi";
 import { FaComputer, FaDatabase } from "react-icons/fa6"
 import { FaBolt } from "react-icons/fa"
+import { Button } from "@heroui/react"
 
 const items = [
   {
@@ -106,6 +107,15 @@ export default function ResearchFocus() {
             <ResearchFocusCard key={item.id} item={item} index={index} />
           ))}
         </motion.div>
+      </div>
+
+      <div className="flex justify-center mt-8">
+        <Button
+          className="px-12 py-0 text-xl font-semibold text-yellow-maize bg-blue-michigan rounded-full hover:bg-blue-michigan/90 transition-colors duration-300 shadow-lg hover:shadow-xl"
+          size="lg"
+        >
+          View Directory
+        </Button>
       </div>
     </section>
   )
