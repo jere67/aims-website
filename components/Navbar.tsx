@@ -64,6 +64,10 @@ export default function Navbar() {
             Home
           </NavLink>
 
+          <NavLink href="/news" active={pathname === "/news"}>
+            News
+          </NavLink>
+
           <div className="relative" ref={dropdownRef}>
             <button
               className={`relative px-4 py-2 text-lg font-medium transition-colors flex items-center ${
@@ -134,6 +138,10 @@ export default function Navbar() {
             <nav className="flex flex-col space-y-3">
               <MobileNavLink href="/" active={pathname === "/"}>
                 Home
+              </MobileNavLink>
+
+              <MobileNavLink href="/news" active={pathname === "/news"}>
+                News
               </MobileNavLink>
 
               <div>
