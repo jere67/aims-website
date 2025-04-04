@@ -80,46 +80,48 @@ export default function MemberPageClient({ member }: { member: any }) {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="space-y-8"
           >
-            {/* TODO: move contact info to members.ts */}
             <div className="bg-gray-50 rounded-xl p-6 border border-gray-100">
               <h2 className="text-lg font-semibold text-blue-michigan mb-4">Contact & Info</h2>
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
                   <MapPin className="w-5 h-5 text-blue-michigan/70 mt-1" />
                   <div>
-                    <p className="text-blue-michigan">Nuclear Engineering and Radiological Sciences</p>
-                    <p className="text-blue-michigan/70">University of Michigan</p>
+                    <p className="text-blue-michigan">{member.department}</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
                   <Calendar className="w-5 h-5 text-blue-michigan/70" />
-                  <p className="text-blue-michigan">Joined 2023</p>
+                  <p className="text-blue-michigan">Joined {member.joinedDate}</p>
                 </div>
               </div>
 
               <div className="flex gap-2 mt-6">
                 <a
-                  href={`mailto:${member.email || ""}`}
+                  href={`mailto:${member.email}`}
                   className="p-2 rounded-lg bg-blue-michigan text-yellow-maize hover:bg-blue-michigan/90 transition"
                 >
                   <Mail className="w-5 h-5" />
                 </a>
-                <a
-                  href="#"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2 rounded-lg bg-blue-michigan text-yellow-maize hover:bg-blue-michigan/90 transition"
-                >
-                  <Linkedin className="w-5 h-5" />
-                </a>
-                <a
-                  href="#"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2 rounded-lg bg-blue-michigan text-yellow-maize hover:bg-blue-michigan/90 transition"
-                >
-                  <ExternalLink className="w-5 h-5" />
-                </a>
+                {member.linkedin && (
+                  <a
+                    href={member.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 rounded-lg bg-blue-michigan text-yellow-maize hover:bg-blue-michigan/90 transition"
+                  >
+                    <Linkedin className="w-5 h-5" />
+                  </a>
+                )}
+                {member.website && (
+                  <a
+                    href={member.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 rounded-lg bg-blue-michigan text-yellow-maize hover:bg-blue-michigan/90 transition"
+                  >
+                    <ExternalLink className="w-5 h-5" />
+                  </a>
+                )}
               </div>
             </div>
 
@@ -182,7 +184,7 @@ export default function MemberPageClient({ member }: { member: any }) {
                       <div>
                         <h3 className="font-medium text-blue-michigan">{edu}</h3>
                         <p className="text-sm text-blue-michigan/70 mt-1">
-                          {/* can add more education details here */}
+                          {member.degree}
                         </p>
                       </div>
                     </motion.div>
