@@ -14,7 +14,7 @@ const items = [
   {
     id: 1,
     title: "Reactors",
-    text: "Description Here",
+    text: "We design nuclear reactors!",
     imageUrl: "/research-focus/reactors.png",
     link: "/research/reactors",
     icon: (
@@ -24,7 +24,7 @@ const items = [
   {
     id: 2,
     title: "Computing",
-    text: "Description Here",
+    text: "We design algorithms!",
     imageUrl: "/research-focus/computing.png",
     link: "/research/computing",
     icon: (
@@ -34,7 +34,7 @@ const items = [
   {
     id: 3,
     title: "Controls",
-    text: "Description Here",
+    text: "We control!",
     imageUrl: "/research-focus/controls.png",
     link: "/research/controls",
     icon: (
@@ -44,7 +44,7 @@ const items = [
   {
     id: 4,
     title: "Software and Datasets",
-    text: "Description Here",
+    text: "We code!",
     imageUrl: "/research-focus/software.png",
     link: "/research/software-datasets",
     icon: (
@@ -83,8 +83,8 @@ export default function ResearchFocus() {
           <h2 className="text-3xl font-bold tracking-tight text-blue-michigan sm:text-4xl md:text-5xl mb-4">
             Research <span className="text-yellow-maize">Focus</span>
           </h2>
-          <p className='text-xl text-center tracking-tight text-blue-michigan mb-4'>
-            Description Here
+          <p className='max-w-4xl text-xl text-center tracking-tight text-blue-michigan mb-4'>
+            Our lab is split into three groups that have different research focuses and intersect heavily with each other. These groups are Reactors, Computing, and Controls. Our major accomplishments are showcased in the Software and Datasets portion of this website.
           </p>
         </motion.div>
 
