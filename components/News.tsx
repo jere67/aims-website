@@ -1,5 +1,6 @@
 "use client"
 import { Card, CardHeader, CardFooter, Image, Button } from "@heroui/react"
+import Link from "next/link"
 
 export default function News() {
   return (
@@ -112,12 +113,14 @@ export default function News() {
           </div>
 
           <div className="flex justify-center mt-0">
-            <Button
-              className="px-12 py-0 text-xl font-semibold text-yellow-maize bg-blue-michigan rounded-full hover:bg-blue-michigan/90 transition-colors duration-300 shadow-lg hover:shadow-xl"
-              size="lg"
-            >
-              View All News
-            </Button>
+            <Link href="/news">
+              <Button
+                className="px-12 py-0 text-xl font-semibold text-yellow-maize bg-blue-michigan rounded-full hover:bg-blue-michigan/90 transition-colors duration-300 shadow-lg hover:shadow-xl"
+                size="lg"
+              >
+                View All News
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
