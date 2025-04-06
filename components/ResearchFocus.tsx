@@ -110,12 +110,14 @@ export default function ResearchFocus() {
       </div>
 
       <div className="flex justify-center mt-8">
-        <Button
-          className="px-12 py-0 text-xl font-semibold text-yellow-maize bg-blue-michigan rounded-full hover:bg-blue-michigan/90 transition-colors duration-300 shadow-lg hover:shadow-xl"
-          size="lg"
-        >
-          View Directory
-        </Button>
+        <Link href="/research">
+          <Button
+            className="px-12 py-0 text-xl font-semibold text-yellow-maize bg-blue-michigan rounded-full hover:bg-blue-michigan/90 transition-colors duration-300 shadow-lg hover:shadow-xl"
+            size="lg"
+          >
+            View Directory
+          </Button>
+        </Link>
       </div>
     </section>
   )
