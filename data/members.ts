@@ -26,7 +26,7 @@ export const teamMembers: TeamMember[] = [
     role: "Research Assistant",
     joinedDate: "September 2024",
     imageUrl: "/people/jeremoon.jpeg",
-    heroImageUrl: "",
+    heroImageUrl: "/heroImages/moon.jpg",
     bio: "Hi there! I'm a sophomore attending the University of Michigan. I have a passion for giving life to my ideas and building my version of the digital world, one line of code at a time. I am a highly disciplined and results-oriented software engineer with a particular interest in data science and machine learning. I am currently pursuing a Bachelor of Science in Engineering in Data Science at the University of Michigan, where I have gained a strong foundation in data analysis, algorithms, and software engineering principles. Outside of school, you'll catch me in the gym lifting weights or boxing.",
     interests: ["Artificial Intelligence", "Machine Learning"],
     education: ["University of Michigan"],
