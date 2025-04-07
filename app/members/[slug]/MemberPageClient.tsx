@@ -184,7 +184,7 @@ export default function MemberPageClient({ member }: { member: any }) {
                       <div>
                         <h3 className="font-medium text-blue-michigan">{edu}</h3>
                         <p className="text-sm text-blue-michigan/70 mt-1">
-                          {member.degree}
+                          {member.degrees[idx]}
                         </p>
                       </div>
                     </motion.div>
