@@ -32,7 +32,7 @@ export default function TeamShowcase() {
         member.interests.some((interest) => interest.toLowerCase().includes(searchQuery.toLowerCase())))
 
     return matchesCategory && matchesSearch
-  })
+  }).sort((a, b) => a.name.localeCompare(b.name));
 
   const containerVariants = {
     hidden: { opacity: 0 },
