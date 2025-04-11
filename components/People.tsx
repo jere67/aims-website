@@ -20,7 +20,7 @@ export const orgData: OrgTreeData = {
         {
           id: "omer",
           name: "Omer Erdem",
-          status: "Lead Researcher",
+          status: "Group Lead",
           role: "Reactors Lead",
           imageUrl: "/placeholder.svg?height=100&width=100",
           bio: "",
@@ -28,8 +28,8 @@ export const orgData: OrgTreeData = {
             {
               id: "reactor-postdoc1",
               name: "Postdoc",
-              status: "Postdoc",
-              role: "Postdoc",
+              status: "Research Fellow and Scientist",
+              role: "Research Fellow and Scientist",
               imageUrl: "/placeholder.svg?height=100&width=100",
               bio: "",
             },
@@ -46,7 +46,7 @@ export const orgData: OrgTreeData = {
         {
           id: "mohammed",
           name: "Mohammed Al-Radaideh",
-          status: "Lead Researcher",
+          status: "Group Lead",
           role: "Computing Lead",
           imageUrl: "/placeholder.svg?height=100&width=100",
           bio: "",
@@ -54,8 +54,8 @@ export const orgData: OrgTreeData = {
             {
               id: "computing-postdoc1",
               name: "Postdoc",
-              status: "Postdoc",
-              role: "Postdoc",
+              status: "Research Fellow and Scientist",
+              role: "Research Fellow and Scientist",
               imageUrl: "/placeholder.svg?height=100&width=100",
               bio: "",
               children: [
@@ -74,7 +74,7 @@ export const orgData: OrgTreeData = {
         {
           id: "leo",
           name: "Leo Tunkle",
-          status: "Lead Researcher",
+          status: "Group Lead",
           role: "Controls Lead",
           imageUrl: "/placeholder.svg?height=100&width=100",
           bio: "",
@@ -92,7 +92,7 @@ export const orgData: OrgTreeData = {
         {
           id: "patrick",
           name: "Patrick Myers",
-          status: "Lead Researcher",
+          status: "Group Lead",
           role: "HPC Lead",
           imageUrl: "/placeholder.svg?height=100&width=100",
           bio: "",
@@ -110,7 +110,7 @@ export const orgData: OrgTreeData = {
         {
           id: "lada",
           name: "Lada Protchetva",
-          status: "Lead Researcher",
+          status: "Group Lead",
           role: "AIMS Lab Space Lead",
           imageUrl: "/placeholder.svg?height=100&width=100",
           bio: "",
@@ -157,24 +157,21 @@ export interface OrgTreeData {
 const groupByLevel = (leaders: TeamMember[]): Record<string, TeamMember[]> => {
   const levels: Record<string, TeamMember[]> = {
     "Principal Investigators": [],
-    "Lead Researchers": [],
-    "Postdocs": [],
-    "PhD Students": [],
-    "Graduate Students": [],
+    "Group Leads": [],
+    "Research Fellows and Scientists": [],
+    "PhD + Graduate": [],
     "Undergraduate Students": [],
   }
 
   const flattenMembers = (member: TeamMember) => {
     if (member.status === "Principal Investigator") {
       levels["Principal Investigators"].push(member)
-    } else if (member.status === "Lead Researcher") {
-      levels["Lead Researchers"].push(member)
-    } else if (member.status === "Postdoc") {
-      levels["Postdocs"].push(member)
-    } else if (member.status === "PhD Student") {
-      levels["PhD Students"].push(member)
-    } else if (member.status === "Graduate Student") {
-      levels["Graduate Students"].push(member)
+    } else if (member.status === "Group Lead") {
+      levels["Group Leads"].push(member)
+    } else if (member.status === "Research Fellow and Scientist") {
+      levels["Research Fellows and Scientists"].push(member)
+    } else if (member.status === "PhD Student" || member.status === "Graduate Student") {
+      levels["PhD + Graduate"].push(member)
     } else if (member.status === "Undergraduate Student") {
       levels["Undergraduate Students"].push(member)
     }
@@ -254,7 +251,6 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
         initial="collapsed"
         animate={isExpanded ? "expanded" : "collapsed"}
       >
-
         <div className="flex flex-wrap gap-4 justify-center">
           {members.map((member) => (
             <MemberNode key={member.id} member={member} viewMode="accordion" />
@@ -430,10 +426,9 @@ export default function OrgTree() {
 
   const accordionItems = [
     { title: "Principal Investigators", members: levels["Principal Investigators"] },
-    { title: "Lead Researchers", members: levels["Lead Researchers"] },
-    { title: "Postdocs", members: levels["Postdocs"] },
-    { title: "PhD Students", members: levels["PhD Students"] },
-    { title: "Graduate Students", members: levels["Graduate Students"] },
+    { title: "Group Leads", members: levels["Group Leads"] },
+    { title: "Research Fellows and Scientists", members: levels["Research Fellows and Scientists"] },
+    { title: "PhD + Graduate", members: levels["PhD + Graduate"] },
     { title: "Undergraduate Students", members: levels["Undergraduate Students"] },
   ]
 
