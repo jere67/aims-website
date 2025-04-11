@@ -19,8 +19,21 @@ export default function Home() {
         <AboutUs />
         <News />
         <Roadmap />
-        <Videos />
+        <Videos 
+          title="Meet Professor "
+          highlightedText="Majdi"
+          videoSrc="https://www.youtube.com/embed/64mYe6pMimw?si=GZwnBQ-6gVZApUI3"
+          thumbnailSrc="/meet_majdi.png"
+          thumbnailAlt="Hero Video"
+        />
         <People />
+        <Videos 
+          title="Meet the "
+          highlightedText="Team"
+          videoSrc="https://www.youtube.com/embed/bFVfeifJ2kg?si=5decMkFOIjMvNWDx"
+          thumbnailSrc="/meet_team.jpg"
+          thumbnailAlt="Hero Video"
+        />
         <WorldMap />
         <Teachings />
         <Sponsors />
