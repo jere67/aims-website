@@ -369,7 +369,7 @@ function MemberCard({
 
                 {member.bio && (
                   <div className="mb-6">
-                    <p className="text-blue-michigan">{member.bio}</p>
+                    <p className="text-blue-michigan truncate">{member.bio}</p>
                   </div>
                 )}
 
