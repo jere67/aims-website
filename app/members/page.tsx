@@ -21,7 +21,7 @@ export default function TeamShowcase() {
       (activeCategory === "all" && member.status !== "Alumni") ||
       (activeCategory === "pi" && member.status === "Principal Investigator") ||
       (activeCategory === "scientists" && (member.status === "Research Scientist" || member.status === "Postdoc")) ||
-      (activeCategory === "phd/graduate" && (member.status === "PhD Student" || member.status === "Graduate")) ||
+      (activeCategory === "phd/graduate" && (member.status === "PhD" || member.status === "Graduate")) ||
       (activeCategory === "undergraduate" && member.status === "Undergraduate") ||
       (activeCategory === "alumni" && member.status === "Alumni")
 
