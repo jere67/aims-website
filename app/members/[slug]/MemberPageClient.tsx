@@ -62,7 +62,7 @@ export default function MemberPageClient({ member }: { member: any }) {
                   transition={{ duration: 0.5, delay: 0.2 }}
                 >
                   <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-blue-michigan">{member.name}</h1>
-                  <p className="text-xl md:text-2xl text-yellow-maize/70 mt-2">
+                  <p className="text-xl md:text-2xl text-blue-michigan mt-2">
                     {member.status} - {member.role}
                   </p>
                 </motion.div>
