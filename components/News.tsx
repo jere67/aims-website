@@ -32,22 +32,25 @@ export default function News() {
         <div className="container px-4 mx-auto">
           {recentNews.length > 0 && (
             <div className="grid grid-cols-1 md:grid-cols-12 gap-6 my-10">
-              <div className="md:col-span-4 h-[400px]">
+              <div className="md:col-span-7 h-[400px]">
                 <NewsCard
                   item={recentNews[0]}
                   isHovered={isHovered === recentNews[0].id}
                   onHover={() => setIsHovered(recentNews[0].id)}
                   onLeave={() => setIsHovered(null)}
+                  isWide
                 />
               </div>
-              <div className="md:col-span-4 h-[400px]">
+              <div className="md:col-span-5 h-[400px]">
                 <NewsCard
                   item={recentNews[1]}
                   isHovered={isHovered === recentNews[1].id}
                   onHover={() => setIsHovered(recentNews[1].id)}
                   onLeave={() => setIsHovered(null)}
+                  isWide
                 />
               </div>
+              
               <div className="md:col-span-4 h-[400px]">
                 <NewsCard
                   item={recentNews[2]}
@@ -56,23 +59,20 @@ export default function News() {
                   onLeave={() => setIsHovered(null)}
                 />
               </div>
-
-              <div className="md:col-span-5 h-[400px]">
+              <div className="md:col-span-4 h-[400px]">
                 <NewsCard
                   item={recentNews[3]}
                   isHovered={isHovered === recentNews[3].id}
                   onHover={() => setIsHovered(recentNews[3].id)}
                   onLeave={() => setIsHovered(null)}
-                  isWide
                 />
               </div>
-              <div className="md:col-span-7 h-[400px]">
+              <div className="md:col-span-4 h-[400px]">
                 <NewsCard
                   item={recentNews[4]}
                   isHovered={isHovered === recentNews[4].id}
                   onHover={() => setIsHovered(recentNews[4].id)}
                   onLeave={() => setIsHovered(null)}
-                  isWide
                 />
               </div>
             </div>
