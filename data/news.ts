@@ -6,6 +6,7 @@ export type NewsItem = {
   date: string
   timestamp: number
   imageUrl: string
+  imageUrl2?: string
   category: "reactors" | "controls" | "computing" | "general"
   featured: boolean
   author: string
@@ -38,6 +39,7 @@ export const newsItems: NewsItem[] = [
     date: "October 13, 2024",
     timestamp: 1729656000,
     imageUrl: "/news/10_13_2024_NabilaNews2.jpg",
+    imageUrl2: "/news/10_13_2024-NabilaNews.jpg",
     category: "reactors",
     featured: false,
     author: "AIMS",
@@ -53,6 +55,7 @@ export const newsItems: NewsItem[] = [
     date: "November 25, 2024",
     timestamp: 1732510800,
     imageUrl: "/news/11_25_2024-Meredith-RisingStars2.png",
+    imageUrl2: "/news/11_25_2024-Meredith-RisingStars.jpg",
     category: "reactors",
     featured: false,
     author: "AIMS",
