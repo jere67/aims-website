@@ -11,35 +11,35 @@ import { researchItems } from "@/data/research"
 const topicsData = [
   {
     id: 1,
-    title: "Title 1",
+    title: "Explainable and Interpretable AI",
     description:
-      "Description 1",
+      "We develop and apply techniques that enhance model transparency, including post-hoc explainability and symbolic learning, with a focus on high-stakes domains such as nuclear energy.",
     imageUrl: "",
   },
   {
     id: 2,
-    title: "Title 2",
+    title: "Large Language Models",
     description:
-      "Description 2",
+      "We utilize cutting-edge open-source LLMs for natural language processing, investigating inherent biases, linguistic nuances, prompt engineering, and the interpretation of elements like sarcasm and emojis.",
     imageUrl: "",
   },
   {
     id: 3,
-    title: "Title 3",
+    title: "Social Media Computing",
     description:
-      "Description 3",
+      "We deploy language models to power real-time visualization dashboards that track and analyze public sentiment toward clean energy technologies—such as nuclear and renewable energy—across various social media platforms.",
     imageUrl: "",
   },
   {
     id: 4,
-    title: "Title 4",
-    description: "Description 4",
+    title: "Uncertainty Quantification",
+    description: "We apply Bayesian calibration to refine model accuracy and use variational inference techniques for real-time data assimilation and uncertainty estimation.",
     imageUrl: "",
   },
   {
     id: 5,
-    title: "Title 5",
-    description: "Description 5",
+    title: "Generative AI",
+    description: "We employ diffusion mode ls to generate synthetic datasets for engineering applications and use text-to-image models to create visually compelling and accurate representations of complex systems.",
     imageUrl: "",
   },
 ]
