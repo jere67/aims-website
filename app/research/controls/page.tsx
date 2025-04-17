@@ -11,35 +11,35 @@ import { researchItems } from "@/data/research"
 const topicsData = [
   {
     id: 1,
-    title: "Title 1",
+    title: "Digital Twins",
     description:
-      "Description 1",
-    imageUrl: "",
+      "We establish general mathematical and computational frameworks for real-time digital twins, with applications demonstrated on nuclear power plant systems.",
+    imageUrl: "/controls/Digital-Twins.jpg",
   },
   {
     id: 2,
-    title: "Title 2",
+    title: "Intelligent Control",
     description:
-      "Description 2",
+      "We leverage deep reinforcement learning to develop real-time, uncertainty-aware control strategies for both light water and advanced microreactor concepts.",
     imageUrl: "",
   },
   {
     id: 3,
-    title: "Title 3",
+    title: "Classical Control Theory",
     description:
-      "Description 3",
+      "We apply both linear and nonlinear model predictive control techniques, and integrate them with reinforcement learning to create hybrid algorithms.",
     imageUrl: "",
   },
   {
     id: 4,
-    title: "Title 4",
-    description: "Description 4",
-    imageUrl: "",
+    title: "Anomaly Detection",
+    description: "We develop data-driven methods to identify anomalies and predict potential faults in sensor data.",
+    imageUrl: "/controls/Anomaly-Detection.png",
   },
   {
     id: 5,
-    title: "Title 5",
-    description: "Description 5",
+    title: "Robotics",
+    description: "We program drones and quadruped robots for autonomous inspection tasks and radiation mapping in nuclear power plant environments.",
     imageUrl: "",
   },
 ]
