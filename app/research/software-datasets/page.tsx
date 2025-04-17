@@ -80,7 +80,7 @@ export default function SoftwareAndDatasetsPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              Explore our open-source tools and datasets for Nuclear Engineering and AI research.
+              We believe in open science and strive to make all our codes, data, and journal publications freely available whenever there are no sponsor or export control restrictions, and when our funding permits covering open - access fees. Since the group's inception in January 2023, we have successfully made all our journal papers published after this date openly accessible.
             </motion.p>
             <motion.div
               className="flex flex-wrap justify-center gap-4"
@@ -319,10 +319,6 @@ export default function SoftwareAndDatasetsPage() {
                           <p className="font-medium text-blue-michigan">{item.size}</p>
                         </div>
                         <div>
-                          <p className="text-sm text-gray-500">Samples</p>
-                          <p className="font-medium text-blue-michigan">{item.samples.toLocaleString()}</p>
-                        </div>
-                        <div>
                           <p className="text-sm text-gray-500">Category</p>
                           <p className="font-medium text-blue-michigan capitalize">{item.category}</p>
                         </div>
@@ -404,29 +400,6 @@ export default function SoftwareAndDatasetsPage() {
           </div>
         </section>
       )}
-
-      <section className="py-16 bg-blue-michigan text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">
-            All Our Code and Publications are <span className="text-yellow-maize">Open Source</span>
-          </h2>
-          <p className="text-xl text-gray-200 max-w-3xl mx-auto mb-8">
-            We believe in the power of open science and collaborative research. All our software and datasets are freely
-            available to the research community.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <a
-              href="https://github.com/aims-umich"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-yellow-maize text-blue-michigan px-6 py-3 rounded-lg font-medium flex items-center gap-2 hover:bg-yellow-400 transition-colors"
-            >
-              <Github size={20} />
-              GitHub Organization
-            </a>
-          </div>
-        </div>
-      </section>
 
       <AnimatePresence>
         {isModalOpen && selectedItem && (
@@ -518,10 +491,6 @@ export default function SoftwareAndDatasetsPage() {
                     <div>
                       <p className="text-sm text-gray-500">Size</p>
                       <p className="font-medium text-blue-michigan">{selectedItem.size}</p>
-                    </div>
-                    <div>
-                      <p className="text-sm text-gray-500">Samples</p>
-                      <p className="font-medium text-blue-michigan">{selectedItem.samples.toLocaleString()}</p>
                     </div>
                     <div>
                       <p className="text-sm text-gray-500">Category</p>

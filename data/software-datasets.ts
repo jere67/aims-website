@@ -82,9 +82,9 @@ export const softwareItems: SoftwareItem[] = [
   {
     id: "aims-umich",
     title: "AIMS-UMICH: Core Repository",
-    description: "Central repository for AIMS Lab's open-source tools, utilities, and educational resources",
+    description: "Central repository for AIMS Lab's open-source software, tools, and the scripts and data to reproduce the results of our papers.",
     longDescription:
-      "The AIMS-UMICH repository serves as the central hub for our lab's open-source contributions to the nuclear engineering and AI research communities. It contains a collection of tools, utilities, and educational resources developed by our team. This repository includes code for data preprocessing, visualization tools, benchmark problems, and tutorials that demonstrate the application of AI techniques to nuclear engineering challenges.",
+      "The AIMS-UMICH repository serves as the central hub for our lab's open-source contributions to the nuclear engineering and AI research communities. It contains a collection of tools, utilities, and resources developed by our team. This repository includes code for data preprocessing, visualization tools, benchmark problems, and tutorials that demonstrate the application of AI techniques to nuclear engineering challenges.",
     logoUrl: "/aims.png",
     screenshotUrl: "/aims.png",
     githubUrl: "https://github.com/aims-umich",
@@ -104,7 +104,7 @@ export const datasetItems: DatasetItem[] = [
     description: "Real-time series datasets collected from the high voltage converter modulators (HVCM) of the Spallation Neutron Source facility.",
     longDescription:
       "HVCMs are used to power the linear accelerator klystrons, which in turn produce the high-power radio frequency to accelerate the negative hydrogen ions (H−). Waveform signals have been collected from the operation of more than 15 HVCM systems categorized into four major subsystems during the years 2020-2022. The data collection process occurred in the Spallation Neutron Source facility of Oak Ridge, Tennessee in the United States. For each of the four subsystems, there are two datasets. The first one contains the waveform signals, while the second contains the label of the waveform, whether it has a normal or faulty signal. A variety of waveforms are included in the datasets including insulated-gate bipolar transistor (IGBT) currents in three phases, magnetic flux in the three phases, modulator current and voltage, cap bank current and voltage, and time derivative change of the modulator voltage. The datasets provided are useful to test and develop machine learning and statistical algorithms for applications related to anomaly detection, system fault detection and classification, and signal processing.",
-    imageUrl: "",
+    imageUrl: "/software-datasets/Real electronic signal data from particle accelerator power systems for machine learning anomaly detection.png",
     downloadUrl: "https://data.mendeley.com/datasets/kbbrw99vh8/5",
     paperUrl: "https://doi.org/10.1016/j.dib.2022.108473",
     documentationUrl: null,
@@ -120,7 +120,7 @@ export const datasetItems: DatasetItem[] = [
     description: "Showcases real-world operational data gathered from the power systems of the Spallation Neutron Source facility",
     longDescription:
       "This dataset serves as a valuable resource for crafting techniques and algorithms aimed at preemptively identifying system faults, enabling timely operator intervention, and effective maintenance oversight. The authors utilized a radio-frequency test facility (RFTF) to conduct controlled laboratory experiments simulating system failures, all without triggering a catastrophic system breakdown. The dataset comprises waveform signals obtained during both regular system operations and deliberate fault induction efforts, offering a substantial amount of data for training statistical or machine learning models. Afterward, the authors carried out 21 test experiments wherein they gradually introduced faults into the RFTF system to evaluate the models' effectiveness in detecting and preempting impending faults. These experiments involved combinations of magnetic flux compensation and adjustments to start pulse width, leading to a gradual deterioration in various waveform aspects such as system output voltage and current. These alterations effectively mimicked real fault scenarios. All experiments took place at the Oak Ridge National Laboratory's Spallation Neutron Source facility in Oak Ridge, Tennessee, United States, during July 2022. The users of this dataset may include researchers in control, predictive maintenance, machine learning, and signal processing.",
-    imageUrl: "",
+    imageUrl: "/software-datasets/Operational data for fault prognosis in particle.png",
     downloadUrl: "https://data.mendeley.com/datasets/9zxrt6pf2k/3",
     paperUrl: "https://doi.org/10.1016/j.dib.2023.109658",
     documentationUrl: null,
