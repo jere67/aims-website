@@ -56,14 +56,62 @@ const recentPapers = researchItems
 }))
 
 const projects = [
-  "Bullet Point",
-  "Bullet Point",
-  "Bullet Point",
-  "Bullet Point",
-  "Bullet Point",
-  "Bullet Point",
-  "Bullet Point",
-  "Bullet Point",
+  {
+    title: "Safety analysis and design optimization of small modular reactors, with a focus on NuScale and Holtec SMR-300 systems",
+    link: "Work in progress",
+    wip: true
+  },
+  {
+    title: "Acceleration of CFD-based reactor safety analysis using multifidelity surrogate models for improved computational efficiency",
+    link: "Work in progress",
+    wip: true
+  },
+  {
+    title: "Application of tensor-train decompositions and isogeometric analysis to enhance the efficiency of neutron transport simulations",
+    link: "Work in progress",
+    wip: true
+  },
+  {
+    title: "Combinatorial optimization strategies for nuclear reactor site selection and evaluation",
+    link: "https://doi.org/10.1016/j.ecmx.2025.100923",
+    wip: false
+  },
+  {
+    title: "Development of scalable ensemble - based optimization algorithms integrated with online surrogate models to accelerate nuclear reactor design under computationally expensive simulations",
+    link: "https://link.springer.com/article/10.1007/s00521-022-07878-y",
+    wip: false
+  },
+  {
+    title: "Model-agnostic explainability methods for trustworthy and licensable AI in nuclear applications",
+    link: "https://arxiv.org/abs/2504.03913",
+    wip: false
+  },
+  {
+    title: "Coupled multiphysics simulations and criticality search for optimal drum placement in eVinci™-like microreactors",
+    link: "https://doi.org/10.1080/00295639.2024.2409582",
+    wip: false
+  },
+  {
+    title: "Physics-informed reinforcement learning for optimizing nuclear reactor cores and assemblies at large scale",
+    link: "https://doi.org/10.1016/j.nucengdes.2020.110966",
+    wip: false
+  },
+  {
+    title: "Advanced simulation and depletion modeling for precise isotopic predictions in boiling water reactor fuel assemblies",
+    link: "https://doi.org/10.1016/j.pnucene.2019.01.010",
+    wip: false
+  },
+  {
+    title: "Criticality safety and accident scenario modeling for spent fuel in boiling water reactors",
+    link: "https://doi.org/10.1016/j.pnucene.2019.03.039",
+    wip: false
+  },
+  {
+    title: "Propagation of delayed neutron data uncertainties into macroscopic kinetics parameters for light water reactors",
+    link: "https://doi.org/10.1016/j.anucene.2018.11.043",
+    wip: false
+  },
+
 ]
 
 export default function ReactorsPage() {
@@ -90,9 +138,6 @@ export default function ReactorsPage() {
             <h1 className="text-4xl font-bold tracking-tight text-blue-michigan text-center md:text-5xl mb-6">
               Reactors <span className="text-yellow-maize">Research Group</span>
             </h1>
-            <p className="text-xl text-center max-w-4xl tracking-tight text-blue-michigan mb-4">
-              Description Here !
-            </p>
           </div>
 
           <div className="mb-20 relative">
@@ -228,30 +273,41 @@ export default function ReactorsPage() {
             </div>
           </div>
 
+          <div className="flex justify-center -mt-12 mb-24">
+            <Link href="/research">
+              <Button
+                className="px-8 py-0 text-lg font-semibold text-yellow-maize bg-blue-michigan rounded-full hover:bg-blue-michigan/90 transition-colors duration-300 shadow-lg hover:shadow-xl"
+                size="lg"
+              >
+                View All Publications
+              </Button>
+            </Link>
+          </div>
+
           <div className="mb-20 max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold tracking-tight text-blue-michigan sm:text-4xl mb-8 text-center">
-              Current <span className="text-yellow-maize">Projects</span>
+              Recent Funded and Ongoing <span className="text-yellow-maize">Projects</span>
             </h2>
 
             <ul className="space-y-4 text-lg">
               {projects.map((project, index) => (
-                <li key={index} className="flex items-start">
+                <li key={index}>
                   <span className="text-yellow-maize mr-2 text-2xl leading-none">•</span>
-                  <span className="text-blue-michigan">{project}</span>
+                  <span className="text-blue-michigan">{project.title}</span>
+                  <br />
+                  <span className="text-blue-michigan">
+                    (Further read: {" "}
+                      {!project.wip 
+                        ? <Link href={project.link} className="text-yellow-maize">
+                          {project.link}
+                        </Link>
+                        : <p className="inline">{project.link}</p>
+                      }
+                    )
+                    </span>
                 </li>
               ))}
             </ul>
-
-            <div className="flex justify-center mt-12">
-              <Link href="/research">
-                <Button
-                  className="px-8 py-0 text-lg font-semibold text-yellow-maize bg-blue-michigan rounded-full hover:bg-blue-michigan/90 transition-colors duration-300 shadow-lg hover:shadow-xl"
-                  size="lg"
-                >
-                  Explore All Projects
-                </Button>
-              </Link>
-            </div>
           </div>
         </div>
       </div>
