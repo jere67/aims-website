@@ -56,14 +56,57 @@ const recentPapers = researchItems
 }))
 
 const projects = [
-  "Bullet Point",
-  "Bullet Point",
-  "Bullet Point",
-  "Bullet Point",
-  "Bullet Point",
-  "Bullet Point",
-  "Bullet Point",
-  "Bullet Point",
+  {
+    title: "Generative diffusion models for full-field reconstruction in nuclear digital twins",
+    link: "Work in progress",
+    wip: true
+  },
+  {
+    title: "Collaborative drone-based autonomous inspection in nuclear-plant-like environments",
+    link: "Work in progress",
+    wip: true
+  },
+  {
+    title: "Real-time sensor data assimilation into digital twins using variati onal inference techniques",
+    link: "Work in progress",
+    wip: true
+  },
+  {
+    title: "Deep reinforcement learning for real-time control of nuclear reactors",
+    link: "https://arxiv.org/abs/2504.00156",
+    wip: false
+  },
+  {
+    title: "Classical control a pproaches for load-following system design in nuclear microreactors",
+    link: "https://doi.org/10.1016/j.pnucene.2025.105676",
+    wip: false
+  },
+  {
+    title: "Recurrent neural networks and autoencoders for anomaly detection in electronic power signals",
+    link: "https://doi.org/10.1016/j.dsp.2022.103704",
+    wip: false
+  },
+  {
+    title: "Fault prognosis in particle accelerators using ensemble learning techniques",
+    link: "https://doi.org/10.36001/ijphm.2023.v14i1.3419",
+    wip: false
+  },
+  {
+    title: "Full-field temperature reconstruction in microreactor systems via matching pursuits",
+    link: "https://doi.org/10.1016/j.apm.2024.04.011",
+    wip: false
+  },
+  {
+    title: "Reactivity control and criticality search using swarm intelligence and evolutionary algorithms",
+    link: "https://doi.org/10.1016/j.nucengdes.2022.111776",
+    wip: false
+  },
+  {
+    title: "Forward digital twins for monitoring nuclear reactor transients and accident progression",
+    link: "https://doi.org/10.1016/j.eswa.2020.113699",
+    wip: false
+  },
+
 ]
 
 export default function ReactorsPage() {
@@ -90,9 +133,6 @@ export default function ReactorsPage() {
             <h1 className="text-4xl font-bold tracking-tight text-blue-michigan text-center md:text-5xl mb-6">
               Controls <span className="text-yellow-maize">Research Group</span>
             </h1>
-            <p className="text-xl text-center max-w-4xl tracking-tight text-blue-michigan mb-4">
-              Description Here !
-            </p>
           </div>
 
           <div className="mb-20 relative">
@@ -228,30 +268,41 @@ export default function ReactorsPage() {
             </div>
           </div>
 
+          <div className="flex justify-center -mt-12 mb-24">
+            <Link href="/research">
+              <Button
+                className="px-8 py-0 text-lg font-semibold text-yellow-maize bg-blue-michigan rounded-full hover:bg-blue-michigan/90 transition-colors duration-300 shadow-lg hover:shadow-xl"
+                size="lg"
+              >
+                View All Publications
+              </Button>
+            </Link>
+          </div>
+
           <div className="mb-20 max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold tracking-tight text-blue-michigan sm:text-4xl mb-8 text-center">
-              Current <span className="text-yellow-maize">Projects</span>
+              Recent Funded and Ongoing <span className="text-yellow-maize">Projects</span>
             </h2>
 
             <ul className="space-y-4 text-lg">
               {projects.map((project, index) => (
-                <li key={index} className="flex items-start">
+                <li key={index}>
                   <span className="text-yellow-maize mr-2 text-2xl leading-none">•</span>
-                  <span className="text-blue-michigan">{project}</span>
+                  <span className="text-blue-michigan">{project.title}</span>
+                  <br />
+                  <span className="text-blue-michigan">
+                    (Further read: {" "}
+                      {!project.wip 
+                        ? <Link href={project.link} className="text-yellow-maize">
+                          {project.link}
+                        </Link>
+                        : <p className="inline">{project.link}</p>
+                      }
+                    )
+                    </span>
                 </li>
               ))}
             </ul>
-
-            <div className="flex justify-center mt-12">
-              <Link href="/research">
-                <Button
-                  className="px-8 py-0 text-lg font-semibold text-yellow-maize bg-blue-michigan rounded-full hover:bg-blue-michigan/90 transition-colors duration-300 shadow-lg hover:shadow-xl"
-                  size="lg"
-                >
-                  Explore All Projects
-                </Button>
-              </Link>
-            </div>
           </div>
         </div>
       </div>
