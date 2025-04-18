@@ -52,7 +52,8 @@ const recentPapers = researchItems
     authors: item.authors?.join(", ") ?? "Unknown Authors",
     journal: item.journal,
     year: item.year,
-    imageUrl: item.imageUrl
+    imageUrl: item.imageUrl,
+    url: item.doi
 }))
 
 const projects = [
@@ -221,11 +222,11 @@ export default function ReactorsPage() {
                     </div>
                     <div className="p-6">
                       <h3 className="font-bold text-blue-michigan mb-2 line-clamp-2">{paper.title}</h3>
-                      <p className="text-blue-michigan/60 dark:text-zinc-400 text-sm mb-1">{paper.authors}</p>
+                      <p className="text-blue-michigan/60 dark:text-zinc-400 text-sm mb-1">{paper.year}</p>
                       <p className="text-blue-michigan/80 dark:text-zinc-300 text-sm italic mb-4">
-                        {paper.journal}, {paper.year}
+                        {paper.journal}
                       </p>
-                      <Link href="#">
+                      <Link href={paper.url}>
                         <Button
                           className="w-full text-sm font-semibold text-yellow-maize bg-blue-michigan rounded-full hover:bg-blue-michigan/90 transition-colors duration-300"
                           size="sm"
@@ -254,11 +255,11 @@ export default function ReactorsPage() {
                     </div>
                     <div className="p-6">
                       <h3 className="font-bold text-blue-michigan mb-2 line-clamp-2">{paper.title}</h3>
-                      <p className="text-blue-michigan/60 dark:text-zinc-400 text-sm mb-1">{paper.authors}</p>
+                      <p className="text-blue-michigan/60 dark:text-zinc-400 text-sm mb-1">{paper.year}</p>
                       <p className="text-blue-michigan/80 dark:text-zinc-300 text-sm italic mb-4">
-                        {paper.journal}, {paper.year}
+                        {paper.journal}
                       </p>
-                      <Link href="#">
+                      <Link href={paper.url}>
                         <Button
                           className="w-full text-sm font-semibold text-yellow-maize bg-blue-michigan rounded-full hover:bg-blue-michigan/90 transition-colors duration-300"
                           size="sm"

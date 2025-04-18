@@ -155,7 +155,7 @@ export const researchItems: ResearchItem[] = [
     group: "reactors",
     imageUrl: "/research-focus/software.png",
     pdfUrl: "#",
-    isRecent: true
+    isRecent: false
   },
   {
     id: "6",
@@ -170,7 +170,7 @@ export const researchItems: ResearchItem[] = [
     group: "reactors",
     imageUrl: "/research-focus/software.png",
     pdfUrl: "#",
-    isRecent: true
+    isRecent: false
   },
   {
     id: "7",
@@ -185,7 +185,7 @@ export const researchItems: ResearchItem[] = [
     group: "reactors",
     imageUrl: "/research-focus/software.png",
     pdfUrl: "#",
-    isRecent: true
+    isRecent: false
   },
   {
     id: "8",
