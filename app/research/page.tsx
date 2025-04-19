@@ -596,8 +596,8 @@ function ResearchCard({
                         className="px-6 py-2 bg-blue-michigan text-yellow-maize rounded-lg hover:bg-blue-michigan/90 transition"
                         size="sm"
                       >
-                        <Download className="mr-2 h-4 w-4" />
-                        Download PDF
+                        <Download className="h-4 w-4" />
+                        View Paper
                       </Button>
                     </Link>
                   )}
