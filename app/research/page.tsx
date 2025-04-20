@@ -90,7 +90,7 @@ export default function ResearchDirectory() {
                 </div>
                 <div>
                   <p className="text-blue-michigan font-medium">Directory last updated</p>
-                  <p className="text-blue-michigan/70 text-sm">03-27-2025</p>
+                  <p className="text-blue-michigan/70 text-sm">04-20-2025</p>
                 </div>
               </div>
               
