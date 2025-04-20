@@ -39,7 +39,12 @@ export default function ResearchDirectory() {
           item.collaborators?.some((collaborator) => collaborator.toLowerCase().includes(searchQuery.toLowerCase()))))
 
     return matchesCategory && (searchQuery ? matchesSearch : true)
-  })
+  }).sort((a, b) => {
+    if (a.year !== b.year) {
+      return (b.year || 0) - (a.year || 0);
+    }
+    return a.title.localeCompare(b.title);
+  });
 
   const containerVariants = {
     hidden: { opacity: 0 },
