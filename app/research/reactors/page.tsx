@@ -294,7 +294,7 @@ export default function ReactorsPage() {
               {projects.map((project, index) => (
                 <li key={index}>
                   <span className="text-yellow-maize mr-2 text-2xl leading-none">•</span>
-                  <span className="text-blue-michigan">{project.title}</span>
+                  <span className="text-blue-michigan font-bold">{project.title}</span>
                   <br />
                   <span className="text-blue-michigan">
                     (Further read: {" "}
