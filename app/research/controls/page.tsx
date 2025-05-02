@@ -21,14 +21,14 @@ const topicsData = [
     title: "Intelligent Control",
     description:
       "We leverage deep reinforcement learning to develop real-time, uncertainty-aware control strategies for both light water and advanced microreactor concepts.",
-    imageUrl: "",
+    imageUrl: "/controls/IntelligentControl.jpg",
   },
   {
     id: 3,
     title: "Classical Control Theory",
     description:
       "We apply both linear and nonlinear model predictive control techniques, and integrate them with reinforcement learning to create hybrid algorithms.",
-    imageUrl: "",
+    imageUrl: "/controls/ClassicalControlTheory.jpg",
   },
   {
     id: 4,

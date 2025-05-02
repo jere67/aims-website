@@ -11,36 +11,36 @@ import { researchItems } from "@/data/research"
 const topicsData = [
   {
     id: 1,
-    title: "Neutron Transport",
-    description:
-      "We design advanced numerical methods to efficiently solve neutron transport problems relevant to nuclear reactor applications.",
-    imageUrl: "",
-  },
-  {
-    id: 2,
     title: "Reactor Design",
     description:
       "We apply modeling and simulation tools to evaluate both light water reactors and advanced reactor concepts",
-    imageUrl: "",
+    imageUrl: "/reactors/Reactor-Design.jpg",
   },
   {
-    id: 3,
+    id: 2,
     title: "Optimization",
     description:
       "We create scalable, multi-objective optimization algorithms to accelerate the design process of nuclear reactors, especially in high-fidelity and computationally intensive simulations.",
     imageUrl: "/reactors/Optimization.png",
   },
   {
+    id: 3,
+    title: "Neutron Transport",
+    description:
+      "We design advanced numerical methods to efficiently solve neutron transport problems relevant to nuclear reactor applications.",
+    imageUrl: "/reactors/NeutronTransport.jpg",
+  },
+  {
     id: 4,
     title: "Multiphysics Simulations",
     description: "We conduct coupled simulations involving neutronics, thermal-hydraulics, and fuel performance to gain deeper insights into the safety and behavior of advanced reactors.",
-    imageUrl: "",
+    imageUrl: "/reactors/Multiphysics-Simulations.png",
   },
   {
     id: 5,
     title: "Multifidelity Modeling",
     description: "We develop neural network-based surrogate models to predict high-fidelity outcomes from low-fidelity simulations, enabling more efficient analysis.",
-    imageUrl: "",
+    imageUrl: "/reactors/MultifidelityModeling.jpg",
   },
 ]
 

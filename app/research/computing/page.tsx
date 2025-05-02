@@ -14,33 +14,33 @@ const topicsData = [
     title: "Explainable and Interpretable AI",
     description:
       "We develop and apply techniques that enhance model transparency, including post-hoc explainability and symbolic learning, with a focus on high-stakes domains such as nuclear energy.",
-    imageUrl: "",
+    imageUrl: "/computing/Explainable-AI.jpg",
   },
   {
     id: 2,
     title: "Large Language Models",
     description:
       "We utilize cutting-edge open-source LLMs for natural language processing, investigating inherent biases, linguistic nuances, prompt engineering, and the interpretation of elements like sarcasm and emojis.",
-    imageUrl: "",
+    imageUrl: "/computing/LLM.jpg",
   },
   {
     id: 3,
     title: "Social Media Computing",
     description:
       "We deploy language models to power real-time visualization dashboards that track and analyze public sentiment toward clean energy technologies—such as nuclear and renewable energy—across various social media platforms.",
-    imageUrl: "",
+    imageUrl: "/computing/SocialMedia.png",
   },
   {
     id: 4,
     title: "Uncertainty Quantification",
     description: "We apply Bayesian calibration to refine model accuracy and use variational inference techniques for real-time data assimilation and uncertainty estimation.",
-    imageUrl: "",
+    imageUrl: "/computing/UncertaintyQuantification.jpg",
   },
   {
     id: 5,
     title: "Generative AI",
     description: "We employ diffusion mode ls to generate synthetic datasets for engineering applications and use text-to-image models to create visually compelling and accurate representations of complex systems.",
-    imageUrl: "",
+    imageUrl: "/computing/GenerativeAI.jpg",
   },
 ]
 
