@@ -60,8 +60,8 @@ export default function Navbar() {
         </Link>
 
         <nav className="hidden md:flex items-center space-x-1">
-          <NavLink href="/" active={pathname === "/"}>
-            Home
+          <NavLink href="/culture" active={pathname === "/culture"}>
+            Culture
           </NavLink>
 
           <NavLink href="/news" active={pathname === "/news"}>
@@ -118,6 +118,9 @@ export default function Navbar() {
           <NavLink href="/members" active={pathname === "/members" || pathname.startsWith("/members/")}>
             Members
           </NavLink>
+          <NavLink href="/teaching" active={pathname === "/teaching"}>
+            Teaching
+          </NavLink>
           <NavLink href="/gallery" active={pathname === "/gallery"}>
             Gallery
           </NavLink>
@@ -136,8 +139,8 @@ export default function Navbar() {
         <div className="md:hidden bg-white border-t border-gray-200">
           <div className="container mx-auto px-4 py-3">
             <nav className="flex flex-col space-y-3">
-              <MobileNavLink href="/" active={pathname === "/"}>
-                Home
+              <MobileNavLink href="/culture" active={pathname === "/culture"}>
+                Culture
               </MobileNavLink>
 
               <MobileNavLink href="/news" active={pathname === "/news"}>
@@ -182,6 +185,9 @@ export default function Navbar() {
 
               <MobileNavLink href="/members" active={pathname === "/members" || pathname.startsWith("/members/")}>
                 Members
+              </MobileNavLink>
+              <MobileNavLink href="/teaching" active={pathname === "/teaching"}>
+                Teaching
               </MobileNavLink>
               <MobileNavLink href="/gallery" active={pathname === "/gallery"}>
                 Gallery
