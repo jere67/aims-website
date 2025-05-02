@@ -3,6 +3,7 @@ export type NewsItem = {
   title: string
   excerpt: string
   content: string
+  link?: string
   date: string
   timestamp: number
   imageUrl: string
@@ -20,7 +21,8 @@ export const newsItems: NewsItem[] = [
     excerpt:
       "Python-based Michigan Artificial Intelligence Standard Environment (pyMAISE) is a project that is providing an “automatic machine learning benchmarking library—the first of its kind created by nuclear engineers for nuclear engineers.”",
     content:
-      'To read full article, please visit: https://www.ans.org/news/2025-01-24/article-6716/umich-ners-builds-online-platform-to-promote-ai-applications-in-nuclear-engineering/',
+      "To read full article, please visit the link below.",
+    link: "https://www.ans.org/news/2025-01-24/article-6716/umich-ners-builds-online-platform-to-promote-ai-applications-in-nuclear-engineering/",
     date: "January 24, 2025",
     timestamp: 1737694800,
     imageUrl: "/software-datasets/pymaise.png",
@@ -67,7 +69,8 @@ export const newsItems: NewsItem[] = [
     excerpt:
       "US public opinion on social media is warming to nuclear energy, but concerns remain.",
     content:
-      'To read full article, please visit: https://news.umich.edu/us-public-opinion-on-social-media-is-warming-to-nuclear-energy-but-concerns-remain/',
+      "To read full article, please visit the link below.",
+    link: "https://news.umich.edu/us-public-opinion-on-social-media-is-warming-to-nuclear-energy-but-concerns-remain/",
     date: "June 5, 2024",
     timestamp: 1717560000,
     imageUrl: "/news/06_05_2024-OHwangKwon.jpg",
@@ -82,7 +85,8 @@ export const newsItems: NewsItem[] = [
     excerpt:
       "Logan Burnett and Nataly R. Panczyk have been awarded prestigious fellowships from the National Science Foundation Graduate Research Fellowship Program.",
     content:
-      'To read full article, please visit: https://ners.engin.umich.edu/2024/06/04/ners-graduate-students-receive-nsf-fellowships/',
+      "To read full article, please visit the link below.",
+    link: "https://ners.engin.umich.edu/2024/06/04/ners-graduate-students-receive-nsf-fellowships/",
     date: "June 4, 2024",
     timestamp: 1717473600,
     imageUrl: "/news/06_04_2024-Fellowships.jpg",
@@ -97,7 +101,8 @@ export const newsItems: NewsItem[] = [
     excerpt:
       "The Department of Energy will support research into gas-cooled fast modular reactor safety, community consent in nuclear facility siting, and more.",
     content:
-      'To read full article, please visit: https://ners.engin.umich.edu/2024/04/30/neups-2024/',
+      "To read full article, please visit the link below.",
+    link: "https://ners.engin.umich.edu/2024/04/30/neups-2024/",
     date: "April 30, 2024",
     timestamp: 1714449600,
     imageUrl: "/news/04_30_2024-Grants.jpeg",
@@ -112,7 +117,8 @@ export const newsItems: NewsItem[] = [
     excerpt:
       "The Nuclear Regulatory Commission will support this project with a $500k grant.",
     content:
-      'To read full article, please visit: https://ners.engin.umich.edu/2024/04/29/majdi-radaideh-to-lead-development-of-nuclear-regulatory-framework-for-explainable-licensable-ai/',
+      "To read full article, please visit the link below.",
+    link: "https://ners.engin.umich.edu/2024/04/29/majdi-radaideh-to-lead-development-of-nuclear-regulatory-framework-for-explainable-licensable-ai/",
     date: "April 29, 2024",
     timestamp: 1714363200,
     imageUrl: "/news/04_29_2024-Grants.jpg",
@@ -127,7 +133,8 @@ export const newsItems: NewsItem[] = [
     excerpt:
       "Majdi Radaideh is supporting Uncertainty Quantification Methods for Digital Twin-based Autonomous Control.",
     content:
-      'To read full article, please visit: https://ners.engin.umich.edu/2024/03/06/advancing-nuclear-reactor-control-and-digital-twins-with-idaho-national-laboratory/',
+      "To read full article, please visit the link below.",
+    link: "https://ners.engin.umich.edu/2024/03/06/advancing-nuclear-reactor-control-and-digital-twins-with-idaho-national-laboratory/",
     date: "March 6, 2024",
     timestamp: 1709701200,
     imageUrl: "/news/03_06_2024-INL.jpg",
@@ -142,7 +149,8 @@ export const newsItems: NewsItem[] = [
     excerpt:
       "COP28 was a significant COP for nuclear energy, being referred to as the ‘nuclear COP’ by many people.",
     content:
-      'To read full article, please visit: https://climateblue.org/2024/01/16/lessons-learned-in-nuclear-communication-at-cop28/',
+      "To read full article, please visit the link below.",
+    link: "https://climateblue.org/2024/01/16/lessons-learned-in-nuclear-communication-at-cop28/",
     date: "January 16, 2024",
     timestamp: 1705381200,
     imageUrl: "/news/01_16_2024-COP28.png",
@@ -157,7 +165,8 @@ export const newsItems: NewsItem[] = [
     excerpt:
       "RAD’s research seeks to develop new algorithms for optimizing and controlling advanced nuclear reactors.",
     content:
-      'To read full article, please visit: https://ners.engin.umich.edu/2023/07/06/majdi-radaideh-wins-doe-distinguished-early-career-award/',
+      "To read full article, please visit the link below.",
+    link: "https://ners.engin.umich.edu/2023/07/06/majdi-radaideh-wins-doe-distinguished-early-career-award/",
     date: "July 6, 2023",
     timestamp: 1688616000,
     imageUrl: "/news/07_06_2023-Award.jpg",
@@ -172,7 +181,8 @@ export const newsItems: NewsItem[] = [
     excerpt:
       "Their paper is titled “pyMAISE: A Machine Learning and Artificial Intelligence Benchmarking Software for Nuclear Reactor Applications”.",
     content:
-      'To read full article, please visit: https://ners.engin.umich.edu/2023/05/03/u-m-ners-team-win-best-undergraduate-computational-methods-artificial-intelligence-and-machine-learning-presentation-at-2023-ans-student-conference/',
+      "To read full article, please visit the link below.",
+    link: "https://ners.engin.umich.edu/2023/05/03/u-m-ners-team-win-best-undergraduate-computational-methods-artificial-intelligence-and-machine-learning-presentation-at-2023-ans-student-conference/",
     date: "May 3, 2023",
     timestamp: 1683086400,
     imageUrl: "/news/05_03_2023-pyMAISE.jpg",
@@ -187,7 +197,8 @@ export const newsItems: NewsItem[] = [
     excerpt:
       "In his talk, “Which Would Be the Successor of Fossil Fuels—Renewables or Nuclear?”, O Hwang Kwon aims to convey the message of the urgent need for action as he firmly believes that by working together as a team, the world can successfully overcome the challenge of climate change.",
     content:
-      'To read full article, please visit: https://ners.engin.umich.edu/2023/02/27/ners-student-o-hwang-kwon-talks-about-the-possible-successors-of-fossil-fuels-at-the-2023-rackham-king-talks/',
+      "To read full article, please visit the link below.",
+    link: "https://ners.engin.umich.edu/2023/02/27/ners-student-o-hwang-kwon-talks-about-the-possible-successors-of-fossil-fuels-at-the-2023-rackham-king-talks/",
     date: "February 27, 2023",
     timestamp: 1677474000,
     imageUrl: "/news/02_27_2023-Rackham.jpg",
@@ -202,7 +213,8 @@ export const newsItems: NewsItem[] = [
     excerpt:
       "The fellowship is awarded to exceptional students researching innovative nuclear energy solutions to today’s climate challenges and help in production of clean electricity and reduction of carbon emissions.",
     content:
-      'To read full article, please visit: https://ners.engin.umich.edu/2022/05/09/phd-student-meredith-eaheart-awarded-unlp-fellowship/',
+      "To read full article, please visit the link below.",
+    link: "https://ners.engin.umich.edu/2022/05/09/phd-student-meredith-eaheart-awarded-unlp-fellowship/",
     date: "May 9, 2022",
     timestamp: 1652068800,
     imageUrl: "/news/05_09_2022-Fellowship.jpg",
@@ -217,7 +229,8 @@ export const newsItems: NewsItem[] = [
     excerpt:
       "The new additions to the department point to a positive future and offer a breadth of educational and research experience.",
     content:
-      'To read full article, please visit: https://ners.engin.umich.edu/2022/08/25/majdi-radaideh-stephen-raiman-and-yang-zhang-join-ners-faculty/',
+      "To read full article, please visit the link below.",
+    link: "https://ners.engin.umich.edu/2022/08/25/majdi-radaideh-stephen-raiman-and-yang-zhang-join-ners-faculty/",
     date: "May 8, 2022",
     timestamp: 1651982400,
     imageUrl: "/news/05_08_2022-Majdi.jpg",

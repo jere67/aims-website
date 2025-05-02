@@ -5,7 +5,7 @@ import { useParams, useRouter } from "next/navigation"
 import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { Calendar, User, Tag, ArrowLeft, ChevronRight } from "lucide-react"
+import { Calendar, User, Tag, ArrowLeft, ChevronRight, ExternalLink } from "lucide-react"
 import { newsItems } from "@/data/news"
 import { FaFacebook, FaLinkedin, FaTwitter } from "react-icons/fa6"
 
@@ -105,6 +105,20 @@ export default function NewsArticlePage() {
                 </p>
               ))}
             </div>
+
+            {article.link && (
+              <div className="mt-8 flex justify-center">
+                <a
+                  href={article.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center px-8 py-3 bg-blue-michigan text-yellow-maize rounded-full font-medium hover:bg-blue-michigan/90 transition-colors shadow-md"
+                >
+                  <ExternalLink className="mr-2 h-5 w-5" />
+                  View Full Article
+                </a>
+              </div>
+            )}
 
             <div className="mt-12 pt-12 border-t border-gray-200">
               <div className="flex items-center justify-between">
