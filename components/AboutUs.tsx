@@ -14,10 +14,10 @@ export default function AboutUs() {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="relative">
               <Image
-                src="/group_photo.png"
+                src="/group_photo.jpg"
                 alt="Our research team"
-                width={600}
-                height={600}
+                width={4000}
+                height={3000}
                 className="rounded-lg shadow-lg"
               />
 
