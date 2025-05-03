@@ -5,14 +5,14 @@ import { Button } from "@heroui/react";
 import Link from "next/link";
 
 const images = [
-  { src: "/gallery/image1.png", title: "Leo (left) exploring an alternative career of becoming an artist in case PhD did not work out. Maxime (right) and Nabila (back) tried to take a photo with the “star”." },
-  { src: "/gallery/image2.png", title: "At least we know that Leo (front), Nabila (middle), and Maxime (back) are not gephyrophobic (look for what that means, we worked hard to find this word)." },
-  { src: "/gallery/image3.png", title: "Majdi's typical face when he wins argument with us." },
-  { src: "/gallery/image4.png", title: "During our photo shooting, we told students to act impressed and they did that nicely. O Hwang (front) nailed it with being hyper-impressed." },
-  { src: "/gallery/image4.png", title: "During our photo shooting, we told students to act impressed and they did that nicely. O Hwang (front) nailed it with being hyper-impressed." },
-  { src: "/gallery/image3.png", title: "Majdi's typical face when he wins argument with us." },
-  { src: "/gallery/image2.png", title: "At least we know that Leo (front), Nabila (middle), and Maxime (back) are not gephyrophobic (look for what that means, we worked hard to find this word)." },
-  { src: "/gallery/image1.png", title: "Leo (left) exploring an alternative career of becoming an artist in case PhD did not work out. Maxime (right) and Nabila (back) tried to take a photo with the “star”." },
+  { src: "/homepage/gallery/3_Majdi-Engaging-Style.jpg", title: "Majdi's with full confidence while bragging about how much student loves him in the classroom because of his engaging style: “I've gotten animals to pose for photos with me, you really think engaging students is gonna be a challenge?”" },
+  { src: "/homepage/gallery/4_Leo-Nabila-Sleeping.jpg", title: "Leo and Nabila's reactions when Majdi starts complaining about his administrative loads, us not meeting deadlines, being behind on research, and so on. Meanwhile Kamal listens carefully as he plans to become a faculty!" },
+  { src: "/homepage/gallery/6_Nabila-Japan.jpg", title: "Nabila (a.k.a Meredith-2.0) does not let any workshop or nuclear event miss h er no matter where it is. Photo from the Fukushima - Daiichi site in Japan!" },
+  { src: "/homepage/gallery/7_Idaho-Smiles.jpeg", title: "AIMS students and alumni snapped a photo in Idaho Falls during a conference. Meanwhile, Majdi stood there, baffled, wondering: “Have I ever seen them this happy before? Is it me... or is Idaho Falls way more fun than Ann Arbor?” Tough call. What do you think?" },
+  { src: "/homepage/gallery/15_Jacob-Out.jpg", title: "Part of our core values is “Support”. Here we support Jacob and push him out of Michigan as he graduates and joins Westinghouse." },
+  { src: "/homepage/gallery/17_Lada-Loyality-Photo.jpg", title: "Lada is being super loyal to the photographer. Till today, we have no idea what we were all looking at here and why Lada was completely disinterested." },
+  { src: "/homepage/gallery/20_RisingStars.jpg", title: "You are a true AIMS if you can find one AIMS member in this picture and a loyal NERS and Wolverine if you can find two more people from NERS!" },
+  { src: "/homepage/gallery/29_Student-Internships.png", title: "We tell Majdi we're working super hard during our internships, and people are basic ally blown away by our brilliance. A spy then sends him this." },
 ];
 
 const Gallery = () => {
