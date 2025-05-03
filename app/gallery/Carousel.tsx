@@ -1,5 +1,3 @@
-// npm i embla-carousel-autoplay framer-motion lucide-react
-// npx shadcn@latest add carousel
 "use client"
 
 import React, { useCallback, useEffect, useState, type JSX } from "react"
@@ -48,24 +46,128 @@ interface LoadingCarouselProps {
 
 const defaultTips: Tip[] = [
   {
-    text: "Leo (left) exploring an alternative career of becoming an artist in case PhD did not work out. Maxime (right) and Nabila (back) tried to take a photo with the “star”.",
-    image: "/gallery/image1.png",
-    url: "",
+    text: "Leo exploring other career avenues if his PhD did not work out. His fanbase currently has two.",
+    image: "/gallery/1_Leo-Other-Career.jpg",
   },
   {
-    text: "At least we know that Leo (front), Nabila (middle), and Maxime (back) are not gephyrophobic (look for what that means, we worked hard to find this word).",
-    image: "/gallery/image2.png",
-    url: "",
+    text: "Our reaction when Majdi says the group meeting is cancelled.",
+    image: "/gallery/2_Meeting_Cancelled.jpeg",
   },
   {
-    text: "Majdi’s typical face when he wins argument with us.",
-    image: "/gallery/image3.png",
-    url: "",
+    text: "Majdi’s with full confidence while bragging about how much student loves him in the classroom because of his engaging style: \"I’ve gotten animals to pose for photos with me, you really think engaging students is gonna be a challenge?\"",
+    image: "/gallery/3_Majdi-Engaging-Style.jpg",
   },
   {
-    text: "During our photo shooting, we told students to act impressed and they did that nicely. O Hwang (front) nailed it with being hyper-impressed.",
-    image: "/gallery/image4.png",
-    url: "",
+    text: "Leo and Nabila’s reactions when Majdi starts complaining about his administrative loads, us not meeting deadlines, being behind on research, and so on. Meanwhile Kamal listens carefully as he plans to become a faculty!",
+    image: "/gallery/4_Leo-Nabila-Sleeping.jpg",
+  },
+  {
+    text: "Meredith after she promised Majdi she will stop travelling to all events and workshops and settle down to get her PhD done. Picture from COP28 in UAE.",
+    image: "/gallery/5_Meredith-COP28.png",
+  },
+  {
+    text: "Nabila (a.k.a Meredith – 2.0) does not let any workshop or nuclear event miss her no matter where it is. Photo from the Fukushima-Daiichi site in Japan!",
+    image: "/gallery/6_Nabila-Japan.jpg",
+  },
+  {
+    text: "AIMS students and alumni snapped a photo in Idaho Falls during a conference. Meanwhile, Majdi stood there, baffled, wondering: \"Have I ever seen them this happy before? Is it me... or is Idaho Falls way more fun than Ann Arbor?\" Tough call. What do you think?",
+    image: "/gallery/7_Idaho-Smiles.jpeg",
+  },
+  {
+    text: "Nataly’s lifecycle in AIMS: She overcommits to numerous tasks, ends up in trouble, feels overwhelmed, then blames Majdi for that, and finally smiles when the mission is accomplished.",
+    image: "/gallery/8_Nataly-Smile.png",
+  },
+  {
+    text: "Andre reaction when Majdi misspells his name for the thousand time by adding “i” to the end of his name while texting on Slack. Sorry Andrei, I will NOT do this again.",
+    image: "/gallery/9_Andre-Misspell.jpg",
+  },
+  {
+    text: "Logan, keeping a straight face like a true professional, as Majdi cheerfully announces he's about to whip up some \"easy\" CAD drawings — meanwhile, Logan’s never touched CAD in his life and is internally screaming.",
+    image: "/gallery/10_Logan-CAD.jpg",
+  },
+  {
+    text: "Majdi’s face after winning an argument with us …",
+    image: "/gallery/11_Majdi-Wins-Argument.png",
+  },
+  {
+    text: "When he loses the argument …",
+    image: "/gallery/12_Majdi-loses-argument.jpg",
+  },
+  {
+    text: "Claire (Cal) typical explanation on missing group meetings and not responding to Slack.",
+    image: "/gallery/13_Claire-Studying.png",
+  },
+  {
+    text: "Our expectation and dreams of the food to be served in the group meetings while Majdi insists that he does not serve that because he cares about our health and fitness in the first place.",
+    image: "/gallery/14_food.JPG",
+  },
+  {
+    text: "Part of our core values is “Support”. Here we support Jacob and push him out of Michigan as he graduates and joins Westinghouse",
+    image: "/gallery/15_Jacob-Out.jpg",
+  },
+  {
+    text: "Jazmin with the pic of the year during her visit to the Fermi-2 power plant in Michigan.",
+    image: "/gallery/16_Jazmin-AIMSPicYear.jpg",
+  },
+  {
+    text: "Lada is being super loyal to the photographer. Till today, we have no idea what we were all looking at here and why Lada was completely disinterested.",
+    image: "/gallery/17_Lada-Loyality-Photo.jpg",
+  },
+  {
+    text: "Majdi after giving us a long lecture about hardwork and dedication. Photo Credit: The brave Leo Tunkle",
+    image: "/gallery/18_Majdi-Relax-After-Crticism.jpg",
+  },
+  {
+    text: "Majdi when asked whether he dares making a joke about all people in this picture: “I do not want to ruin my life” We have the most bright and talented women in the field (and this is not a joke).",
+    image: "/gallery/19_AIMS-women.jpg",
+  },
+  {
+    text: "You are a true AIMS if you can find one AIMS member in this picture and a loyal NERS and Wolverine if you can find two more people from NERS!",
+    image: "/gallery/20_RisingStars.jpg",
+  },
+  {
+    text: "Majdi at the early career panel at the ANS 2024 Winter conference in Orlando, FL. This picture is also his way to remind us that he was a superstar scientist in the past before being buried in management.",
+    image: "/gallery/21_Majdi-Early-Career.jpg",
+  },
+  {
+    text: "Majdi’s first award in Michigan was a water bottle and a backpack after winning best faculty pitch award. When asked about the award: “It is true I was thirsty after the pitch, but I did not expect the prize to be a water bottle”.",
+    image: "/gallery/22_Majdi-first-award.png",
+  },
+  {
+    text: "The hardest part to get this picture done was to find two people in AIMS who have close heights!",
+    image: "/gallery/23_AIMS-Compete.jpg",
+  },
+  {
+    text: "We know Omer is a multi-talent guy in AIMS but his greatest talent is getting Majdi lost during one-to-one meetings by diving into a million complex directions to describe his research. Majdi says he needs a meditation retreat afterward.",
+    image: "/gallery/24_Omer-Talent.jpg",
+  },
+  {
+    text: "Mohammed, who is conducting research on Sustainable Aviation Fuel (SAF), is applying his research in practice here, with his brain powering this balloon with SAF.",
+    image: "/gallery/25_Mohammed-SAF.jpg",
+  },
+  {
+    text: "Patrick complains he does not get much time to chat with Majdi. Meanwhile Patrick when Majdi tries to schedule a meeting …",
+    image: "/gallery/26_Patrick-Busy.jpg",
+  },
+  {
+    text: "Our reaction when Majdi says the paper still needs a lot of work just to be “good”.",
+    image: "/gallery/27_Paper-feedback.jpg",
+  },
+  {
+    text: "Majdi taking pictures with crocodiles = Our *worst* nightmare of a new project. Please, no hands-on experience needed.",
+    image: "/gallery/28_Majdi-with-Crocodiles.jpg",
+  },
+  {
+    text: "We tell Majdi we’re working *super* hard during our internships, and people are basically blown away by our brilliance. A spy then sends him this.",
+    image: "/gallery/29_Students-Internships.jpg",
+  },
+  {
+    text: "Nobody tries to make a joke at us. We created this website and we can hack it if we want. Sorry guys! We just wanted to say you are very awesome.",
+    image: "/gallery/30_Jeremy-Nick.jpg",
+  },
+  {
+    text: "And we remain friends and professionals! Thank you from the AIMS family!",
+    image: "/gallery/31_AndWeRemainFriends.jpg",
   },
 ]
 
@@ -288,26 +390,6 @@ export function LoadingCarousel({
                 : ""
             )}
           >
-            {showIndicators && (
-              <div className="flex space-x-2 overflow-x-auto pb-2 sm:pb-0 w-full sm:w-auto">
-                {(displayTips || []).map((_, index) => (
-                  <motion.button
-                    key={index}
-                    className={`h-1 w-8 flex-shrink-0 rounded-full ${
-                      index === current ? "bg-muted" : "bg-primary"
-                    }`}
-                    initial={false}
-                    animate={{
-                      backgroundColor:
-                        index === current ? "#3D3D3E" : "#E6E6E4",
-                    }}
-                    transition={{ duration: 0.5 }}
-                    onClick={() => handleSelect(index)}
-                    aria-label={`Go to tip ${index + 1}`}
-                  />
-                ))}
-              </div>
-            )}
             <div className="flex items-center space-x-2 text-primary">
               {backgroundTips ? (
                 <span className="text-sm font-medium">
@@ -347,6 +429,11 @@ export function LoadingCarousel({
                       ) : (
                         displayTips[current]?.text
                       )}
+                    </span>
+                  )}
+                  {showIndicators && (
+                    <span className="text-sm font-medium mt-2 items-center">
+                      {current + 1}/{displayTips?.length || 0}
                     </span>
                   )}
                 </div>
