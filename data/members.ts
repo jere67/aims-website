@@ -465,6 +465,23 @@ export const teamMembers: TeamMember[] = [
     linkedin: "https://www.linkedin.com/in/marco-sarmiento-01441a112/",
     slug: "sarmiento",
   },
+  {
+    id: "almulhim", // TODO: UPDATE WITH UNIQNAME LATER
+    name: "Yasir Almulhim",
+    email: "@umich.edu",
+    status: "PhD",
+    role: "Computing Group",
+    joinedDate: "August 2025",
+    imageUrl: "/people/almulhim.png",
+    heroImageUrl: "",
+    bio: "With a strong foundation in Physics and Engineering, I am a Ph.D. student in Nuclear Engineering and Radiological Sciences (NERS), focused on advancing nuclear reactor physics through computational methods and machine learning. I hold undergraduate degrees in Physics and Mechanical Engineering and completed a competitive research internship at the Korea Atomic Energy Research Institute (KAERI), gaining direct experience in nuclear power innovation.",
+    interests: ["Monte Carlo Mathods", "Multiphysics simulations", "Machine Learning"],
+    education: ["King Fahd University of Petroleum and Minerals"],
+    degrees: ["B.S. in Physics and Mechanincal Engineering (Double Major), August 2019-May 2025"],
+    department: "Department of Nuclear Engineering and Radiological Sciences",
+    linkedin: "https://www.linkedin.com/in/yasiralmulhim",
+    slug: "almulhim",
+  },
 ];
 
 // easy copy + paste
