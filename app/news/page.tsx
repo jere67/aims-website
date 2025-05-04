@@ -37,7 +37,7 @@ export default function NewsPage() {
   }, [activeCategory, searchQuery])
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="text-center pt-32">
         <h1 className="text-4xl md:text-5xl text-blue-michigan font-bold mb-4">
           Latest <span className="text-yellow-maize">News</span>
