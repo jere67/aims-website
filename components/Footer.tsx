@@ -5,25 +5,18 @@ import { FaTwitter, FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa"
 const navigation = {
   main: [
     { name: "Home", href: "/" },
+    { name: "Culture", href: "/culture" },
+    { name: "News", href: "/news" },
     { name: "Research", href: "/research" },
     { name: "Members", href: "/members" },
+    { name: "Teaching", href: "/teaching" },
     { name: "Gallery", href: "/gallery" },
   ],
   social: [
     {
-      name: "Twitter",
-      href: "https://twitter.com",
-      icon: FaTwitter,
-    },
-    {
       name: "GitHub",
       href: "https://github.com/aims-umich",
       icon: FaGithub,
-    },
-    {
-      name: "LinkedIn",
-      href: "https://linkedin.com",
-      icon: FaLinkedin,
     },
     {
       name: "Email",
