@@ -10,6 +10,7 @@ import JoinUs from "@/components/JoinUs";
 import Videos from "@/components/Videos";
 import FloatingTop from "@/components/FloatingTop";
 import AboutUs from "@/components/AboutUs";
+import CoreValues from "@/components/Values";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <div className="max-w-7xl w-full">
         <Hero />
         <AboutUs />
+        <CoreValues />
         <News />
         <Roadmap />
         <Videos 
