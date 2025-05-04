@@ -135,7 +135,8 @@ export default function ResearchDirectory() {
             <CategoryButton active={activeCategory === "all"} onClick={() => setActiveCategory("all")}>
               All Research
             </CategoryButton>
-            <CategoryButton
+            {/* NOTE: RE-ADD THESE BUTTONS IF WE INTRODUCE PROJECTS TO DIRECTORY TOO */}
+            {/* <CategoryButton
               active={activeCategory === "publications"}
               onClick={() => setActiveCategory("publications")}
             >
@@ -143,7 +144,7 @@ export default function ResearchDirectory() {
             </CategoryButton>
             <CategoryButton active={activeCategory === "projects"} onClick={() => setActiveCategory("projects")}>
               Current Projects
-            </CategoryButton>
+            </CategoryButton> */}
             <CategoryButton active={activeCategory === "reactors"} onClick={() => setActiveCategory("reactors")}>
               Reactors
             </CategoryButton>
