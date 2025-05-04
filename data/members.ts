@@ -482,6 +482,24 @@ export const teamMembers: TeamMember[] = [
     linkedin: "https://www.linkedin.com/in/yasiralmulhim",
     slug: "almulhim",
   },
+  {
+    id: "radaideh",
+    name: "Majdi I. Radaideh",
+    email: "radaideh@umich.edu",
+    status: "Principal Investigator",
+    role: "AIMS Lead",
+    joinedDate: "January 2023",
+    imageUrl: "/people/radaideh.jpg",
+    heroImageUrl: "/heroImages/radaideh.jpg",
+    bio: "Dr. Radaideh began his tenure-track appointment as an Assistant Professor in the Department of Nuclear Engineering and Radiological Sciences at the University of Michigan in January 2023. He leads the AIMS Lab (Artificial Intelligence and Multiphysics Simulations), which includes more than 20 researchers coming mainly from two backgrounds: Nuclear Engineering and Computer Science. Dr. RAD earned his Ph.D. in Nuclear Engineering from the University of Illinois at Urbana-Champaign, with minors in Computational Science & Engineering and Applied Statistics. Following his Ph.D., he held research and development appointments at MIT and ORNL, where he completed postdoctoral training and collaborated extensively with national labs and industry partners. In his first two years as a tenure-track faculty member, Dr. RAD secured over $3.1 million in external and internal research funding. His work has been recognized with numerous early-career awards, including the ANS 2025 Mathematics and Computation Young Member's Research Achievement Award, the 2025 ANS Ted Quinn Early Career Award, the 2023 DOE Distinguished Early Career Award, the 2023 U.S. NRC Distinguished Faculty Development Award, the 2019 ANS National Mark Mills Award for the best Ph.D. thesis in nuclear engineering, and several others.",
+    interests: ["Reactors", "Computing", "Controls"],
+    education: ["Massachusetts Institute of Technology", "University of Illinois at Urbana-Champaign", "University of Illinois at Urbana-Champaign", "Jordan University of Science and Technology"],
+    degrees: ["Postdoctoral studies (Nov. 2019-Aug. 2021)", "PhD Nuclear Engineering (Aug. 2016-Aug. 2019)", "M.Sc. Nuclear Engineering (Aug. 2015-Aug. 2016)", "B.Sc. Nuclear Engineering (Aug. 2009-Dec. 2013)"],
+    department: "Department of Nuclear Engineering and Radiological Sciences",
+    linkedin: "https://www.linkedin.com/in/majdi-i-radaideh-81489ab1/",
+    website: "https://scholar.google.com/citations?user=G2zrIPUAAAAJ&hl=en&oi=sra",
+    slug: "radaideh",
+  },
 ];
 
 // easy copy + paste
