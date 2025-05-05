@@ -40,7 +40,7 @@ const topicsData = [
     id: 5,
     title: "Robotics",
     description: "We program drones and quadruped robots for autonomous inspection tasks and radiation mapping in nuclear power plant environments.",
-    imageUrl: "",
+    imageUrl: "/controls/Robotics.jpg",
   },
 ]
 
