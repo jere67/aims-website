@@ -239,5 +239,21 @@ export const newsItems: NewsItem[] = [
     author: "Sara Norman",
     slug: "05-08-2022",
   },
+  {
+    id: "15",
+    title: "Majdi Radaideh receives 2025 MCD Young Member's Research Achievement Award",
+    excerpt:
+      "The award recognizes Assistant Professor Radaideh’s exceptional contributions to nuclear mathematics and computational methods.",
+    content:
+      "To read full article, please visit the link below.",
+    link: "https://ners.engin.umich.edu/2025/04/29/majdi-radaideh-receives-2025-mcd-young-members-research-achievement-award/",
+    date: "April 29, 2025",
+    timestamp: 1745910000,
+    imageUrl: "/news/04_29_2025-Majdi-Award.jpg",
+    category: "general",
+    featured: true,
+    author: "Sara Norman",
+    slug: "04-29-2025",
+  },
 ]
 
