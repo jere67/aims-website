@@ -1,45 +1,87 @@
 "use client"
 
 import Image from "next/image"
-import { useState, useId, useRef, useEffect } from "react"
-import { AnimatePresence, motion, Variants } from "framer-motion"
-import { DoorClosedIcon as CloseIcon, ChevronDown } from "lucide-react"
-import { Button } from "@heroui/react"
+import { useState, useRef, useEffect } from "react"
+import { ChevronDown } from "lucide-react"
+import { motion, Variants } from "framer-motion"
 import Link from "next/link"
+import { Button } from "@heroui/react"
 
 export const orgData: OrgTreeData = {
   leaders: [
     {
-      id: "majdi",
+      id: "radaideh",
       name: "Majdi Radaideh",
       status: "Principal Investigator",
       role: "AIMS Lead",
-      imageUrl: "/placeholder.svg?height=100&width=100",
-      bio: "",
+      imageUrl: "/people/radaideh.jpg",
       children: [
         {
-          id: "omer",
+          id: "hyungjki",
+          name: "Dr. Hyungjun Kim",
+          status: "Group Lead",
+          role: "Research Scientist",
+          imageUrl: "/people/hyungjki.jpg",
+        },
+        {
+          id: "oferdem",
           name: "Omer Erdem",
           status: "Group Lead",
           role: "Reactors Lead",
-          imageUrl: "/placeholder.svg?height=100&width=100",
-          bio: "",
+          imageUrl: "/people/oferdem.png",
           children: [
             {
-              id: "reactor-postdoc1",
-              name: "Postdoc",
-              status: "Research Fellow and Scientist",
-              role: "Research Fellow and Scientist",
-              imageUrl: "/placeholder.svg?height=100&width=100",
-              bio: "",
+              id: "eaheart",
+              name: "Meredith Eaheart",
+              status: "PhD",
+              role: "PhD",
+              imageUrl: "/people/eaheart.jpg",
+              children: [
+                {
+                  id: "davidgw",
+                  name: "David Wenger",
+                  status: "Undergraduate",
+                  role: "Undergraduate",
+                  imageUrl: "/people/davidgw.jpg",
+                },
+                {
+                  id: "jacc",
+                  name: "Jacob T. Cooper",
+                  status: "Undergraduate",
+                  role: "Undergraduate",
+                  imageUrl: "/people/jacc.jpg",
+                },
+              ]
             },
             {
-              id: "reactor-phd1",
-              name: "PhD Student",
-              status: "PhD Student",
-              role: "PhD Student",
-              imageUrl: "/placeholder.svg?height=100&width=100",
-              bio: "",
+              id: "npanczyk",
+              name: "Nataly Panczyk",
+              status: "PhD",
+              role: "PhD",
+              imageUrl: "/people/npanczyk.JPG",
+              children: [
+                {
+                  id: "clairekm",
+                  name: "Clair Kaufman",
+                  status: "Undergraduate",
+                  role: "Undergraduate",
+                  imageUrl: "/people/clairekm.jpg",
+                },
+                {
+                  id: "jelenes",
+                  name: "Jazmin Elenes",
+                  status: "Undergraduate",
+                  role: "Undergraduate",
+                  imageUrl: "/people/jelenes.jpg",
+                },
+              ]
+            },
+            {
+              id: "sarmiento",
+              name: "Marco Sarmiento",
+              status: "Graduate",
+              role: "Graduate",
+              imageUrl: "/people/sarmiento.jpg",
             },
           ],
         },
@@ -48,24 +90,72 @@ export const orgData: OrgTreeData = {
           name: "Mohammed Al-Radaideh",
           status: "Group Lead",
           role: "Computing Lead",
-          imageUrl: "/placeholder.svg?height=100&width=100",
-          bio: "",
+          imageUrl: "/people/malradai.jpg",
           children: [
             {
-              id: "computing-postdoc1",
-              name: "Postdoc",
-              status: "Research Fellow and Scientist",
-              role: "Research Fellow and Scientist",
-              imageUrl: "/placeholder.svg?height=100&width=100",
-              bio: "",
+              id: "shebromi",
+              name: "Fares Shebromi",
+              status: "PhD",
+              role: "PhD",
+              imageUrl: "/people/shebromi.png",
+            },
+            {
+              id: "almulhim",
+              name: "Yasir Almulhim",
+              status: "PhD",
+              role: "PhD",
+              imageUrl: "/people/almulhim.png",
+            },
+            {
+              id: "namanb",
+              name: "Naman Bhargava",
+              status: "Graduate",
+              role: "Graduate",
+              imageUrl: "/people/namanb.jpg",
               children: [
                 {
-                  id: "computing-undergraduate1",
-                  name: "Undergraduate Student",
-                  status: "Undergraduate Student",
-                  role: "Undergraduate Student",
-                  imageUrl: "/placeholder.svg?height=100&width=100",
-                  bio: "",
+                  id: "asgala",
+                  name: "Andre Gala-Garza",
+                  status: "Undergraduate",
+                  role: "Undergraduate",
+                  imageUrl: "/people/asgala.jpg",
+                },
+                {
+                  id: "akutira",
+                  name: "Arvind Kutirakulam",
+                  status: "Undergraduate",
+                  role: "Undergraduate",
+                  imageUrl: "/people/akutira.png",
+                },
+                {
+                  id: "jeremoon",
+                  name: "Jeremy Moon",
+                  status: "Undergraduate",
+                  role: "Undergraduate",
+                  imageUrl: "/people/jeremoon.jpeg",
+                },
+              ],
+            },
+            {
+              id: "shomas",
+              name: "Shoma Sawa",
+              status: "Graduate",
+              role: "Graduate",
+              imageUrl: "/people/shomas.jpg",
+              children: [
+                {
+                  id: "huawens",
+                  name: "Huawen Shen",
+                  status: "Undergraduate",
+                  role: "Undergraduate",
+                  imageUrl: "/people/huawens.jpg",
+                },
+                {
+                  id: "yikuny",
+                  name: "Yikun Yang",
+                  status: "Undergraduate",
+                  role: "Undergraduate",
+                  imageUrl: "/people/yikuny.jpg",
                 },
               ],
             },
@@ -76,62 +166,65 @@ export const orgData: OrgTreeData = {
           name: "Leo Tunkle",
           status: "Group Lead",
           role: "Controls Lead",
-          imageUrl: "/placeholder.svg?height=100&width=100",
-          bio: "",
+          imageUrl: "/people/tunkleo.jpg",
           children: [
             {
-              id: "controls-phd1",
-              name: "PhD Student",
-              status: "PhD Student",
-              role: "PhD Student",
-              imageUrl: "/placeholder.svg?height=100&width=100",
-              bio: "",
+              id: "abkamal",
+              name: "Kamal Kayode Abdulraheem",
+              status: "Postdoc",
+              role: "Postdoc",
+              imageUrl: "/people/abkamal.jpg",
+            },
+            {
+              id: "lprotche",
+              name: "Lada Protcheva",
+              status: "PhD",
+              role: "PhD",
+              imageUrl: "/people/lprotche.jpg",
+            },
+            {
+              id: "nucleai",
+              name: "Logan Burnett",
+              status: "PhD",
+              role: "PhD",
+              imageUrl: "/people/nucleai.jpg",
+            },
+            {
+              id: "unabila",
+              name: "Umme Mahbuba Nabila",
+              status: "PhD",
+              role: "PhD",
+              imageUrl: "/people/unabila.jpg",
+            },
+            {
+              id: "njotwani",
+              name: "Nitin Jotwani",
+              status: "Graduate",
+              role: "Graduate",
+              imageUrl: "/people/njotwani.jpg",
             },
           ],
         },
         {
-          id: "patrick",
+          id: "myerspat",
           name: "Patrick Myers",
           status: "Group Lead",
           role: "HPC Lead",
-          imageUrl: "/placeholder.svg?height=100&width=100",
-          bio: "",
+          imageUrl: "/people/myerspat.jpg",
           children: [
             {
-              id: "hpc-phd1",
-              name: "PhD Student",
-              status: "PhD Student",
-              role: "PhD Student",
-              imageUrl: "/placeholder.svg?height=100&width=100",
-              bio: "",
+              id: "aims01-machine",
+              name: "AIMS01 Machine",
+              status: "AIMS01 Machine",
+              role: "AIMS01 Machine",
+              imageUrl: "/people/default.jpg",
             },
-          ],
-        },
-        {
-          id: "lada",
-          name: "Lada Protchetva",
-          status: "Group Lead",
-          role: "AIMS Lab Space Lead",
-          imageUrl: "/placeholder.svg?height=100&width=100",
-          bio: "",
-          children: [
             {
-              id: "lab-phd1",
-              name: "PhD Student",
-              status: "PhD Student",
-              role: "PhD Student",
-              imageUrl: "/placeholder.svg?height=100&width=100",
-              bio: "",
-              children: [
-                {
-                  id: "lab-grad1",
-                  name: "Graduate Student",
-                  status: "Graduate Student",
-                  role: "Graduate Student",
-                  imageUrl: "/placeholder.svg?height=100&width=100",
-                  bio: "",
-                },
-              ],
+              id: "aims02-machine",
+              name: "AIMS02 Machine",
+              status: "AIMS02 Machine",
+              role: "AIMS02 Machine",
+              imageUrl: "/people/default.jpg",
             },
           ],
         },
@@ -160,7 +253,7 @@ const groupByLevel = (leaders: TeamMember[]): Record<string, TeamMember[]> => {
     "Group Leads": [],
     "Research Fellows and Scientists": [],
     "PhD + Graduate": [],
-    "Undergraduate Students": [],
+    "Undergraduates": [],
   }
 
   const flattenMembers = (member: TeamMember) => {
@@ -170,10 +263,10 @@ const groupByLevel = (leaders: TeamMember[]): Record<string, TeamMember[]> => {
       levels["Group Leads"].push(member)
     } else if (member.status === "Research Fellow and Scientist") {
       levels["Research Fellows and Scientists"].push(member)
-    } else if (member.status === "PhD Student" || member.status === "Graduate Student") {
+    } else if (member.status === "PhD" || member.status === "Graduate") {
       levels["PhD + Graduate"].push(member)
-    } else if (member.status === "Undergraduate Student") {
-      levels["Undergraduate Students"].push(member)
+    } else if (member.status === "Undergraduate") {
+      levels["Undergraduates"].push(member)
     }
 
     if (member.children) {
@@ -298,122 +391,41 @@ function MemberNode({
   isLeader?: boolean
   viewMode?: "tree" | "accordion"
 }) {
-  const [active, setActive] = useState(false)
-  const id = useId()
-  const ref = useRef<HTMLDivElement>(null)
   const hasChildren = member.children && member.children.length > 0
 
-  useEffect(() => {
-    function onKeyDown(event: KeyboardEvent) {
-      if (event.key === "Escape") {
-        setActive(false)
-      }
-    }
-
-    if (active) {
-      document.body.style.overflow = "hidden"
-    } else {
-      document.body.style.overflow = "auto"
-    }
-
-    window.addEventListener("keydown", onKeyDown)
-    return () => window.removeEventListener("keydown", onKeyDown)
-  }, [active])
-
-  const handleMemberClick = (e: React.MouseEvent) => {
-    e.stopPropagation()
-    setActive(true)
-  }
-
-  const handleModalClose = (e: React.MouseEvent) => {
-    if (e.target === e.currentTarget) {
-      setActive(false)
-    }
-  }
-
   return (
-    <div className="flex flex-col items-center">
-      <div className={`flex flex-col items-center ${hasChildren && viewMode === "tree" ? "mb-8" : ""}`}>
-        <motion.div
-          layoutId={`card-${member.id}-${id}`}
-          onClick={handleMemberClick}
-          className="relative cursor-pointer flex flex-col items-center"
-        >
-          <motion.div className={`relative ${isLeader ? "w-24 h-24" : "w-20 h-20"}`}>
-            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-michigan to-blue-michigan/80" />
-            <motion.div layoutId={`image-${member.id}-${id}`}>
-              <Image
-                src={member.imageUrl || "/placeholder.svg"}
-                alt={member.name}
-                width={isLeader ? 96 : 80}
-                height={isLeader ? 96 : 80}
-                className="rounded-full border-4 border-white dark:border-zinc-800 relative z-10"
-              />
-            </motion.div>
-          </motion.div>
-          <motion.div layoutId={`info-${member.id}-${id}`} className="mt-2 text-center">
-            <h3 className="font-medium text-blue-michigan dark:text-white">{member.name}</h3>
-            <p className="text-sm text-blue-michigan/60 dark:text-zinc-400">{member.role}</p>
-          </motion.div>
-        </motion.div>
-      </div>
+    <div className={`member-node-container relative flex flex-col items-center ${viewMode === 'tree' ? 'inline-block align-top px-10 py-4' : ''}`}>
+      {!isLeader && viewMode === 'tree' && (
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-8 bg-blue-michigan/20" />
+      )}
 
-      <AnimatePresence>
-        {active && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 bg-black/20 h-full w-full z-[60] flex items-center justify-center"
-            onClick={handleModalClose}
-          >
-            <motion.div
-              layoutId={`card-${member.id}-${id}`}
-              ref={ref}
-              className="relative w-full max-w-[500px] h-fit max-h-[90vh] flex flex-col bg-white dark:bg-zinc-900 rounded-3xl overflow-hidden"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <motion.div layoutId={`image-${member.id}-${id}`} className="relative h-64">
-                <Image src={member.imageUrl || "/placeholder.svg"} alt={member.name} fill className="object-cover" />
-              </motion.div>
-              <motion.div layoutId={`info-${member.id}-${id}`} className="p-6">
-                <h3 className="text-xl font-bold text-blue-michigan dark:text-white">{member.name}</h3>
-                <p className="text-blue-michigan/60 dark:text-zinc-400">{member.role}</p>
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  className="mt-4 text-blue-michigan/80 dark:text-zinc-300"
-                >
-                  {member.bio}
-                </motion.div>
-              </motion.div>
-              <button
-                className="absolute top-4 right-4 p-2 rounded-full bg-white/90 dark:bg-zinc-800/90"
-                onClick={() => setActive(false)}
-              >
-                <CloseIcon className="w-4 h-4" />
-              </button>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <Link href={`/members/${member.id}`} className="relative z-10 flex flex-col items-center bg-white dark:bg-zinc-900 mt-8 cursor-pointer group">
+        <div className={`relative ${isLeader ? "w-48 h-48" : "w-40 h-40"} rounded-full overflow-hidden border-8 border-white dark:border-zinc-800 group-hover:border-yellow-maize transition-colors duration-200`}>
+          <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-michigan to-blue-michigan/80" />
+          <Image
+            src={member.imageUrl || "/people/default.jpg"}
+            alt={member.name}
+            fill
+            sizes="(max-width: 768px) 160px, (max-width: 1200px) 160px, 192px"
+            className="relative z-10 object-cover"
+          />
+        </div>
+        <div className="mt-4 text-center">
+          <h3 className="font-semibold text-lg text-blue-michigan dark:text-white group-hover:text-yellow-maize transition-colors duration-200">{member.name}</h3>
+          <p className="text-md text-blue-michigan/70 dark:text-zinc-400">{member.role}</p>
+        </div>
+      </Link>
 
-      {hasChildren && viewMode === "tree" && (
-        <>
-          <div className="w-px h-8 bg-blue-michigan/20" />
-          <div className="relative">
-            <div className="absolute left-1/2 -translate-x-1/2 -top-px h-px w-[calc(100%+2rem)] bg-blue-michigan/20" />
-          </div>
-          <div className="flex gap-12 pt-8">
+      {hasChildren && viewMode === 'tree' && (
+        <div className="children-section relative w-full pt-8">
+          <div className="absolute bottom-full left-1/2 -translate-x-1/2 w-px h-8 bg-blue-michigan/20" />
+          <div className="absolute top-0 left-10 right-10 h-px bg-blue-michigan/20" />
+          <div className="flex justify-center gap-x-0 mt-0 whitespace-nowrap">
             {member.children?.map((child) => (
-              <div key={child.id} className="relative">
-                <MemberNode member={child} viewMode="tree" />
-              </div>
+              <MemberNode key={child.id} member={child} viewMode="tree" />
             ))}
           </div>
-        </>
+        </div>
       )}
     </div>
   )
@@ -424,23 +436,51 @@ export default function OrgTree() {
   const [isLargeScreen, setIsLargeScreen] = useState(false)
   const levels = groupByLevel(orgData.leaders)
 
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const majdiNodeRef = useRef<HTMLDivElement>(null);
+
   const accordionItems = [
     { title: "Principal Investigators", members: levels["Principal Investigators"] },
     { title: "Group Leads", members: levels["Group Leads"] },
     { title: "Research Fellows and Scientists", members: levels["Research Fellows and Scientists"] },
     { title: "PhD + Graduate", members: levels["PhD + Graduate"] },
-    { title: "Undergraduate Students", members: levels["Undergraduate Students"] },
+    { title: "Undergraduates", members: levels["Undergraduates"] },
   ]
 
   useEffect(() => {
     const handleResize = () => {
-      setIsLargeScreen(window.innerWidth >= 768)
+      const largeScreen = window.innerWidth >= 768;
+      setIsLargeScreen(largeScreen);
+      if (!largeScreen && viewMode === "tree") {
+        setViewMode("accordion");
+      }
     }
 
     handleResize()
     window.addEventListener("resize", handleResize)
     return () => window.removeEventListener("resize", handleResize)
-  }, [])
+  }, [viewMode])
+
+  useEffect(() => {
+    if (viewMode === 'tree' && isLargeScreen && scrollContainerRef.current && majdiNodeRef.current) {
+      const container = scrollContainerRef.current;
+      const majdiNodeWrapper = majdiNodeRef.current;
+
+      if (majdiNodeWrapper) {
+          const majdiNodeCenter = majdiNodeWrapper.offsetLeft + majdiNodeWrapper.offsetWidth / 2;
+          const containerCenter = container.offsetWidth / 2;
+
+          const scrollLeftTarget = majdiNodeCenter - containerCenter;
+
+          container.scrollTo({
+            left: scrollLeftTarget,
+            behavior: 'auto'
+          });
+      }
+
+    }
+  }, [viewMode, isLargeScreen]);
+
 
   return (
     <div className="w-full -mt-16 mb-32">
@@ -450,10 +490,10 @@ export default function OrgTree() {
 
       <div className="py-12 relative z-10">
         <div className="flex flex-col items-center justify-center">
-          <h2 className="text-3xl font-bold tracking-tight text-blue-michigan sm:text-4xl md:text-5xl mb-6">
+          <h2 className="text-3xl font-bold tracking-tight text-blue-michigan sm:text-4xl md:text-5xl mb-6 dark:text-white">
             Our <span className="text-yellow-maize">People</span>
           </h2>
-          <p className='text-xl text-center tracking-tight text-blue-michigan mb-4'>
+          <p className='text-xl text-center tracking-tight text-blue-michigan mb-4 dark:text-zinc-300'>
             Meet the talented researchers, scientists, and students who make our lab's groundbreaking work possible.
           </p>
 
@@ -466,15 +506,19 @@ export default function OrgTree() {
             </button>
           )}
         </div>
+
         <div className="container mx-auto px-4">
           {viewMode === "tree" && isLargeScreen ? (
-            <div className="min-w-[1000px] overflow-x-auto">
-              <div className="flex flex-col items-center">
-                <div className="flex justify-center gap-8 mb-8">
-                  {orgData.leaders.map((leader) => (
-                    <MemberNode key={leader.id} member={leader} isLeader viewMode="tree" />
-                  ))}
-                </div>
+            <div
+              ref={scrollContainerRef}
+              className="overflow-x-auto w-full cursor-grab active:cursor-grabbing relative pb-4"
+            >
+              <div className="inline-block py-8 text-center">
+                {orgData.leaders.map((leader) => (
+                   <div key={leader.id} ref={leader.id === 'radaideh' ? majdiNodeRef : null} className="inline-block">
+                     <MemberNode member={leader} isLeader viewMode="tree" />
+                   </div>
+                ))}
               </div>
             </div>
           ) : (
