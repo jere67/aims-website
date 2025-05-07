@@ -5,6 +5,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { motion, useInView } from "framer-motion"
 import { FileText, Users, BookOpen, ArrowRight } from "lucide-react"
+import { Button } from "@heroui/react"
 
 const paper = {
   title: "Fairness and social bias quantification in Large Language Models for sentiment analysis",
@@ -107,6 +108,17 @@ export default function RecentResearch() {
             </div>
           </div>
         </motion.div>
+
+        <div className="flex justify-center mt-8">
+          <Link href="/research">
+            <Button
+              className="px-12 py-0 text-xl font-semibold text-yellow-maize bg-blue-michigan rounded-full hover:bg-blue-michigan/90 transition-colors duration-300 shadow-lg hover:shadow-xl"
+              size="lg"
+            >
+              View Research Directory
+            </Button>
+          </Link>
+        </div>
       </div>
     </section>
   )
