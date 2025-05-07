@@ -14,8 +14,9 @@ import {
   MapPin,
   Calendar,
 } from "lucide-react"
+import { TeamMember } from "@/data/members"
 
-export default function MemberPageClient({ member }: { member: any }) {
+export default function MemberPageClient({ member }: { member: TeamMember }) {
   useEffect(() => {
     document.body.style.overflow = "auto"
 
@@ -184,7 +185,7 @@ export default function MemberPageClient({ member }: { member: any }) {
                       <div>
                         <h3 className="font-medium text-blue-michigan">{edu}</h3>
                         <p className="text-sm text-blue-michigan/70 mt-1">
-                          {member.degrees[idx]}
+                          {member.degrees && member.degrees[idx] ? member.degrees[idx] : "N/A"}
                         </p>
                       </div>
                     </motion.div>

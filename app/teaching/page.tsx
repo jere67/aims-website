@@ -216,7 +216,7 @@ export default function TeachingPage() {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-blue-michigan mb-4">Integrated Teaching Approach</h2>
             <p className="text-lg text-blue-michigan/80 max-w-3xl mx-auto">
-              "The 50/50 integrated theoretical-computational program at University of Michigan"
+              &ldquo;The 50/50 integrated theoretical-computational program at University of Michigan&rsquo;
             </p>
           </div>
 

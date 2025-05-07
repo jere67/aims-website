@@ -1,6 +1,6 @@
 "use client"
 import Link from "next/link"
-import { FaTwitter, FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa"
+import { FaGithub, FaEnvelope } from "react-icons/fa"
 
 const navigation = {
   main: [

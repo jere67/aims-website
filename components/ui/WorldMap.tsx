@@ -1,6 +1,4 @@
-"use client"
-
-import { useRef, useState, useMemo, useEffect } from "react"
+import { useRef, useState, useMemo } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import DottedMap from "dotted-map"
 import { useTheme } from "next-themes"

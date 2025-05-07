@@ -6,7 +6,7 @@ import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { Search, Calendar, ArrowRight, Filter } from "lucide-react"
+import { Search, Calendar, ArrowRight } from "lucide-react"
 import { newsItems } from "@/data/news"
 
 type Category = "all" | "reactors" | "controls" | "computing" | "general"
@@ -152,7 +152,7 @@ export default function NewsPage() {
                 <Search size={64} className="mx-auto text-gray-300" />
               </div>
               <h3 className="text-2xl font-bold text-blue-michigan mb-4">No news articles found</h3>
-              <p className="text-gray-600 mb-8">We couldn't find any news articles matching your current filters.</p>
+              <p className="text-gray-600 mb-8">We couldn&apos;t find any news articles matching your current filters.</p>
               <button
                 onClick={() => {
                   setActiveCategory("all")

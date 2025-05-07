@@ -99,7 +99,7 @@ export const TypewriterEffect = ({
 export const TypewriterEffectSmooth = ({
   words,
   className,
-  cursorClassName,
+  // cursorClassName,
 }: {
   words: {
     text: string;

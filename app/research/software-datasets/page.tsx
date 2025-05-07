@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client"
 
 import type React from "react"
@@ -90,7 +91,7 @@ export default function SoftwareAndDatasetsPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              We believe in open science and strive to make all our codes, data, and journal publications freely available whenever there are no sponsor or export control restrictions, and when our funding permits covering open - access fees. Since the group's inception in January 2023, we have successfully made all our journal papers published after this date openly accessible.
+              We believe in open science and strive to make all our codes, data, and journal publications freely available whenever there are no sponsor or export control restrictions, and when our funding permits covering open - access fees. Since the group&apos;s inception in January 2023, we have successfully made all our journal papers published after this date openly accessible.
             </motion.p>
             <motion.div
               className="flex flex-wrap justify-center gap-4"
@@ -520,7 +521,7 @@ export default function SoftwareAndDatasetsPage() {
               <Search size={64} className="mx-auto text-gray-300" />
             </div>
             <h3 className="text-2xl font-bold text-blue-michigan mb-4">No resources found</h3>
-            <p className="text-gray-600 mb-8">We couldn't find any resources matching your current filters.</p>
+            <p className="text-gray-600 mb-8">We couldn&apos;t find any resources matching your current filters.</p>
             <button
               onClick={() => {
                 setActiveCategory("all")

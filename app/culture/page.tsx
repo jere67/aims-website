@@ -1,10 +1,11 @@
 "use client"
 
-import { useState, useRef } from "react"
+import { useState } from "react"
 import Image from "next/image"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/Tabs"
 import { FaHandsHelping, FaTrophy, FaUsers, FaBalanceScale, FaRegCommentDots } from "react-icons/fa"
 import { QuoteIcon } from "lucide-react"
+import Link from "next/link"
 
 const coreValues = [
   {
@@ -136,7 +137,6 @@ const coreValues = [
 
 export default function CulturePage() {
   const [activeTab, setActiveTab] = useState("welcome")
-  const ref = useRef(null)
 
   return (
     <div className="min-h-screen bg-white text-blue-michigan py-32">
@@ -153,18 +153,18 @@ export default function CulturePage() {
             valued.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <a
+            <Link
               href="/members"
               className="inline-block bg-yellow-maize text-blue-michigan px-8 py-4 rounded-full font-bold hover:bg-yellow-maize/70 transition-colors"
             >
               Meet Our Team
-            </a>
-            <a
+            </Link>
+            <Link
               href="/research"
               className="inline-block bg-blue-michigan border-2 text-yellow-maize px-8 py-4 rounded-full font-bold hover:bg-blue-michigan/70 transition-colors"
             >
               Explore Our Research
-            </a>
+            </Link>
           </div>
         </div>
       </div>
@@ -246,7 +246,7 @@ export default function CulturePage() {
                           Student Testimonial{value.testimonials.length > 1 ? "s" : ""}
                         </h3>
                         <div className="space-y-8">
-                          {value.testimonials.map((testimonial, index) => (
+                          {value.testimonials.map((testimonial) => (
                             <div
                               key={testimonial.author}
                               className="bg-gray-50 rounded-2xl p-8 shadow-md border border-gray-100"

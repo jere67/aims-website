@@ -488,7 +488,7 @@ export default function OrgTree() {
             Our <span className="text-yellow-maize">People</span>
           </h2>
           <p className='text-xl text-center tracking-tight text-blue-michigan mb-4 dark:text-zinc-300 max-w-3xl'>
-            Meet the talented researchers, scientists, and students who make our lab's groundbreaking work possible.
+            Meet the talented researchers, scientists, and students who make our lab&apos;s groundbreaking work possible.
           </p>
           {isLargeScreen && (
             <button

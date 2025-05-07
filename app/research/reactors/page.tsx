@@ -226,7 +226,7 @@ export default function ReactorsPage() {
                       <p className="text-blue-michigan/80 dark:text-zinc-300 text-sm italic mb-4">
                         {paper.journal}
                       </p>
-                      <Link href={paper.url}>
+                      <Link href={paper.url || "#"}>
                         <Button
                           className="w-full text-sm font-semibold text-yellow-maize bg-blue-michigan rounded-full hover:bg-blue-michigan/90 transition-colors duration-300"
                           size="sm"
@@ -247,7 +247,7 @@ export default function ReactorsPage() {
                   >
                     <div className="relative h-48">
                       <Image
-                        src={paper.imageUrl || "/placeholder.svg"}
+                        src={paper.imageUrl}
                         alt={paper.title}
                         fill
                         className="object-cover"
@@ -259,7 +259,7 @@ export default function ReactorsPage() {
                       <p className="text-blue-michigan/80 dark:text-zinc-300 text-sm italic mb-4">
                         {paper.journal}
                       </p>
-                      <Link href={paper.url}>
+                      <Link href={paper.url || "#"}>
                         <Button
                           className="w-full text-sm font-semibold text-yellow-maize bg-blue-michigan rounded-full hover:bg-blue-michigan/90 transition-colors duration-300"
                           size="sm"

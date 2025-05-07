@@ -59,7 +59,7 @@ export default function Teachings() {
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             <p className="text-lg text-blue-michigan/80 mb-6">
-              Enrolling in one of Prof. Radaideh's courses, you'll quickly find yourself immersed in hands-on
+              Enrolling in one of Prof. Radaideh&apos;s courses, you&apos;ll quickly find yourself immersed in hands-on
               learning—often in front of a computer, writing code or troubleshooting reactor simulations.
             </p>
             <p className="text-lg text-blue-michigan/80 mb-6">

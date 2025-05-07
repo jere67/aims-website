@@ -5,7 +5,7 @@ import type React from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { useState, useId, useRef, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion, AnimatePresence, Variants } from "framer-motion"
 import { FileText, BookOpen, Calendar, Users, ChevronDown, X, ExternalLink, Download, Tag, Clock } from "lucide-react"
 import { Button } from "@heroui/react"
 import { researchItems, ResearchItem } from "@/data/research"
@@ -73,7 +73,7 @@ export default function ResearchDirectory() {
             Research <span className="text-yellow-maize">Directory</span>
           </h1>
           <p className="max-w-2xl mx-auto text-blue-michigan text-lg">
-            Explore our lab's publications and current research projects across our three main focus areas: Reactors, Controls,
+            Explore our lab&apos;s publications and current research projects across our three main focus areas: Reactors, Controls,
             and Computing. Our interdisciplinary approach combines nuclear engineering with advanced computational
             methods to solve complex challenges.
           </p>
@@ -298,7 +298,7 @@ function ResearchCard({
   isHovered: boolean
   onHover: () => void
   onLeave: () => void
-  variants: any
+  variants: Variants
 }) {
   const [active, setActive] = useState(false)
   const id = useId()
@@ -644,7 +644,7 @@ function ResearchListItem({
   variants,
 }: {
   item: ResearchItem
-  variants: any
+  variants: Variants
 }) {
   const [isExpanded, setIsExpanded] = useState(false)
 

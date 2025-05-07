@@ -4,9 +4,9 @@ import type React from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { useState, useId, useRef, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion, AnimatePresence, Variants } from "framer-motion"
 import { Linkedin, Mail, ChevronDown, GraduationCap, Lightbulb, X } from "lucide-react"
-import { teamMembers } from "@/data/members"
+import { TeamMember, teamMembers } from "@/data/members"
 
 type MemberCategory = "all" | "pi" | "scientists" | "phd/graduate" | "undergraduate" | "alumni"
 
@@ -229,11 +229,11 @@ function MemberCard({
   onLeave,
   variants,
 }: {
-  member: any
+  member: TeamMember
   isHovered: boolean
   onHover: () => void
   onLeave: () => void
-  variants: any
+  variants: Variants
 }) {
   const [active, setActive] = useState(false)
   const id = useId()
@@ -436,8 +436,8 @@ function MemberListItem({
   member,
   variants,
 }: {
-  member: any
-  variants: any
+  member: TeamMember
+  variants: Variants
 }) {
   const [isExpanded, setIsExpanded] = useState(false)
 

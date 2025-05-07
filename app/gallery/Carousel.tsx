@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useCallback, useEffect, useState, type JSX } from "react"
+import React, { useEffect, useState, type JSX } from "react"
 import Image from "next/image"
 import Autoplay from "embla-carousel-autoplay"
 import { ChevronRight } from "lucide-react"
@@ -287,13 +287,6 @@ export function LoadingCarousel({
       controls.start({ scaleX: progress / 100 })
     }
   }, [progress, controls])
-
-  const handleSelect = useCallback(
-    (index: number) => {
-      api?.scrollTo(index)
-    },
-    [api]
-  )
 
   return (
     <motion.div

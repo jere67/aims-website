@@ -1,7 +1,6 @@
 "use client"
 import { Spotlight } from "./ui/Spotlight";
 import { TextGenerateEffect } from "./ui/TextGenerateEffect";
-import { TypewriterEffectSmooth } from "./ui/TypewriterEffect";
 import { useEffect, useState } from "react";
 
 const Hero = () => {
@@ -44,13 +43,13 @@ const Hero = () => {
   //   { text: "plants." },
   // ];
 
-  const welcomeText = [
-    { text: "Welcome" },
-    { text: "to" },
-    { text: "the" },
-    { text: "AIMS" },
-    { text: "Lab!" },
-  ]
+  // const welcomeText = [
+  //   { text: "Welcome" },
+  //   { text: "to" },
+  //   { text: "the" },
+  //   { text: "AIMS" },
+  //   { text: "Lab!" },
+  // ]
 
   const [line0Delay, setLine0Delay] = useState(false);
   // const [line1Delay, setLine1Delay] = useState(false);
