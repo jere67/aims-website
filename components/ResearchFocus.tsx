@@ -8,7 +8,6 @@ import { ArrowRight, ChevronRight } from "lucide-react"
 import { GiReactor } from "react-icons/gi";
 import { FaComputer, FaDatabase } from "react-icons/fa6"
 import { FaBolt } from "react-icons/fa"
-import { Button } from "@heroui/react"
 
 const items = [
   {

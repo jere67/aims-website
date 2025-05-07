@@ -1,10 +1,10 @@
 "use client"
 
-import { useState, useRef } from "react"
+import { useRef } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { motion, useInView } from "framer-motion"
-import { FileText, Users, BookOpen, ArrowRight } from "lucide-react"
+import { FileText, Users, BookOpen } from "lucide-react"
 import { Button } from "@heroui/react"
 
 const paper = {
