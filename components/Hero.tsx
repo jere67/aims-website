@@ -120,9 +120,10 @@ const Hero = () => {
           )}
           {logoDelay && (
             <video
-              src="/animated_logo.mp4"
-              autoPlay
-              muted
+              src="/animated_logo.webm"
+              playsInline={true}
+              autoPlay={true}
+              muted={true}
               className="w-96 md:w-[40rem] md:h-64 object-contain my-6"
             />
           )}
