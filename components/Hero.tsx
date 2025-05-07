@@ -77,7 +77,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="pb-52 pt-36">
+    <div className="pb-52 pt-36 min-h-screen">
       <div className="relative z-20">
       {spotlightDelay && (
         <>
@@ -123,7 +123,7 @@ const Hero = () => {
               src="/animated_logo.mp4"
               autoPlay
               muted
-              className="w-96 h-96 md:w-[40rem] md:h-64 object-contain my-6"
+              className="w-96 md:w-[40rem] md:h-64 object-contain my-6"
             />
           )}
 
