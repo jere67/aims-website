@@ -11,6 +11,7 @@ import Videos from "@/components/Videos";
 import FloatingTop from "@/components/FloatingTop";
 import AboutUs from "@/components/AboutUs";
 import CoreValues from "@/components/Values";
+import RecentResearch from "@/components/RecentResearch";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
         <AboutUs />
         <CoreValues />
         <News />
+        <RecentResearch />
         <Roadmap />
         <Videos 
           title="Meet Professor "
