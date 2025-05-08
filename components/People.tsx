@@ -25,16 +25,6 @@ export const orgData: OrgTreeData = {
           imageUrl: "/people/hyungjki.jpg",
           bio: "",
           keywords: ["Multiphysics Simulations", "Reinforcement Learning", "Thermal Hydraulics Code"],
-          children: [],
-        },
-        {
-          id: "oferdem",
-          name: "Omer Erdem",
-          status: "Group Lead",
-          role: "Reactors Lead",
-          imageUrl: "/people/oferdem.png",
-          bio: "",
-          keywords: ["Multiobjective Optimization", "Neutronics Simulations", "Core Design"],
           children: [
             {
               id: "eaheart",
@@ -69,6 +59,14 @@ export const orgData: OrgTreeData = {
               role: "PhD Student",
               imageUrl: "/people/npanczyk.JPG",
               keywords: ["Explainable AI", "Interpretable AI", "Nuclear Energy"],
+            },
+            {
+              id: "oferdem",
+              name: "Omer Erdem",
+              status: "PhD",
+              role: "PhD Student",
+              imageUrl: "/people/oferdem.png",
+              keywords: ["Multiobjective Optimization", "Neutronics Simulations", "Core Design"],
               children: [
                 {
                   id: "clairekm",
@@ -92,17 +90,17 @@ export const orgData: OrgTreeData = {
               id: "sarmiento",
               name: "Marco Sarmiento",
               status: "Graduate Student",
-              role: "Graduate Student",
+              role: "MS Student",
               imageUrl: "/people/sarmiento.jpg",
               keywords: ["Multiphysics simulations", "Reactor Design", "Hybrid RL-metaheuristic"],
             },
           ],
         },
         {
-          id: "mohammed",
-          name: "Mohammed Al-Radaideh",
+          id: "malradai",
+          name: "Dr. Mohammed Al-Radaideh",
           status: "Group Lead",
-          role: "Computing Lead",
+          role: "MICDE Research Scholar and Postdoctoral Fellow",
           imageUrl: "/people/malradai.jpg",
           keywords: ["Alternative Fuel Combustion and Certification", "Renewable Energy", "Machine Learning", "Large Language Models"],
           children: [
@@ -118,7 +116,7 @@ export const orgData: OrgTreeData = {
               id: "almulhim",
               name: "Yasir Almulhim",
               status: "PhD",
-              role: "PhD",
+              role: "PhD Student",
               imageUrl: "/people/almulhim.png",
               bio: "",
               keywords: ["Monte Carlo Mathods", "Multiphysics simulations", "Machine Learning"],
@@ -127,15 +125,15 @@ export const orgData: OrgTreeData = {
               id: "namanb",
               name: "Naman Bhargava",
               status: "Graduate",
-              role: "Graduate",
+              role: "MS Student",
               imageUrl: "/people/namanb.jpg",
               keywords: ["Large Language Models", "Text-to-Image Finetuning", "Natural Language Processing"],
               children: [
                 {
                   id: "asgala",
                   name: "Andre Gala-Garza",
-                  status: "Undergraduate",
-                  role: "Undergraduate",
+                  status: "Graduate",
+                  role: "MS Student",
                   imageUrl: "/people/asgala.jpg",
                   keywords: ["Natural Language Processing (NLP)", "Artificial Intelligence (AI)"],
                 },
@@ -145,7 +143,7 @@ export const orgData: OrgTreeData = {
                   status: "Undergraduate",
                   role: "Undergraduate",
                   imageUrl: "/people/akutira.png",
-                  keywords: ["Multiphysics Simulations", "Reactor Design", "Explainable AI", "Large Language Models"],
+                  keywords: ["Large Language Models", "Social Media Computing", "Natural Language Processing"],
                 },
                 {
                   id: "jeremoon",
@@ -161,7 +159,7 @@ export const orgData: OrgTreeData = {
               id: "shomas",
               name: "Shoma Sawa",
               status: "Graduate",
-              role: "Graduate student",
+              role: "MS Student",
               imageUrl: "/people/shomas.jpg",
               keywords: ["Large Language Models", "Natural Language Processing", "Deep Learning"],
               children: [
@@ -186,7 +184,7 @@ export const orgData: OrgTreeData = {
           ],
         },
         {
-          id: "leo",
+          id: "tunkleo",
           name: "Leo Tunkle",
           status: "Group Lead",
           role: "Controls Lead",
@@ -195,9 +193,9 @@ export const orgData: OrgTreeData = {
           children: [
             {
               id: "abkamal",
-              name: "Kamal Kayode Abdulraheem",
+              name: "Dr. Kamal Kayode Abdulraheem",
               status: "Postdoc",
-              role: "Postdoc",
+              role: "Schmidt AI in Science Postdoctoral Fellow",
               imageUrl: "/people/abkamal.jpg",
               keywords: ["Autonomous Control System", "Integrated Energy System", "Thermal Hydraulics", "Modeling and Simulation"],
             },
@@ -229,7 +227,7 @@ export const orgData: OrgTreeData = {
               id: "njotwani",
               name: "Nitin Jotwani",
               status: "Graduate Student",
-              role: "Graduate Student",
+              role: "MS Student",
               imageUrl: "/people/njotwani.jpg",
               keywords: ["Control and Planning", "Computer Vision/Robot Perception", "Vision Language Models"],
             },
@@ -286,16 +284,32 @@ const groupByLevel = (leaders: TeamMember[]): Record<string, TeamMember[]> => {
     "Principal Investigators": [],
     "Group Leads": [],
     "Research Fellows and Scientists": [],
-    "PhD + Graduate": [],
+    "Graduate Students": [],
     "Undergraduates": [],
   }
 
   const flattenMembers = (member: TeamMember) => {
-    if (member.status === "Principal Investigator") levels["Principal Investigators"].push(member)
-    else if (member.status === "Group Lead") levels["Group Leads"].push(member)
-    else if (member.status === "Research Fellow and Scientist" || member.status === "Postdoc") levels["Research Fellows and Scientists"].push(member)
-    else if (member.status === "PhD" || member.status === "Graduate" || member.status === "PhD Student" || member.status === "Graduate Student") levels["PhD + Graduate"].push(member)
-    else if (member.status === "Undergraduate") levels["Undergraduates"].push(member)
+    if (member.status === "Principal Investigator") {
+      levels["Principal Investigators"].push(member)
+    } else if (member.status === "Group Lead") {
+      levels["Group Leads"].push(member)
+      if (member.id === "hyungjki" || member.id === "malradai") { // a brute-force approach... likely better option somewhere
+        levels["Research Fellows and Scientists"].push({ ...member })
+      } else if (member.id === "tunkleo" || member.id === "myerspat") {
+        levels["Graduate Students"].push({ ...member })
+      }
+    } else if (member.status === "Research Fellow and Scientist" || member.status === "Postdoc") {
+      levels["Research Fellows and Scientists"].push(member)
+    } else if (
+      member.status === "PhD" ||
+      member.status === "Graduate" ||
+      member.status === "PhD Student" ||
+      member.status === "Graduate Student"
+    ) {
+      levels["Graduate Students"].push(member)
+    } else if (member.status === "Undergraduate") {
+      levels["Undergraduates"].push(member)
+    }
 
     if (member.children) {
       member.children.forEach(flattenMembers)
@@ -303,6 +317,24 @@ const groupByLevel = (leaders: TeamMember[]): Record<string, TeamMember[]> => {
   }
 
   leaders.forEach(flattenMembers)
+
+  Object.keys(levels).forEach((key) => {
+    if (key === "Graduate Students") {
+      const phdStudents = levels[key]
+        .filter((m) => m.status === "PhD" || m.status === "PhD Student")
+        .sort((a, b) => a.name.localeCompare(b.name))
+      const msStudents = levels[key]
+        .filter((m) => m.status === "Graduate" || m.status === "Graduate Student")
+        .sort((a, b) => a.name.localeCompare(b.name))
+      const groupLeads = levels[key]
+        .filter((m) => m.status === "Group Lead")
+        .sort((a, b) => a.name.localeCompare(b.name))
+      levels[key] = [...phdStudents, ...msStudents, ...groupLeads]
+    } else {
+      levels[key].sort((a, b) => a.name.localeCompare(b.name))
+    }
+  })
+
   return levels
 }
 
@@ -446,7 +478,7 @@ export default function OrgTree() {
     { title: "Principal Investigators", members: levels["Principal Investigators"] },
     { title: "Group Leads", members: levels["Group Leads"] },
     { title: "Research Fellows and Scientists", members: levels["Research Fellows and Scientists"] },
-    { title: "PhD + Graduate", members: levels["PhD + Graduate"] },
+    { title: "Graduate Students", members: levels["Graduate Students"] },
     { title: "Undergraduates", members: levels["Undergraduates"] },
   ].filter(item => item.members.length > 0);
 
