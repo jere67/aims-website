@@ -54,7 +54,7 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
         <Link href="/" className="flex items-center">
-          <div className="relative h-14 w-48">
+          <div className="relative h-16 md:h-14 w-48">
             <Image src="/aims.png" width="120" height="120" alt="aims logo" />
           </div>
         </Link>
