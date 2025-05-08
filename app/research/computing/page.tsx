@@ -157,7 +157,7 @@ export default function ReactorsPage() {
                   transition={{ duration: 0.5 }}
                 >
                   <div className="relative w-full h-full">
-                    <Image src={topic.imageUrl || "/placeholder.svg"} alt={topic.title} fill className="object-cover" />
+                    <Image src={topic.imageUrl} alt={topic.title} fill className="object-cover" />
                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-8">
                       <h3 className="text-2xl font-bold text-yellow-maize mb-2">{topic.title}</h3>
                       <p className="text-white text-lg">{topic.description}</p>
@@ -209,7 +209,7 @@ export default function ReactorsPage() {
                   >
                     <div className="relative h-48">
                       <Image
-                        src={paper.imageUrl || "/placeholder.svg"}
+                        src={paper.imageUrl}
                         alt={paper.title}
                         fill
                         className="object-cover"

@@ -202,7 +202,7 @@ export default function SoftwareAndDatasetsPage() {
                     <div className="md:w-2/5 relative">
                       <div className="relative h-64 md:h-full w-full">
                         <Image
-                          src={item.screenshotUrl || "/placeholder.svg"}
+                          src={item.screenshotUrl}
                           alt={item.title}
                           fill
                           className="object-cover"
@@ -211,7 +211,7 @@ export default function SoftwareAndDatasetsPage() {
                         <div className="absolute bottom-4 left-4 md:bottom-auto md:top-1/2 md:-translate-y-1/2 md:left-4">
                           <div className="bg-white p-3 rounded-full shadow-lg h-16 w-16 flex items-center justify-center">
                             <Image
-                              src={item.logoUrl || "/placeholder.svg"}
+                              src={item.logoUrl}
                               alt={`${item.title} logo`}
                               width={48}
                               height={48}
@@ -311,7 +311,7 @@ export default function SoftwareAndDatasetsPage() {
                     <div className="md:w-2/5 relative">
                       <div className="relative h-64 md:h-full w-full">
                         <Image
-                          src={item.imageUrl || "/placeholder.svg"}
+                          src={item.imageUrl}
                           alt={item.title}
                           fill
                           className="object-cover"
@@ -406,7 +406,7 @@ export default function SoftwareAndDatasetsPage() {
                     <div className="md:w-2/5 relative">
                       <div className="relative h-64 md:h-full w-full">
                         <Image
-                          src={item.imageUrl || "/placeholder.svg"}
+                          src={item.imageUrl}
                           alt={item.title}
                           fill
                           className="object-cover"
@@ -565,7 +565,7 @@ export default function SoftwareAndDatasetsPage() {
                   <div className="absolute top-4 left-4">
                     <div className="bg-white p-3 rounded-full shadow-lg h-16 w-16 flex items-center justify-center">
                       <Image
-                        src={selectedItem.logoUrl || "/placeholder.svg"}
+                        src={selectedItem.logoUrl}
                         alt={`${selectedItem.title} logo`}
                         width={48}
                         height={48}

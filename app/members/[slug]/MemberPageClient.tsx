@@ -49,7 +49,7 @@ export default function MemberPageClient({ member }: { member: TeamMember }) {
             >
               <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-full border-4 border-white overflow-hidden shadow-xl">
                 <Image
-                  src={member.imageUrl || "/placeholder.svg?height=500&width=500"}
+                  src={member.imageUrl}
                   alt={member.name}
                   fill
                   className="object-cover"
