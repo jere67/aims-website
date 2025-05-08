@@ -144,7 +144,7 @@ export default function CulturePage() {
         <h1 className="text-4xl md:text-5xl font-bold mb-4">
           Core <span className="text-yellow-maize">Values</span>
         </h1>
-        <div className="mx-auto px-4 text-center text-blue-michigan">
+        <div className="mx-auto px-4 sm:px-6 text-center text-blue-michigan">
           <h2 className="text-3xl font-bold mb-3">
             Join Our Research Community
           </h2>
@@ -152,16 +152,16 @@ export default function CulturePage() {
             Experience a research environment where excellence meets support, and where your unique perspective is
             valued.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-4 px-4 sm:px-6">
             <Link
               href="/members"
-              className="inline-block bg-yellow-maize text-blue-michigan px-8 py-4 rounded-full font-bold hover:bg-yellow-maize/70 transition-colors"
+              className="inline-block bg-yellow-maize text-blue-michigan px-8 py-4 rounded-full font-bold hover:bg-yellow-maize/70 transition-colors w-full sm:w-auto"
             >
               Meet Our Team
             </Link>
             <Link
               href="/research"
-              className="inline-block bg-blue-michigan border-2 text-yellow-maize px-8 py-4 rounded-full font-bold hover:bg-blue-michigan/70 transition-colors"
+              className="inline-block bg-blue-michigan border-2 text-yellow-maize px-8 py-4 rounded-full font-bold hover:bg-blue-michigan/70 transition-colors w-full sm:w-auto"
             >
               Explore Our Research
             </Link>
@@ -169,7 +169,7 @@ export default function CulturePage() {
         </div>
       </div>
 
-      <div className="px-48">
+      <div className="px-4 sm:px-6 md:px-12">
         <Tabs defaultValue="welcome" value={activeTab} onValueChange={setActiveTab} className="w-full">
           <TabsList className="flex flex-wrap justify-center gap-3 bg-transparent mb-48 md:mb-12">
             {coreValues.map((value) => (
@@ -197,8 +197,8 @@ export default function CulturePage() {
 
           {coreValues.map((value) => (
             <TabsContent key={value.id} value={value.id} className="mt-0 animate-in fade-in-50 duration-500">
-              <div className="rounded-2xl shadow-lg overflow-hidden">
-                <div className="relative h-[600px] w-full">
+              <div className="w-full rounded-2xl shadow-lg overflow-hidden">
+                <div className="relative w-full min-h-[40vh] sm:min-h-[50vh]">
                   <Image
                     src={value.topImageUrl}
                     alt={value.title}
@@ -215,8 +215,8 @@ export default function CulturePage() {
                   </div>
                 </div>
 
-                <div className="p-8">
-                  <div className="max-w-4xl mx-auto">
+                <div className="p-4 sm:p-8">
+                  <div className="w-full max-w-4xl mx-auto">
                     <div className="space-y-4 mb-12">
                       {value.description.map((paragraph, idx) => (
                         <p key={idx} className="text-blue-michigan/80 text-lg">
@@ -249,9 +249,9 @@ export default function CulturePage() {
                           {value.testimonials.map((testimonial) => (
                             <div
                               key={testimonial.author}
-                              className="bg-gray-50 rounded-2xl p-8 shadow-md border border-gray-100"
+                              className="w-full bg-gray-50 rounded-2xl p-4 sm:p-8 shadow-md border border-gray-100"
                             >
-                              <div className="flex flex-col md:flex-row gap-8 items-center">
+                              <div className="flex flex-col sm:flex-row gap-6 items-center">
                                 <div className="relative h-24 w-24 rounded-full overflow-hidden border-4 border-white shadow-md flex-shrink-0">
                                   <Image
                                     src={testimonial.imageUrl}
@@ -272,7 +272,7 @@ export default function CulturePage() {
                     )}
 
                     {value.bottomImageUrl && (
-                      <div className="relative h-[500px] w-full rounded-xl overflow-hidden shadow-md mb-8">
+                      <div className="relative w-full min-h-[30vh] sm:min-h-[40vh] rounded-xl overflow-hidden shadow-md mb-8">
                         <Image
                           src={value.bottomImageUrl}
                           alt={value.title}
