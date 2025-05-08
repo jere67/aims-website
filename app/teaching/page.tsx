@@ -122,7 +122,7 @@ export default function TeachingPage() {
           </div>
 
           <Tabs defaultValue="ners442" value={activeTab} onValueChange={setActiveTab} className="w-full">
-            <TabsList className="grid w-full grid-cols-1 md:grid-cols-3 gap-2 bg-transparent mb-8">
+            <TabsList className="grid w-full grid-cols-1 md:grid-cols-3 gap-2 bg-transparent mb-48 md:mb-16">
               {courses.map((course) => (
                 <TabsTrigger
                   key={course.id}
