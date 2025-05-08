@@ -74,10 +74,6 @@ const mapData = [
      end: { lat: 43.1566, lng: -77.6088, country: "Rochester, NY, USA" },
   },
   {
-    start: { lat: 37.8044, lng: -122.2711, country: "Oakland, CA, USA" },
-    end: { lat: 36.3504, lng: 127.3845, country: "Daejeon, South Korea" },
-  },
-  {
     start: { lat: 36.3504, lng: 127.3845, country: "Daejeon, South Korea" },
     end: { lat: 32.0617, lng: 118.7778, country: "Jiangsu, China" },
   },
@@ -129,8 +125,12 @@ const mapData = [
     start: { lat: 41.0082, lng: 28.9784, country: "Istanbul, Turkey" },
      end: { lat: 8.5000, lng: 4.5500, country: "Ilorin, Nigeria" },
   },
-   {
+  {
     start: { lat: 8.5000, lng: 4.5500, country: "Ilorin, Nigeria" },
+     end: { lat: 14.7167, lng: -15.4677, country: "Dakar, Senegal" },
+  },
+  {
+    start: { lat: 14.7167, lng: -15.4677, country: "Dakar, Senegal" },
     end: { lat: 33.5207, lng: -86.8025, country: "Birmingham, AL, USA" },
   },
 ];
