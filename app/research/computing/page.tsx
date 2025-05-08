@@ -221,8 +221,9 @@ export default function ReactorsPage() {
                       <p className="text-blue-michigan/80 dark:text-zinc-300 text-sm italic mb-4">
                         {paper.journal}
                       </p>
-                      <Link href={paper.url || "#"}>
+                      <Link href={paper.url || "#"} legacyBehavior passHref>
                         <Button
+                          as="a"
                           className="w-full text-sm font-semibold text-yellow-maize bg-blue-michigan rounded-full hover:bg-blue-michigan/90 transition-colors duration-300"
                           size="sm"
                         >
