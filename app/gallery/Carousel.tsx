@@ -46,6 +46,10 @@ interface LoadingCarouselProps {
 
 const defaultTips: Tip[] = [
   {
+    text: "Dinner from the M&C-2025 conference in Denver with AIMS members celebrating Majdi’s Young Researcher Achievement Award. Leo is the main suspect for messing up group photos—thanks to his real-time blinking. Meanwhile, Nataly is doing her best to prove Majdi wrong about her being the second person to blame for ruining pictures.",
+    image: "/gallery/0_MC-dinner.jpg",
+  },
+  {
     text: "Leo exploring other career avenues if his PhD did not work out. His fanbase currently has two.",
     image: "/gallery/1_Leo-Other-Career.jpg",
   },
