@@ -21,7 +21,7 @@ export const orgData: OrgTreeData = {
           id: "hyungjki",
           name: "Dr. Hyungjun Kim",
           status: "Group Lead",
-          role: "Research Scientist",
+          role: "Research Scientist (Reactors Lead)",
           imageUrl: "/people/hyungjki.jpg",
           bio: "",
           keywords: ["Multiphysics Simulations", "Reinforcement Learning", "Thermal Hydraulics Code"],
@@ -100,7 +100,7 @@ export const orgData: OrgTreeData = {
           id: "malradai",
           name: "Dr. Mohammed Al-Radaideh",
           status: "Group Lead",
-          role: "MICDE Research Scholar and Postdoctoral Fellow",
+          role: "MICDE Research Scholar and Postdoctoral Fellow (Computing Lead)",
           imageUrl: "/people/malradai.jpg",
           keywords: ["Alternative Fuel Combustion and Certification", "Renewable Energy", "Machine Learning", "Large Language Models"],
           children: [
@@ -187,7 +187,7 @@ export const orgData: OrgTreeData = {
           id: "tunkleo",
           name: "Leo Tunkle",
           status: "Group Lead",
-          role: "Controls Lead",
+          role: "PhD student (Controls Lead)",
           imageUrl: "/people/tunkleo.jpg",
           keywords: ["Reinforcement Learning", "Reactor Control", "Reactor Modeling"],
           children: [
@@ -237,7 +237,7 @@ export const orgData: OrgTreeData = {
           id: "myerspat",
           name: "Patrick Myers",
           status: "Group Lead",
-          role: "HPC Lead",
+          role: "PhD student (HPC Lead)",
           imageUrl: "/people/myerspat.jpg",
           keywords: ["Transport methods", "Scientific computing", "Reactor physics", "Reduced order modeling"],
           children: [
