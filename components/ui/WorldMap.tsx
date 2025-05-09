@@ -110,7 +110,8 @@ export default function WorldMap({ dots = [], lineColor = "#0ea5e9" }: MapProps)
       >
         {pathsAndPoints.map(({ path, startPoint, endPoint }, i) => (
           <g key={`path-group-${i}`}>
-            <motion.path
+            {/* uncomment for aniamted paths */}
+            {/* <motion.path
               d={path}
               fill="none"
               stroke="url(#path-gradient)"
@@ -118,6 +119,13 @@ export default function WorldMap({ dots = [], lineColor = "#0ea5e9" }: MapProps)
               initial={{ pathLength: 0 }}
               animate={{ pathLength: 1 }}
               transition={{ duration: 1, delay: 0.5 * i, ease: "easeOut" }}
+              className="pointer-events-none"
+            /> */}
+            <path
+              d={path}
+              fill="none"
+              stroke="url(#path-gradient)"
+              strokeWidth="1"
               className="pointer-events-none"
             />
             <circle

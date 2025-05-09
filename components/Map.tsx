@@ -2,19 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback, memo } from "react"
 import dynamic from "next/dynamic"
-import { Loader2 } from "lucide-react"
-
-const LoadingComponent = memo(() => (
-  <div className="w-full aspect-[2/1] flex flex-col items-center justify-center">
-    <div className="flex items-center bg-blue-michigan/5 dark:bg-white/5 rounded-full px-4 py-2">
-      <Loader2 className="w-5 h-5 text-blue-michigan dark:text-blue-500 animate-spin" />
-      <h2 className="text-base font-bold tracking-tight text-blue-michigan ml-2">
-        Loading Map
-      </h2>
-    </div>
-  </div>
-))
-LoadingComponent.displayName = 'LoadingComponent'
+import WorldMap from "./ui/WorldMap";
 
 const mapData = [
   {
@@ -54,10 +42,6 @@ const mapData = [
     end: { lat: 36.1627, lng: -86.7816, country: "Nashville, TN, USA" },
   },
   {
-    start: { lat: 37.8044, lng: -122.2711, country: "Oakland, CA, USA" },
-    end: { lat: 43.1566, lng: -77.6088, country: "Rochester, NY, USA" },
-  },
-  {
     start: { lat: 49.2827, lng: -123.1207, country: "Vancouver, Canada" },
     end: { lat: 37.5407, lng: -77.4360, country: "Richmond, VA, USA" },
   },
@@ -65,7 +49,7 @@ const mapData = [
     start: { lat: 42.1103, lng: -88.0342, country: "Palatine, IL, USA" },
     end: { lat: 40.2959, lng: -74.8702, country: "Washington Crossing, PA, USA" },
   },
-   {
+  {
     start: { lat: 42.1103, lng: -88.0342, country: "Palatine, IL, USA" },
     end: { lat: 37.8044, lng: -122.2711, country: "Oakland, CA, USA" },
   },
@@ -135,11 +119,6 @@ const mapData = [
   },
 ];
 
-const WorldMap = dynamic(() => import("@/components/ui/WorldMap"), {
-  ssr: false,
-  loading: () => <LoadingComponent />,
-})
-
 const MapHeading = memo(() => (
   <div className="pt-12 relative">
     <div className="flex flex-col items-center justify-center">
@@ -152,34 +131,7 @@ const MapHeading = memo(() => (
 MapHeading.displayName = 'MapHeading'
 
 const Map = () => {
-  const [isVisible, setIsVisible] = useState(false)
-  const [isClient, setIsClient] = useState(false)
   const mapRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    setIsClient(true)
-  }, [])
-
-  const handleIntersection = useCallback((entries: IntersectionObserverEntry[]) => {
-    const [entry] = entries
-    if (entry.isIntersecting) {
-      setIsVisible(true)
-    }
-  }, [])
-
-  useEffect(() => {
-    if (!mapRef.current) return
-
-    const observer = new IntersectionObserver(handleIntersection, {
-      root: null,
-      rootMargin: "50px",
-      threshold: 0.1,
-    })
-
-    observer.observe(mapRef.current)
-
-    return () => observer.disconnect()
-  }, [handleIntersection])
 
   return (
     <div className="w-full -mt-16 mb-32">
@@ -190,7 +142,7 @@ const Map = () => {
       <MapHeading />
 
       <div ref={mapRef}>
-        {isClient && isVisible && <WorldMap dots={mapData} />}
+        <WorldMap dots={mapData} />
       </div>
     </div>
   )
