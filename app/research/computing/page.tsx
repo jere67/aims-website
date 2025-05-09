@@ -142,7 +142,7 @@ export default function ReactorsPage() {
             </h2>
             <div
               ref={slideshowRef}
-              className="relative overflow-hidden rounded-xl shadow-xl h-[700px] max-w-6xl mx-auto"
+              className="relative overflow-hidden rounded-xl shadow-xl h-[600px] max-w-6xl mx-auto"
             >
               {topicsData.map((topic, index) => (
                 <motion.div
@@ -157,7 +157,7 @@ export default function ReactorsPage() {
                   transition={{ duration: 0.5 }}
                 >
                   <div className="relative w-full h-full">
-                    <Image src={topic.imageUrl} alt={topic.title} fill className="object-cover" />
+                    <Image src={topic.imageUrl} alt={topic.title} width={1920} height={1080} className="object-cover" />
                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-8">
                       <h3 className="text-2xl font-bold text-yellow-maize mb-2">{topic.title}</h3>
                       <p className="text-white text-lg">{topic.description}</p>
