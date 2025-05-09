@@ -18,14 +18,17 @@ const JoinUs = () => {
           <h2 className="text-3xl font-bold tracking-tight text-blue-michigan sm:text-4xl md:text-5xl mb-4">
             Want to Join <span className="text-yellow-maize">Us?</span>
           </h2>
-          <p className="max-w-3xl text-xl text-center tracking-tight text-blue-michigan mb-16">
+          <p className="max-w-3xl text-xl text-center tracking-tight text-blue-michigan mb-4">
             Are you a PhD student looking for postdoc? Undergrad looking to
             continue graduate school? MS student looking for PhD? This is what
             you need to know about us!
           </p>
+          <p className="max-w-3xl text-xl text-center tracking-tight text-blue-michigan">
+            Please email Professor Radaideh at radaideh@umich.edu with the subject line: "Joining AIMS Lab as a [Your academic status] - [Your name]"
+          </p>
         </div>
 
-        <div className="px-4 md:px-6 max-w-7xl mx-auto">
+        {/* <div className="px-4 md:px-6 max-w-7xl mx-auto">
           <div className="max-w-lg w-full mx-auto rounded-2xl p-6 md:p-10 shadow-2xl bg-gradient-to-br from-white to-gray-100 dark:from-gray-900 dark:to-black transition-all duration-500 ease-in-out transform hover:scale-105">
             <h3 className="font-bold text-2xl text-blue-michigan dark:text-neutral-200 mb-4 animate-pulse">
               Get in Touch
@@ -80,9 +83,6 @@ const JoinUs = () => {
                 />
               </div>
 
-              {/* reCAPTCHA placeholder here */}
-              
-
               <button
                 type="submit"
                 className="relative group/btn w-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-lg h-12 font-semibold shadow-lg hover:shadow-xl transition-all duration-500 ease-in-out transform hover:-translate-y-1 animate-slide-up delay-400"
@@ -98,10 +98,10 @@ const JoinUs = () => {
               </div>
             </form>
           </div>
-        </div>
+        </div> */}
       </div>
 
-      <style jsx>{`
+      {/* <style jsx>{`
         @keyframes slide-up {
           0% {
             opacity: 0;
@@ -149,7 +149,7 @@ const JoinUs = () => {
         .delay-500 {
           animation-delay: 0.5s;
         }
-      `}</style>
+      `}</style> */}
     </div>
   );
 };
