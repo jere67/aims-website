@@ -220,7 +220,7 @@ export const orgData: OrgTreeData = {
               name: "Umme Mahbuba Nabila",
               status: "PhD Student",
               role: "PhD Student",
-              imageUrl: "/people/unabila.jpg",
+              imageUrl: "/people/unabila.png",
                keywords: ["Nuclear Energy", "Advanced Reactor Design", "Machine Learning", "Digital Twin"],
             },
             {

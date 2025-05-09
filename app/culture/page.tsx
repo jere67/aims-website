@@ -47,7 +47,7 @@ const coreValues = [
         {
         text: "One of the most meaningful parts of my experience at AIMS has been witnessing the power of an open and collaborative research culture — whether it's sharing ideas, troubleshooting research challenges, or simply being there during tough times. Collaborating closely with my fellow lab members on research that led to shared publications has shown me the value of teamwork at AIMS. We succeed not just individually, but together — and that makes all the difference.",
         author: "Umme Nabila, PhD Student in Nuclear Engineering and Radiological Sciences",
-        imageUrl: "/people/unabila.jpg"
+        imageUrl: "/people/unabila.png"
         }
     ],
     topImageUrl: "/culture/Support1.jpg",
