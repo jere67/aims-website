@@ -147,7 +147,7 @@ export default function ReactorsPage() {
             </h2>
             <div
               ref={slideshowRef}
-              className="relative overflow-hidden rounded-xl shadow-xl h-[500px] max-w-6xl mx-auto"
+              className="relative overflow-hidden rounded-xl shadow-xl h-[700px] max-w-6xl mx-auto"
             >
               {topicsData.map((topic, index) => (
                 <motion.div
