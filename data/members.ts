@@ -162,7 +162,7 @@ export const teamMembers: TeamMember[] = [
     status: "PhD",
     role: "PhD Student",
     joinedDate: "August 2023",
-    imageUrl: "/people/unabila.jpg",
+    imageUrl: "/people/unabila.png",
     heroImageUrl: "/heroImages/unabila.jpg",
     bio: "Umme Mahbuba Nabila is a PhD student in the Department of Nuclear Engineering and Radiological Sciences at the University of Michigan, Ann Arbor, starting in Fall 2023. She is a member of the Artificial Intelligence and Multiphysics Simulations (AIMS) lab, led by Professor Majdi Radaideh. Her research interests include innovative reactor design, the application of ML/AI in the nuclear industry, autonomous control systems, and digital twins of nuclear reactors. She earned her BSc in Nuclear Engineering from the University of Dhaka, Bangladesh, in 2021. Her undergraduate thesis involved using simulation tools such as OpenMC and Dragon to investigate excess reactivity control using various combinations of burnable absorbers. In 2023, she obtained her MSc in Nuclear Engineering from the same institution, with a thesis focused on the potential for burning minor actinides (MAs) in light water reactors. In the summer of 2024, Nabila interned at Oak Ridge National Laboratory, where she worked on time series data prediction using generative AI, specifically generative adversarial networks (GANs). Through her research, Nabila hopes to contribute to a cleaner energy future by advancing safer and more efficient nuclear technologies.",
     interests: ["Nuclear Energy", "Advanced Reactor Design", "Machine Learning", "Digital Twin"],
