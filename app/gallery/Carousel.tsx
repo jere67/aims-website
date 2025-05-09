@@ -165,10 +165,10 @@ const defaultTips: Tip[] = [
     text: "We tell Majdi we’re working *super* hard during our internships, and people are basically blown away by our brilliance. A spy then sends him this.",
     image: "/gallery/29_Students-Internships.jpg",
   },
-  {
-    text: "Nobody tries to make a joke at us. We created this website and we can hack it if we want. Sorry guys! We just wanted to say you are very awesome.",
-    image: "/gallery/30_Jeremy-Nick.jpg",
-  },
+  // {
+  //   text: "Nobody tries to make a joke at us. We created this website and we can hack it if we want. Sorry guys! We just wanted to say you are very awesome.",
+  //   image: "/gallery/30_Jeremy-Nick.jpg",
+  // },
   {
     text: "And we remain friends and professionals! Thank you from the AIMS family!",
     image: "/gallery/31_AndWeRemainFriends.jpg",
