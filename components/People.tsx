@@ -70,7 +70,7 @@ export const orgData: OrgTreeData = {
               children: [
                 {
                   id: "clairekm",
-                  name: "Clair Kaufman",
+                  name: "Claire Kaufman",
                   status: "Undergraduate",
                   role: "Undergraduate",
                   imageUrl: "/people/clairekm.jpg",

@@ -211,7 +211,7 @@ export const teamMembers: TeamMember[] = [
   },
   {
     id: "clairekm",
-    name: "Clair Kaufman",
+    name: "Claire Kaufman",
     email: "clairekm@umich.edu",
     status: "Undergraduate",
     role: "Undergraduate",
