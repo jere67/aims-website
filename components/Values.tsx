@@ -12,7 +12,7 @@ const coreValues = [
     id: "welcome",
     title: "Welcome",
     description:
-      "We welcome individuals from all backgrounds, cultures, and perspectives. Our lab thrives on diversity, creating an inclusive environment where everyone feels valued and can contribute their unique insights to our research.",
+      "We welcome individuals from all backgrounds, cultures, and perspectives. Our lab thrives on openness, creating a supportive environment where everyone feels respected and can contribute their unique insights to our research.",
     imageUrl: "/flywheel-images/SlideShow_Welcome.jpg",
     color: "#00274C",
     lightColor: "#E3F2FD",
@@ -42,7 +42,7 @@ const coreValues = [
     id: "respect",
     title: "Respect",
     description:
-      "We treat each other with dignity and respect. We value diverse opinions, maintain professional conduct, and foster an environment where constructive feedback is given and received with mutual respect.",
+      "We treat each other with dignity and respect. We value a wide range of opinions, maintain professional conduct, and foster an environment where constructive feedback is shared and received with mutual respect.",
     imageUrl: "/flywheel-images/SlideShow_Respect.jpg",
     color: "#7A9A01",
     lightColor: "#F1F8E9",

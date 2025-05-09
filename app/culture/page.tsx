@@ -39,7 +39,7 @@ const coreValues = [
     icon: <FaHandsHelping className="h-5 w-5" />,
     color: "#4D7FA6",
     description: [
-      "Support A truly successful and respectful member of our community embraces a welcoming and competitive spirit that extends beyond personal achievement. They are always ready to share these core values with new members, ensuring they feel included and supported from the very start. When challenges arise, they offer both professional guidance and personal encouragement, helping others navigate tough times with resilience. Additionally, they understand the importance of collaboration, re adily working together when research overlaps, and fostering an environment where shared knowledge and teamwork drive collective success. This mutual support and collaboration strengthen the group's bond, ensuring that all members can thrive and contribute to the group's growth.",
+      "A truly successful and respectful member of our community embraces a welcoming and competitive spirit that extends beyond personal achievement. They are always ready to share these core values with new members, ensuring they feel included and supported from the very start. When challenges arise, they offer both professional guidance and personal encouragement, helping others navigate tough times with resilience. Additionally, they understand the importance of collaboration, readily working together when research overlaps, and fostering an environment where shared knowledge and teamwork drive collective success. This mutual support and collaboration strengthen the group's bond, ensuring that all members can thrive and contribute to the group's growth.",
       "The collaborative and supportive culture at AIMS encourages transparency, where no member should withhold ideas, data, or models from their peers. Everyone's contributions will be recognized, with Prof. Radaideh overseeing all research activities to ensure fair credit for all. All members will enjoy shared co-authorships and collective success. Unless restricted by sponsors or export control regulations, which limit access to certain members, all research data and methods are stored in group-wide GitHub repositories. Each member is expected to upload their research there, making it accessible to the entire group.",
       "Throughout the semester, we organize social events as a way to foster stronger connections among team members. These events provide an opportunity to get to know each other beyond the academic setting, allowing us to build trust, empathy, and a sense of camaraderie. By sharing experiences in a relaxed atmosphere, we cultivate compassion and a deeper understanding, which helps us support one another not only professionally but also personally. When members face personal or family challenges, the bonds we develop through these interactions create a network of care and encouragement, ensuring that everyone feels supported during tough times.",
     ],
@@ -86,10 +86,10 @@ const coreValues = [
     icon: <FaBalanceScale className="h-5 w-5" />,
     color: "#7A9A01",
     description: [
-      "Nobody likes to be disrespected or feel undervalued, but in scientific communities, we recognize that being a woman may subject you to additional scrutiny and stereotypes in the field of science. In our group, we are committed to creating an environment where every scientist, regardless of gender, is respected and celebrated for their contributions. We strive to eliminate biases, support female scientists in their professional journeys, and ensure equal opportunities for growth, recognition, and leadership. By fostering a supportive culture, we empower all members to reach their full potential and contribute to the advancement of knowledge.",
-      "Prof. Radaideh is serious in creating a safe and respectful environment for women in the research group. He holds himself accountable first for fostering this atmosphere and ensures that all members follow that model.",
+      "Nobody likes to be disrespected or feel undervalued, but in scientific communities, we recognize that being a woman may subject you to additional scrutiny and stereotypes in the field of science. In our group, we are committed to creating an environment where every scientist is respected and celebrated for their contributions. We strive to eliminate biases, support both female and male scientists in their professional journeys, and ensure equal opportunities for growth, recognition, and leadership. By fostering a supportive culture, we empower all members to reach their full potential and contribute to the advancement of knowledge.",
+      "Prof. Radaideh is very serious in creating a safe and respectful environment for women in the research group. He holds himself accountable first for fostering this atmosphere and ensures that all members follow that model.",
       "As a side note, it's worth mentioning that the record for the fastest student to publish original work from their PhD research after joining AIMS was actually set by a woman—she impressively prepared her first journal article just seven months into graduate school! We promise, you will have to be extremely good to match the talent of our female students.",
-      "AIMS members deeply value and respect our diverse cultures. We come from all corners of the world to Michigan to pursue groundbreaking science and to grow as individuals. Every person in AIMS is welcomed and is expected to be treated with respect, regardless of their background, race, color, religion, gender, or any other visible or non-visible differences.",
+      "AIMS members deeply value and respect our different cultures. We come from all corners of the world to Michigan to pursue groundbreaking science and to grow as individuals. Every person in AIMS is welcomed and is expected to be treated with respect.",
     ],
     quote: {
       text: "I strive to make this group one less obstacle for women in their career journeys. I believe every woman in this group is already talented; they don't need to work hard to prove themselves to me or anybody else — only to work hard to become leaders and the very best in our field.",
@@ -119,7 +119,7 @@ const coreValues = [
       "Listening is a cornerstone of effective communication, and it is essential to close the feedback loop. This value flows in both directions—mentor to student and student to mentor. One of the most challenging aspects of this journey is learning how to internalize feedback and constructive criticism. It requires humility and the recognition that none of us are perfect. We must accept that rejection is a part of growth, and it is an opportunity to refine ourselves and improve. Through active listening and the ability to reflect on feedback, we become better researchers, better colleagues, and better individuals.",
       "Prof. Radaideh describes himself as a blend of both “kindness and toughness”. He believes that most of the time, students will encounter his kind, approachable side, especially if they demonstrate dedication and commitment. However, the tougher side emerges when he feels a student is consistently underperforming without valid reasons or when there are issues of accountability. He emphasizes that this “tough” approach is not about being harsh, but rather about holding students to AIMS high standards that we aim from the “competitive” category and helping them grow by challenging them to improve.",
       "This commitment to listening extends beyond formal meetings to everyday interactions, mentorship relationships, and research collaborations. We believe that some of the best ideas emerge when diverse perspectives are heard and integrated, and that listening is essential for building trust and resolving conflicts constructively.",
-      "More about the mentoring style of Prof. Radaideh can be found here: https://ners.engin.umich.edu/majdi-radaideh-mentoring/",
+      "More about the mentoring style of Prof. Radaideh can be found here: ",
     ],
     quote: {
       text: "I am not perfect, nor will I ever be. I continue to learn each day as I work with students, striving to be the best version of myself. I make a point to listen closely to their concerns and take their feedback seriously, especially when it's genuine and based on a consistent pattern.",
@@ -198,7 +198,7 @@ export default function CulturePage() {
           {coreValues.map((value) => (
             <TabsContent key={value.id} value={value.id} className="mt-0 animate-in fade-in-50 duration-500">
               <div className="w-full rounded-2xl shadow-lg overflow-hidden">
-                <div className="relative w-full min-h-[40vh] sm:min-h-[50vh]">
+                <div className="relative w-full min-h-[40vh] sm:min-h-[85vh]">
                   <Image
                     src={value.topImageUrl}
                     alt={value.title}
@@ -222,7 +222,16 @@ export default function CulturePage() {
                         <p key={idx} className="text-blue-michigan/80 text-lg">
                           {paragraph}
                         </p>
+                        
                       ))}
+                      {value.id === "listen" && (
+                        <Link 
+                          href="https://ners.engin.umich.edu/majdi-radaideh-mentoring/" 
+                          className="text-blue-michigan/80 text-lg"
+                        >
+                          https://ners.engin.umich.edu/majdi-radaideh-mentoring/
+                        </Link>
+                      )}
                     </div>
 
                     {value.quote && (
