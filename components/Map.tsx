@@ -98,13 +98,17 @@ const mapData = [
     start: { lat: 32.5568, lng: 35.8470, country: "Irbid, Jordan" },
     end: { lat: 41.0082, lng: 28.9784, country: "Istanbul, Turkey" },
   },
+  {
+    start: { lat: 41.0082, lng: 28.9784, country: "Istanbul, Turkey" },
+    end: { lat: 45.8575, lng: 2.3514, country: "Paris, France" },
+  },
+  {
+    start: { lat: 45.8575, lng: 2.3514, country: "Paris, France" },
+    end: { lat: 43.1566, lng: -77.6088, country: "Rochester, NY, USA" },
+  },
    {
     start: { lat: 41.0082, lng: 28.9784, country: "Istanbul, Turkey" },
     end: { lat: 50.4501, lng: 30.5234, country: "Kyiv, Ukraine" },
-  },
-  {
-    start: { lat: 50.4501, lng: 30.5234, country: "Kyiv, Ukraine" },
-    end: { lat: 43.1566, lng: -77.6088, country: "Rochester, NY, USA" },
   },
   {
     start: { lat: 41.0082, lng: 28.9784, country: "Istanbul, Turkey" },
