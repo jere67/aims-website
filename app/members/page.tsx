@@ -285,7 +285,8 @@ function MemberCard({
           <div className="p-6 relative">
             <h3 className="text-xl font-bold text-blue-michigan mb-1 relative z-10">{member.name}</h3>
             <p className="text-blue-michigan/70 mb-3 relative z-10">
-              {member.status} - {member.role}
+              {/* {member.status} -  */}
+              {member.role}
             </p>
 
             <div className={`overflow-hidden transition-all duration-300 ${isHovered ? "max-h-40" : "max-h-0"}`}>
@@ -364,7 +365,8 @@ function MemberCard({
               <div className="md:w-3/5 p-6 md:p-8 overflow-y-auto max-h-[70vh] md:max-h-[90vh]">
                 <h2 className="text-3xl font-bold text-blue-michigan mb-1">{member.name}</h2>
                 <p className="text-blue-michigan/70 mb-6">
-                  {member.status} - {member.role}
+                  {/* {member.status} -  */}
+                  {member.role}
                 </p>
 
                 {member.bio && (
@@ -462,7 +464,8 @@ function MemberListItem({
             <div>
               <h3 className="text-xl font-bold text-blue-michigan">{member.name}</h3>
               <p className="text-blue-michigan/70">
-                {member.status} - {member.role}
+                {/* {member.status} -  */}
+                {member.role}
               </p>
             </div>
             <div className="flex gap-2">
