@@ -2,10 +2,10 @@
 import React from "react";
 
 const JoinUs = () => {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log("Form submitted... handle later");
-  };
+  // const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault();
+  //   console.log("Form submitted... handle later");
+  // };
 
   return (
     <div className="w-full -mt-16 mb-8">
@@ -24,7 +24,7 @@ const JoinUs = () => {
             you need to know about us!
           </p>
           <p className="max-w-3xl text-xl text-center tracking-tight text-blue-michigan">
-            Please email Professor Radaideh at radaideh@umich.edu with the subject line: "Joining AIMS Lab as a [Your academic status] - [Your name]"
+            Please email Professor Radaideh at radaideh@umich.edu with the subject line: &quot;Joining AIMS Lab as a [Your academic status] - [Your name]&quot;
           </p>
         </div>
 

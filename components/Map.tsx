@@ -1,7 +1,8 @@
 "use client"
 
-import { useState, useEffect, useRef, useCallback, memo } from "react"
-import dynamic from "next/dynamic"
+// import { useState, useEffect, useRef, useCallback, memo } from "react"
+import { useRef, memo } from "react"
+// import dynamic from "next/dynamic"
 import WorldMap from "./ui/WorldMap";
 
 const mapData = [
