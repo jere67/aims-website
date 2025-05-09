@@ -60,6 +60,9 @@ export default function Navbar() {
         </Link>
 
         <nav className="hidden md:flex items-center space-x-1">
+          <NavLink href="/" active={pathname === "/"}>
+            Home
+          </NavLink>
           <NavLink href="/culture" active={pathname === "/culture"}>
             Culture
           </NavLink>
@@ -139,6 +142,9 @@ export default function Navbar() {
         <div className="md:hidden bg-white border-t border-gray-200">
           <div className="container mx-auto px-4 py-3">
             <nav className="flex flex-col space-y-3">
+              <MobileNavLink href="/" active={pathname === "/"}>
+                Home
+              </MobileNavLink>
               <MobileNavLink href="/culture" active={pathname === "/culture"}>
                 Culture
               </MobileNavLink>
