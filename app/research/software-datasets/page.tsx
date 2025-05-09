@@ -290,7 +290,7 @@ export default function SoftwareAndDatasetsPage() {
         </section>
       )}
 
-      {(activeType === "all" || activeType === "datasets") && filteredDatasets.length > 0 && (
+      {(activeType === "all" || activeType === "datasets") && (filteredDatasets.length > 0 || filteredPyMAISEDatasets.length > 0) && (
         <section className="py-12 bg-white">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold text-blue-michigan mb-12 flex items-center">
@@ -514,7 +514,7 @@ export default function SoftwareAndDatasetsPage() {
         </section>
       )}
 
-      {filteredSoftware.length === 0 && filteredDatasets.length === 0 && (
+      {filteredSoftware.length === 0 && filteredDatasets.length === 0 && filteredPyMAISEDatasets.length === 0 && (
         <section className="py-20 bg-white">
           <div className="container mx-auto px-4 text-center">
             <div className="mb-6">

@@ -117,7 +117,7 @@ export const softwareItems: SoftwareItem[] = [
 
 export const datasetItems: DatasetItem[] = [
   {
-    id: "1",
+    id: "dataset-1",
     title: "Real Electronic Signal Data from Particle Accelerator Power Systems for Machine Learning Anomaly Detection",
     description: "Real-time series datasets collected from the high voltage converter modulators (HVCM) of the Spallation Neutron Source facility.",
     longDescription:
@@ -132,7 +132,7 @@ export const datasetItems: DatasetItem[] = [
     year: 2022,
   },
   {
-    id: "2",
+    id: "dataset-2",
     title: "Operational Data for Fault Prognosis in Particle Accelerators with Machine Learning",
     description: "Showcases real-world operational data gathered from the power systems of the Spallation Neutron Source facility",
     longDescription:
@@ -150,7 +150,7 @@ export const datasetItems: DatasetItem[] = [
 
 export const pyMAISEItems: pyMAISEDatasetItem[] = [
   {
-    id: "1",
+    id: "pymaise-1",
     title: "Power Control of the Massachusetts Institute of Technology Research Reactor",
     description: "The MIT reactor data set represents the institution’s light-water-cooled 6 MW thermal power reactor.",
     longDescription:
@@ -166,7 +166,7 @@ export const pyMAISEItems: pyMAISEDatasetItem[] = [
     year: 2023,
   },
   {
-    id: "2",
+    id: "pymaise-2",
     title: "Nuclear Fuel and Materials Performance Dataset",
     description: "This data set comprises 13 inputs and four outputs with 400 data points.",
     longDescription:
@@ -182,7 +182,7 @@ export const pyMAISEItems: pyMAISEDatasetItem[] = [
     year: 2019,
   },
   {
-    id: "3",
+    id: "pymaise-3",
     title: "Synthetic Critical Heat Flux Dataset",
     description: "The CHF dataset was taken from the Nuclear Regulatory Commission CHF database.",
     longDescription:
@@ -200,7 +200,7 @@ export const pyMAISEItems: pyMAISEDatasetItem[] = [
     year: 2025,
   },
   {
-    id: "4",
+    id: "pymaise-4",
     title: "The Microreactor Dataset",
     description: "The data set was built using Serpent simulations of the HOLOS-Quad reactor design.",
     longDescription:
@@ -215,7 +215,7 @@ export const pyMAISEItems: pyMAISEDatasetItem[] = [
     year: 2022,
   },
   {
-    id: "5",
+    id: "pymaise-5",
     title: "Nuclear Cross-section Dataset",
     description: "This data set consists of 1000 observations with eight inputs and one output.",
     longDescription:
@@ -230,7 +230,7 @@ export const pyMAISEItems: pyMAISEDatasetItem[] = [
     year: 2019,
   },
   {
-    id: "6",
+    id: "pymaise-6",
     title: "NEACRP C1 Rod Ejection Accident Dataset",
     description: "The NEACRP C1 rod ejection accident (REA) data represents one benchmark for reactor transient analysis.",
     longDescription:
