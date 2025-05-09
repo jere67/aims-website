@@ -14,7 +14,7 @@ const items = [
     id: 1,
     title: "Reactors",
     text: "We design nuclear reactors!",
-    imageUrl: "/research-focus/reactors-alternate.jpg",
+    imageUrl: "/research-focus/Reactors-Home.png",
     link: "/research/reactors",
     icon: (
       <GiReactor />
@@ -24,7 +24,7 @@ const items = [
     id: 2,
     title: "Computing",
     text: "We design algorithms!",
-    imageUrl: "/research-focus/computing-alternate.png",
+    imageUrl: "/research-focus/Computing-Homepage.jpg",
     link: "/research/computing",
     icon: (
       <FaComputer />
@@ -34,7 +34,7 @@ const items = [
     id: 3,
     title: "Controls",
     text: "We control!",
-    imageUrl: "/research-focus/controls-alternate.jpg",
+    imageUrl: "/research-focus/Controls-Homepage.jpg",
     link: "/research/controls",
     icon: (
       <FaBolt />
@@ -44,7 +44,7 @@ const items = [
     id: 4,
     title: "Software and Datasets",
     text: "We code!",
-    imageUrl: "/research-focus/software-alternate.jpg",
+    imageUrl: "/research-focus/Software-Homepage.jpg",
     link: "/research/software-datasets",
     icon: (
       <FaDatabase />
@@ -137,7 +137,7 @@ function ResearchFocusCard({ item, index }: { item: (typeof items)[0]; index: nu
           onMouseLeave={() => setIsHovered(false)}
           whileHover={{ y: -5 }}
         >
-          <div className="relative h-56 overflow-hidden">
+          <div className="relative h-72 overflow-hidden">
             <Image
               src={item.imageUrl}
               alt={item.title}
