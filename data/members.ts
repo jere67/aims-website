@@ -181,7 +181,7 @@ export const teamMembers: TeamMember[] = [
     role: "PhD Student",
     joinedDate: "August 2023",
     imageUrl: "/people/oferdem.png",
-    heroImageUrl: "/heroImages/oferdem.png",
+    heroImageUrl: "/heroImages/oferdem.jpg",
     bio: "Omer F. Erdem is a PhD student in the University of Michigan, Department of Nuclear Engineering and Radiological Sciences. He is funded by the DOE Early Career Grant. His main research interests include application of optimization algorithms to nuclear engineering problems, multiphysics modeling and simulations, reactor design and analysis. He is experienced in different nuclear reactor neutronic simulation codes, different programming languages, CPU parallelization and also electronics design. His PhD research is focused on AI integrated optimization algorithm development and its applications in nuclear engineering. He received his Master’s Degree in nuclear engineering and management from Tsinghua University with a thesis on heat-pipe reactor design and analysis. He received his B.Sc. degree in electronics and communication engineering from Istanbul Technical University with a double major in physics engineering. He aims to achieve better nuclear technologies via implementation of new AI methods and optimization algorithms to satisfy the increasing energy demand of our world.",
     interests: ["Multiobjective Optimization", "Neutronics Simulations", "Core Design"],
     education: ["Tsinghua University (2023)", "Istanbul Technical University (2022)", "Istanbul Technical University (2021)"],
