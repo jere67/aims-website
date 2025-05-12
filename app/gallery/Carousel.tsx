@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useEffect, useState, type JSX } from "react"
+import React, { useEffect, useState, useMemo, type JSX } from "react"
 import Image from "next/image"
 import Autoplay from "embla-carousel-autoplay"
 import { ChevronRight } from "lucide-react"
@@ -234,10 +234,10 @@ export function LoadingCarousel({
     shuffleTips ? shuffleArray(tips) : tips
   )
 
-  const autoplay = Autoplay({
+  const autoplay = useMemo(() => Autoplay({
     delay: autoplayInterval,
     stopOnInteraction: false,
-  })
+  }), [autoplayInterval]);
 
   useEffect(() => {
     if (!api) {
@@ -368,8 +368,26 @@ export function LoadingCarousel({
           </CarouselContent>
           {showNavigation && (
             <>
-              <CarouselPrevious className="absolute left-2 top-1/2 -translate-y-1/2" />
-              <CarouselNext className="absolute right-2 top-1/2 -translate-y-1/2" />
+              <CarouselPrevious
+                className="absolute left-2 top-1/2 -translate-y-1/2"
+                onClick={() => {
+                  if (api) {
+                    api.scrollPrev();
+                    autoplay.reset();
+                    setProgress(0);
+                  }
+                }}
+              />
+              <CarouselNext
+                className="absolute right-2 top-1/2 -translate-y-1/2"
+                onClick={() => {
+                  if (api) {
+                    api.scrollNext();
+                    autoplay.reset();
+                    setProgress(0);
+                  }
+                }}
+              />
             </>
           )}
         </Carousel>
