@@ -34,7 +34,7 @@ const topicsData = [
     id: 4,
     title: "Multiphysics Simulations",
     description: "We conduct coupled simulations involving neutronics, thermal-hydraulics, and fuel performance to gain deeper insights into the safety and behavior of advanced reactors.",
-    imageUrl: "/reactors/Multiphysics-Simulations.png",
+    imageUrl: "/reactors/Multiphysics-Simulations.jpg",
   },
   {
     id: 5,
